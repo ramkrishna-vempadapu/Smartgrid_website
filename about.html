@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — Smart Grid R&amp;D Center | IIT Hyderabad</title>
+  <meta name="description" content="About the Smart Grid R&amp;D Center at IIT Hyderabad. A research, demonstration and training facility focused on building awareness and practical understanding of modern energy and smart-grid technologies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+
+  <style>
+    /* ==========================================================
+       ABOUT PAGE CUSTOM STYLES
+       Approved Energy Theme: Deep Brown / Burnt Orange / Amber / Warm White
+       ========================================================== */
+
+    /* ── 1. Page Header (Breadcrumb) ────────────────────────── */
+    .breadcrumb--about {
+      background: linear-gradient(135deg, #2A1208 0%, #3D1B0C 60%, #4E200C 100%);
+      border-bottom: 1px solid rgba(255, 122, 0, 0.25);
+      padding: calc(var(--nav-height) + 2rem) 0 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .breadcrumb--about::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: 10%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(255, 154, 31, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+    }
+    .breadcrumb--about .breadcrumb__title {
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+    .breadcrumb--about .breadcrumb__subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: rgba(255, 249, 242, 0.88);
+      max-width: 820px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── 2. Purpose Cards Grid ───────────────────────────────── */
+    .purpose-intro {
+      max-width: 860px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+    .purpose-card {
+      background: var(--white);
+      border: 1px solid var(--border-energy);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 18px var(--shadow-energy);
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .purpose-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--energy-orange);
+      transition: height var(--transition-fast);
+    }
+    .purpose-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px var(--shadow-energy);
+      border-color: rgba(255, 122, 0, 0.45);
+    }
+    .purpose-card:hover::before {
+      height: 4px;
+    }
+    .purpose-card__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--energy-pale-amber);
+      color: var(--energy-burnt);
+      font-size: var(--text-xs);
+      font-weight: 800;
+      margin-bottom: var(--space-3);
+    }
+    .purpose-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      margin-bottom: var(--space-2);
+      line-height: 1.35;
+    }
+    .purpose-card__desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+      flex: 1;
+    }
+
+    /* ── 3. Leadership & Advisor Layout ──────────────────────── */
+    .leadership-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      align-items: stretch;
+    }
+    @media (max-width: 1024px) {
+      .leadership-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Primary Leadership Card (Lab Director) */
+    .leader-card-primary {
+      background: var(--white);
+      border: 1.5px solid var(--border-energy);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 10px 30px var(--shadow-energy);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .leader-card-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #C94B00 0%, #FF7A00 50%, #FFC857 100%);
+    }
+    .leader-card-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(80, 25, 0, 0.18);
+      border-color: rgba(255, 122, 0, 0.5);
+    }
+
+    .leader-header {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-5);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+    .leader-monogram {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3D1B0C 0%, #C94B00 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+      border: 2px solid var(--energy-light-amber);
+      box-shadow: 0 4px 14px rgba(201, 75, 0, 0.25);
+    }
+    .leader-header-info {
+      flex: 1;
+    }
+    .leader-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: var(--energy-orange);
+      color: #2A1208;
+      margin-bottom: 0.4rem;
+    }
+    .leader-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+    .leader-role-primary {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      margin-bottom: 0.2rem;
+    }
+    .leader-dept {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* Secondary info blocks inside leader card */
+    .leader-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      background: var(--warm-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+    }
+    .leader-detail-item__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--energy-burnt);
+      margin-bottom: 0.25rem;
+    }
+    .leader-detail-item__text {
+      font-size: 0.82rem;
+      color: var(--energy-dark);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .leader-detail-item--full {
+      grid-column: span 2;
+    }
+
+    .leader-contact-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: auto;
+      padding-top: var(--space-4);
+      border-top: 1px dashed var(--color-gray-200);
+    }
+    .leader-email-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--energy-burnt);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+    .leader-email-link:hover {
+      color: var(--energy-orange);
+      text-decoration: underline;
+    }
+
+    /* Secondary Advisor Card (B. Koti Reddy) */
+    .advisor-card-secondary {
+      background: var(--white);
+      border: 1px solid var(--border-energy);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 6px 22px var(--shadow-energy);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .advisor-card-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--energy-burnt);
+    }
+    .advisor-card-secondary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px var(--shadow-energy);
+      border-color: rgba(255, 122, 0, 0.4);
+    }
+    .advisor-monogram {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--energy-pale-amber);
+      color: var(--energy-burnt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      border: 1.5px solid var(--energy-light-amber);
+    }
+    .advisor-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--energy-pale-amber);
+      color: var(--energy-burnt);
+      border: 1px solid var(--energy-light-amber);
+      margin-bottom: 0.4rem;
+    }
+    .advisor-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+    .advisor-role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      margin-bottom: 0.2rem;
+    }
+    .advisor-inst {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+    .advisor-desc-box {
+      background: var(--warm-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-5);
+      margin-bottom: var(--space-5);
+      flex: 1;
+    }
+
+    /* ── 4. Partners & Support Cards ─────────────────────────── */
+    .partners-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      max-width: 880px;
+      margin: 0 auto;
+      gap: var(--space-8);
+    }
+    .partner-card-large {
+      background: var(--white);
+      border: 1.5px solid var(--border-energy);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 8px 26px var(--shadow-energy);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .partner-card-large::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--partner-accent, #FF7A00);
+    }
+    .partner-card-large--ls { --partner-accent: #C94B00; }
+    .partner-card-large--vi { --partner-accent: #FF7A00; }
+
+    .partner-card-large:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 42px var(--shadow-energy);
+      border-color: rgba(255, 122, 0, 0.45);
+    }
+    .partner-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+    .partner-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: var(--energy-pale-amber);
+      color: var(--energy-burnt);
+      border: 1px solid var(--energy-light-amber);
+    }
+    .partner-logo-prominent {
+      height: 72px;
+      min-width: 140px;
+      max-width: 200px;
+      background: var(--warm-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+    .partner-card-large:hover .partner-logo-prominent {
+      transform: scale(1.03);
+      border-color: var(--energy-orange);
+    }
+    .partner-logo-img {
+      max-height: 52px;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .partner-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: var(--space-2);
+    }
+    .partner-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 0;
+      flex: 1;
+    }
+
+    /* ── 5. Campus / Location Section ────────────────────────── */
+    .location-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .location-info-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-energy);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 8px 26px var(--shadow-energy);
+    }
+    .location-card-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.35rem;
+    }
+    .location-card-dept {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--energy-burnt);
+      margin-bottom: 0.2rem;
+    }
+    .location-card-inst {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    .location-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .location-step-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--energy-dark);
+      font-weight: 600;
+      background: var(--warm-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 1rem;
+    }
+    .location-step-icon {
+      color: var(--energy-burnt);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .campus-photo-col {
+      position: relative;
+    }
+    .campus-photo-frame {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 122, 0, 0.35);
+      box-shadow: 0 16px 45px rgba(80, 25, 0, 0.2);
+      background: var(--warm-white);
+      aspect-ratio: 16 / 11;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+    .campus-photo-frame:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(80, 25, 0, 0.28);
+      border-color: rgba(255, 122, 0, 0.6);
+    }
+    .campus-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out, ease);
+    }
+    .campus-photo-frame:hover .campus-photo-img {
+      transform: scale(1.02);
+    }
+
+    /* ── Responsive Rules ────────────────────────────────────── */
+    @media (max-width: 1023px) {
+      .purpose-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .leadership-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .location-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .purpose-grid {
+        grid-template-columns: 1fr;
+      }
+      .partners-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+      .leader-header {
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+      .leader-details-grid {
+        grid-template-columns: 1fr;
+      }
+      .leader-detail-item--full {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body class="page-about">
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVBAR (Preserved)
+  ═══════════════════════════════════════════════════════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link active" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link active">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main class="page-content" style="margin-top: 0;">
+
+    <!-- ══════════════════════════════════════════════════════════
+         1. HERO / BREADCRUMB
+    ═══════════════════════════════════════════════════════════ -->
+    <header class="breadcrumb--about" aria-label="About Page Header">
+      <div class="container">
+        <nav class="breadcrumb__nav" aria-label="Breadcrumb">
+          <a href="index.html" class="breadcrumb__link">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <span class="breadcrumb__current">About</span>
+        </nav>
+        <h1 class="breadcrumb__title">About the Smart Grid R&amp;D Center</h1>
+        <p class="breadcrumb__subtitle">
+          A research, demonstration and training facility focused on building awareness and practical understanding of modern energy and smart-grid technologies.
+        </p>
+      </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         2. PURPOSE OF THE CENTER
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="purpose-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Our Objective</span>
+          <h2 class="section-title" id="purpose-heading">Purpose of the Center</h2>
+        </div>
+
+        <p class="purpose-intro reveal">
+          The Smart Grid R&amp;D Center provides a platform for technical demonstrations, workshops and hands-on exposure to modern energy and smart-grid technologies. The center is intended to connect academic learning with practical laboratory experience and create awareness among students, academic groups and industry-oriented visitors.
+        </p>
+
+        <div class="purpose-grid">
+
+          <!-- Card 1 -->
+          <div class="purpose-card reveal">
+            <span class="purpose-card__num">01</span>
+            <h3 class="purpose-card__title">Technical Workshops</h3>
+            <p class="purpose-card__desc">
+              Conduct workshops and technical sessions on modern energy and smart-grid technologies.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="purpose-card reveal reveal-delay-1">
+            <span class="purpose-card__num">02</span>
+            <h3 class="purpose-card__title">Student Awareness</h3>
+            <p class="purpose-card__desc">
+              Provide students with exposure to real laboratory systems and practical energy applications.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="purpose-card reveal reveal-delay-2">
+            <span class="purpose-card__num">03</span>
+            <h3 class="purpose-card__title">Academic Engagement</h3>
+            <p class="purpose-card__desc">
+              Support academic departments and institutions in understanding emerging energy technologies.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="purpose-card reveal">
+            <span class="purpose-card__num">04</span>
+            <h3 class="purpose-card__title">Hands-on Demonstration</h3>
+            <p class="purpose-card__desc">
+              Provide practical demonstrations using real microgrid and energy-system infrastructure.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="purpose-card reveal reveal-delay-1">
+            <span class="purpose-card__num">05</span>
+            <h3 class="purpose-card__title">Industry Exposure</h3>
+            <p class="purpose-card__desc">
+              Help visitors understand practical and industry-oriented applications of modern power and energy technologies.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="purpose-card reveal reveal-delay-2">
+            <span class="purpose-card__num">06</span>
+            <h3 class="purpose-card__title">Knowledge Exchange</h3>
+            <p class="purpose-card__desc">
+              Create opportunities for interaction, learning and awareness through demonstrations and technical programs.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         3. LAB LEADERSHIP & 4. TECHNICAL ADVISOR
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="leadership" aria-labelledby="leadership-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">People &amp; Guidance</span>
+          <h2 class="section-title" id="leadership-heading">Lab Leadership</h2>
+          <p class="section-subtitle">
+            Guiding academic research, laboratory demonstrations, and strategic technological initiatives at IIT Hyderabad.
+          </p>
+        </div>
+
+        <div class="leadership-layout">
+          <!-- Primary: Lab Director -->
+          <div class="leader-card-primary reveal">
+            <div class="leader-header">
+              <div class="leader-monogram" aria-label="Dr. Pradeep Kumar Yemula initials">PKY</div>
+              <div class="leader-header-info">
+                <span class="leader-tag">Lab Director</span>
+                <h3 class="leader-name">Dr. Pradeep Kumar Yemula</h3>
+                <div class="leader-role-primary">Associate Professor, Department of Electrical Engineering</div>
+                <div class="leader-dept">Indian Institute of Technology Hyderabad</div>
+              </div>
+            </div>
+
+            <!-- Details Block -->
+            <div class="leader-details-grid" style="margin-bottom: var(--space-5);">
+              <div class="leader-detail-item leader-detail-item--full">
+                <div class="leader-detail-item__label">Institutional Responsibilities</div>
+                <p class="leader-detail-item__text">
+                  &bull; Faculty-in-Charge, Technology Transfer Office (TTO)<br>
+                  &bull; Associate Dean (Planning), Net Zero Campus
+                </p>
+              </div>
+            </div>
+
+            <!-- Contact Row -->
+            <div class="leader-contact-row">
+              <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">Official Contact</div>
+              <a href="mailto:ypradeep@ee.iith.ac.in" class="leader-email-link">
+                <span>✉</span> ypradeep@ee.iith.ac.in
+              </a>
+            </div>
+          </div>
+
+          <!-- Secondary: Technical Advisor -->
+          <div class="advisor-card-secondary reveal reveal-delay-1">
+            <div class="flex" style="gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-5);">
+              <div class="advisor-monogram" aria-label="B. Koti Reddy initials">BKR</div>
+              <div>
+                <span class="advisor-tag">Technical Advisor</span>
+                <h3 class="advisor-name">Dr. B. Koti Reddy</h3>
+                <div class="advisor-role">Technical Advisor (EEM)</div>
+                <div class="advisor-inst">IIT Hyderabad</div>
+              </div>
+            </div>
+
+            <div class="advisor-desc-box">
+              <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--energy-burnt); margin-bottom: 0.35rem;">Role &amp; Advisory</div>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                Providing technical advisory support and laboratory guidance for electrical and energy management setups within the Smart Grid R&amp;D Center.
+              </p>
+            </div>
+
+            <div class="leader-contact-row" style="margin-top: auto;">
+              <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">Email</div>
+              <a href="mailto:kotireddy1965@gmail.com" class="leader-email-link">
+                <span>✉</span> kotireddy1965@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Tertiary: Project Sponsor & Industry Leader -->
+          <div class="advisor-card-secondary reveal reveal-delay-2">
+            <div class="flex" style="gap: var(--space-4); align-items: flex-start; margin-bottom: var(--space-5);">
+              <div class="advisor-monogram" style="background: linear-gradient(135deg, #1C0A03 0%, #C94B00 100%); color: #FFFFFF;" aria-label="Rammohan Rao Vemula initials">RRV</div>
+              <div>
+                <span class="advisor-tag" style="background: var(--energy-pale-amber); color: var(--energy-burnt); border-color: var(--energy-light-amber);">Project Sponsor</span>
+                <h3 class="advisor-name">Rammohan Rao Vemula</h3>
+                <div class="advisor-role">CEO &amp; Smart Grid Project Sponsor</div>
+                <div class="advisor-inst">LS Electricals</div>
+              </div>
+            </div>
+
+            <div class="advisor-desc-box">
+              <div style="font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--energy-burnt); margin-bottom: 0.35rem;">Expertise &amp; Specialization</div>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+                Power Systems, Energy Conservation, Smart Grids, Digital Protection Relays, and strategic guidance for laboratory testbeds and center development.
+              </p>
+            </div>
+
+            <div class="leader-contact-row" style="margin-top: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 0.35rem;">
+              <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">Official Contact</div>
+              <a href="mailto:rammohan@lselectricals.com" class="leader-email-link">
+                <span>✉</span> rammohan@lselectricals.com
+              </a>
+              <a href="tel:+919849032298" class="leader-email-link" style="color: var(--energy-dark); font-size: 0.84rem;">
+                <span>📞</span> +91 98490 32298
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         5. PARTNERS & SUPPORT
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section" id="partners" aria-labelledby="partners-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Industrial Collaboration</span>
+          <h2 class="section-title" id="partners-heading">Partners &amp; Support</h2>
+          <p class="section-subtitle">
+            Established through key industrial sponsorship and support from LS Electricals.
+          </p>
+        </div>
+
+        <div class="partners-grid">
+          <!-- Card 1: LS Electricals -->
+          <div class="partner-card-large partner-card-large--ls reveal">
+            <div class="partner-card-top">
+              <span class="partner-badge">Funded / Sponsored by</span>
+              <div class="partner-logo-prominent">
+                <img src="assets/images/logos/ls-electricals-logo.png" alt="LS Electricals Logo" class="partner-logo-img">
+              </div>
+            </div>
+            <h3 class="partner-name">LS Electricals</h3>
+            <p class="partner-desc" style="line-height: 1.75; font-size: 0.95rem; margin-bottom: 1.25rem;">
+              LS Electricals is a leading power systems engineering and electrical solutions provider specializing in smart grid technologies, digital protection relays, switchgear maintenance, and intelligent energy management. As the official industrial sponsor of the Smart Grid R&amp;D Center at IIT Hyderabad, LS Electricals provides state-of-the-art laboratory infrastructure, advanced hardware testbeds, and technical mentorship. The organization actively partners with academic and utility stakeholders to drive power system reliability, automation, and capacity building programs nationwide.
+            </p>
+
+            <div style="margin-top: auto; padding-top: 1.25rem; border-top: 1px solid var(--color-gray-200); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+              <div style="font-size: 0.9rem; color: var(--energy-dark); display: inline-flex; align-items: center; gap: 0.5rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--energy-orange); flex-shrink: 0;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span><strong>Address:</strong> LS Electricals, Hyderabad, Secunderabad</span>
+              </div>
+              <div style="font-size: 0.88rem; color: var(--text-muted);">
+                <strong>Project Sponsor &amp; CEO:</strong> <a href="team.html?member=rammohan-rao-vemula" style="color: var(--energy-burnt); font-weight: 700; text-decoration: none;">Rammohan Rao Vemula &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         6. IIT HYDERABAD CAMPUS / LAB LOCATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--alt" id="campus-location" aria-labelledby="campus-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Campus Facility</span>
+          <h2 class="section-title" id="campus-heading">IIT Hyderabad Campus</h2>
+          <p class="section-subtitle">
+            Physical location and facility details of the Smart Grid R&amp;D Center at the Indian Institute of Technology Hyderabad.
+          </p>
+        </div>
+
+        <div class="location-layout">
+
+          <!-- LEFT: Details -->
+          <div class="location-info-card reveal">
+            <h3 class="location-card-title">Smart Grid R&amp;D Center</h3>
+            <div class="location-card-dept">Department of Electrical Engineering</div>
+            <div class="location-card-inst">Indian Institute of Technology Hyderabad</div>
+
+            <div class="location-steps">
+              <div class="location-step-item">
+                <span class="location-step-icon">🏛️</span>
+                <span>Electrical Engineering Department</span>
+              </div>
+              <div class="location-step-item">
+                <span class="location-step-icon">🏢</span>
+                <span> Electrical Block 3</span>
+              </div>
+              <div class="location-step-item">
+                <span class="location-step-icon">📍</span>
+                <span>3rd Floor</span>
+              </div>
+              <div class="location-step-item" style="border-left: 3px solid var(--energy-orange);">
+                <span class="location-step-icon">⚡</span>
+                <span>Smart Grid R&amp;D Center &mdash; Lab 32</span>
+              </div>
+            </div>
+
+            <div style="margin-top: var(--space-6); display: flex; gap: var(--space-4); flex-wrap: wrap;">
+              <a href="https://www.iith.ac.in" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                View Campus ↗
+              </a>
+              <a href="contact.html" class="btn btn--outline">
+                Contact &amp; Visit Lab &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- RIGHT: Campus Photograph -->
+          <div class="campus-photo-col reveal reveal-delay-1">
+            <div class="campus-photo-frame">
+              <img src="assets/images/lab/ee block.png"
+                   alt="Electrical Engineering Department Building at IIT Hyderabad"
+                   class="campus-photo-img"
+                   loading="lazy">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER (Preserved)
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            A dedicated research, demonstration and training facility at IIT Hyderabad for smart grid, microgrid, renewable energy and power systems.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item">
+              <span class="footer__credit-label">Funded by:</span> LS Electricals
+            </div>
+            <div class="footer__credit-item">
+              <span class="footer__credit-label">Institution:</span> IIT Hyderabad
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Facilities</div>
+          <nav class="footer__links" aria-label="Facilities links">
+            <a href="facilities.html" class="footer__link">Microgrid 1</a>
+            <a href="facilities.html" class="footer__link">Microgrid 2</a>
+            <a href="facilities.html" class="footer__link">Energy Storage</a>
+            <a href="facilities.html" class="footer__link">Power Conversion</a>
+            <a href="facilities.html" class="footer__link">Monitoring</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems"       class="footer__link">CEMS</a>
+            <a href="research.html#ups"        class="footer__link">UPS Systems</a>
+            <a href="research.html#ev"         class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid"  class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="about.html"        class="footer__link">About Us</a>
+            <a href="team.html"         class="footer__link">Team</a>
+            <a href="events.html"       class="footer__link">Workshops</a>
+            <a href="startup.html"      class="footer__link">Power Sense</a>
+            <a href="media.html"        class="footer__link">Media</a>
+            <a href="contact.html"      class="footer__link">Contact</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.
+        </p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JS (navigation, scroll, animations) -->
+  <script src="js/main.js"></script>
+</body>
+</html>

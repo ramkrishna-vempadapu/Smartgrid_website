@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Grid R&D Center — IIT Hyderabad</title>
+  <meta name="description" content="Smart Grid R&D Center at IIT Hyderabad — A dedicated research, demonstration and training facility featuring two microgrid platforms, renewable energy systems, energy storage, power conversion and real-time monitoring. Funded by LS Electricals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+
+  <style>
+    /* ==========================================================
+       HOMEPAGE ENERGY THEME
+       Color system scoped to .page-home so inner pages are safe
+       ========================================================== */
+
+    .page-home {
+      --color-navy:        #2A1208;
+      --color-navy-mid:    #3D1B0C;
+      --color-navy-light:  #522410;
+      --color-orange:      #FF7A00;
+      --color-amber:       #FF9F1C;
+      --color-amber-bright:#FF9A1F;
+      --color-amber-soft:  #FFC857;
+      --color-green:       #FF9F1C;
+      --color-green-dark:  #C94B00;
+      --color-green-light: #FFF4E5;
+      --color-off-white:   #FFF9F2;
+      --color-gray-100:    #F7EFE6;
+      --color-gray-200:    #EBDBCB;
+      --color-gray-400:    #B89C85;
+      --color-gray-600:    #6E5440;
+      --color-text:        #24140A;
+      --color-text-muted:  #5C3D28;
+      --color-white:       #FFFFFF;
+      /* easing */
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ── Page-load keyframes ────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.04); }
+    }
+    @keyframes energyDot {
+      0%, 100% { opacity: 0.4; box-shadow: 0 0 0 0 rgba(255,154,31,0); }
+      50%       { opacity: 1;   box-shadow: 0 0 0 6px rgba(255,154,31,0); }
+    }
+    @keyframes ambientGlow {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50%       { opacity: 0.55; transform: scale(1.06); }
+    }
+    /* Microgrid equipment resting breath — subtle 2px drift with natural product perspective */
+    @keyframes mgRestingBreath {
+      0%, 100% { transform: rotateY(-2deg) rotateX(0.8deg) translateY(0px); }
+      50%       { transform: rotateY(-2deg) rotateX(0.8deg) translateY(-2px); }
+    }
+    @keyframes mgGlowPulse {
+      0%, 100% { opacity: 0.30; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 0.55; transform: translate(-50%, -50%) scale(1.03); }
+    }
+
+    /* ── Reduced-motion support ─────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-load { animation: none !important; opacity: 1 !important; transform: none !important; }
+    }
+
+    /* =========================================================
+       GLOBAL OVERRIDES (homepage-scoped)
+       ========================================================= */
+    .page-home .section--alt  { background-color: var(--color-off-white); }
+    .page-home .section--dark { background-color: var(--color-navy); }
+    .page-home .section-label { color: #C94B00; }
+    .page-home .section-label--dark { color: #FF9F1C; }
+
+    /* ── Buttons ─────────────────────────────────────────────────── */
+    .page-home .btn--primary {
+      background-color: #FF7A00;
+      color: #2A1208;
+      font-weight: 700;
+      border: none;
+    }
+    .page-home .btn--primary:hover {
+      background-color: #FF9A1F;
+      color: #1A0B04;
+      box-shadow: 0 8px 24px rgba(255,122,0,0.38);
+      transform: translateY(-2px);
+    }
+    .page-home .btn--outline {
+      border-color: #C94B00;
+      color: #C94B00;
+      font-weight: 700;
+    }
+    .page-home .btn--outline:hover {
+      background-color: #C94B00;
+      color: #FFFFFF;
+    }
+    .page-home .btn--outline-white {
+      background-color: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: #FFFFFF;
+      backdrop-filter: blur(4px);
+    }
+    .page-home .btn--outline-white:hover {
+      background-color: rgba(255,255,255,0.22);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+
+    /* =========================================================
+       NAVBAR — homepage transparent-to-white
+       ========================================================= */
+    .page-home .navbar { background: #fff; }
+    .page-home .navbar.scrolled { box-shadow: 0 2px 16px rgba(42,18,8,0.12); }
+    .page-home .navbar__link:hover,
+    .page-home .navbar__link.active {
+      color: #2A1208;
+      background-color: #FFF4E5;
+    }
+    .page-home .navbar__link--cta {
+      background-color: #FF7A00;
+      color: #2A1208 !important;
+      font-weight: 700;
+    }
+    .page-home .navbar__link--cta:hover {
+      background-color: #C94B00;
+      color: #fff !important;
+    }
+
+    /* =========================================================
+       HERO SECTION — ORANGE ENERGY BACKGROUND
+       ========================================================= */
+    .page-home .hero {
+      background: 
+        linear-gradient(
+          90deg,
+          rgba(42,18,8,0.62) 0%,
+          rgba(42,18,8,0.34) 45%,
+          rgba(42,18,8,0.08) 100%
+        ),
+        url('assets/images/hero-bg2.png') no-repeat center center / cover;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      padding: calc(var(--nav-height) + 2rem) 0 clamp(2.5rem, 5vh, 4rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-home .hero .container {
+      max-width: 1440px;
+    }
+
+    /* Hero bottom transition mask to next section: subtle 80px */
+    .hero__bottom-transition {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255, 249, 242, 0.45) 60%, #FFF9F2 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Subtle ambient pulse element */
+    .hero__ambient-pulse {
+      position: absolute;
+      top: 15%;
+      right: 20%;
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle, rgba(255, 154, 31, 0.20) 0%, transparent 70%);
+      pointer-events: none;
+      border-radius: 50%;
+      animation: ambientGlow 10s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .hero__layout {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(1.5rem, 3vw, 3.5rem);
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-text-col {
+      align-self: center;
+      padding-bottom: clamp(2rem, 5vw, 4.5rem);
+      padding-top: 1rem;
+    }
+    @media (min-width: 1024px) {
+      .hero-text-col {
+        padding-left: clamp(2rem, 4vw, 5rem); /* Shifts content to the right to fit the proper center composition */
+      }
+    }
+
+    /* Left column */
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FFC857;
+      background: rgba(255, 154, 31, 0.15);
+      border: 1px solid rgba(255, 154, 31, 0.3);
+      padding: 0.38rem 1.1rem;
+      border-radius: 999px;
+      margin-bottom: 1.4rem;
+      backdrop-filter: blur(6px);
+      animation: fadeUp 0.7s var(--ease-out) 0.1s both;
+    }
+    .hero__eyebrow-dot {
+      width: 7px; height: 7px;
+      background: #FF9A1F;
+      border-radius: 50%;
+      animation: energyDot 2.4s ease-in-out infinite;
+    }
+
+    .hero__h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.12;
+      margin-bottom: 1.1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: fadeUp 0.7s var(--ease-out) 0.2s both;
+    }
+    .hero__h1-accent { color: #FF9A1F; }
+
+    .hero__tagline {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+      line-height: 1.45;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+      animation: fadeUp 0.7s var(--ease-out) 0.3s both;
+    }
+
+    .hero__desc {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.75;
+      margin-bottom: 2.2rem;
+      max-width: 520px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+      animation: fadeUp 0.7s var(--ease-out) 0.38s both;
+    }
+
+    .hero__cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s var(--ease-out) 0.46s both;
+    }
+
+    .hero__credits {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      animation: fadeIn 0.8s ease 0.7s both;
+    }
+    .hero__credits-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .hero__credit-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: rgba(42, 18, 8, 0.45);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 8px;
+      padding: 0.4rem 0.85rem;
+    }
+    .hero__credit-logo {
+      width: 42px;
+      height: 28px;
+      background: #FFFFFF;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 4px;
+      overflow: hidden;
+    }
+    .hero__credit-logo-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .hero__credit-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero__credit-role {
+      font-size: 0.62rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero__credit-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* Right column — Single Microgrid 1 testbed standing firmly on floor */
+    .hero__img-col {
+      animation: fadeUp 0.9s var(--ease-out) 0.28s both;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Aligned right to fit the proper composition */
+      justify-content: flex-end;
+      align-self: flex-end;
+      overflow: visible;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 2.2rem; /* Matches the floor line in the reference image exactly */
+    }
+
+    @media (min-width: 1024px) {
+      .hero__img-col {
+        margin-right: -1rem; /* Moves Microgrid 1 slightly toward the right by ~3% */
+      }
+    }
+
+    /* Ambient warm orange energy glow behind the machine */
+    .hero__lab-glow {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 110%;
+      background: radial-gradient(ellipse at 50% 50%,
+        rgba(255, 140, 0, 0.24) 0%,
+        rgba(220, 80, 0, 0.10) 40%,
+        rgba(160, 45, 0, 0.02) 65%,
+        transparent 80%
+      );
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      animation: mgGlowPulse 8s ease-in-out infinite;
+    }
+
+    /* Equipment Stage — grounds Microgrid 1 directly on the floor with subtle perspective */
+    .hero__mg-stage {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: clamp(480px, 46vw, 760px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      perspective: 1800px;
+      perspective-origin: 50% 85%;
+    }
+
+    /* Physical unit wrapper — subtle natural 3D depth */
+    .hero__mg-main-wrap {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      transform: rotateY(-2deg) rotateX(0.8deg);
+      transform-origin: center bottom;
+      transform-style: preserve-3d;
+      transition: transform 0.5s var(--ease-out);
+      animation: mgRestingBreath 8s ease-in-out infinite;
+    }
+    .hero__mg-stage:hover .hero__mg-main-wrap {
+      transform: rotateY(-1.2deg) rotateX(0.5deg);
+    }
+
+    /* Microgrid 1 transparent PNG — large, crisp, front-facing */
+    .hero__mg-single-img {
+      width: 100%;
+      max-height: clamp(340px, 48vh, 520px);
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      /*
+        Realistic physical lighting matching reference image:
+        Warm amber bounce light from sunset floor + soft ambient grounding
+      */
+      filter:
+        drop-shadow(0 14px 28px rgba(18, 5, 0, 0.42))
+        drop-shadow(0 4px 10px rgba(255, 120, 0, 0.20))
+        drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+      transition: filter 0.5s ease;
+    }
+
+    /*
+      CONTACT SHADOWS — Individual realistic soft contact shadows
+      positioned directly under the 3 caster wheels (7.2%, 51.5%, 93.0%)
+    */
+    .hero__mg-contact-shadow {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      transform: rotateY(-2deg);
+      transform-origin: center bottom;
+      background:
+        /* Wheel 1 (left) */
+        radial-gradient(ellipse 26px 5px at 7.2% 50%, rgba(15, 5, 0, 0.70) 0%, rgba(20, 5, 0, 0.30) 45%, transparent 70%),
+        /* Wheel 2 (center) */
+        radial-gradient(ellipse 26px 5px at 51.5% 50%, rgba(15, 5, 0, 0.70) 0%, rgba(20, 5, 0, 0.30) 45%, transparent 70%),
+        /* Wheel 3 (right) */
+        radial-gradient(ellipse 26px 5px at 93.0% 50%, rgba(15, 5, 0, 0.70) 0%, rgba(20, 5, 0, 0.30) 45%, transparent 70%),
+        /* Soft ambient frame contact */
+        radial-gradient(ellipse 88% 3px at 50% 40%, rgba(25, 7, 0, 0.12) 0%, transparent 60%);
+      filter: blur(1.5px);
+      z-index: 6;
+      pointer-events: none;
+    }
+
+    /*
+      SUBTLE LOCALIZED FLOOR REFLECTION
+      Starts directly at the wheels/base, fades smoothly within 80px,
+      low opacity (0.22), soft blur, inherits warm orange tones from the glossy floor.
+    */
+    .hero__mg-reflection-wrap {
+      position: relative;
+      width: 100%;
+      height: clamp(45px, 8vh, 80px);
+      overflow: hidden;
+      margin-top: -2px;
+      transform: rotateY(-2deg) rotateX(-0.8deg);
+      transform-origin: center top;
+      z-index: 2;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.42) 0%, 
+        rgba(0, 0, 0, 0.14) 28%, 
+        rgba(0, 0, 0, 0.02) 60%, 
+        transparent 88%
+      );
+      -webkit-mask-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.42) 0%, 
+        rgba(0, 0, 0, 0.14) 28%, 
+        rgba(0, 0, 0, 0.02) 60%, 
+        transparent 88%
+      );
+    }
+
+    .hero__mg-reflection-img {
+      width: 100%;
+      max-height: clamp(340px, 48vh, 520px);
+      object-fit: contain;
+      object-position: bottom center;
+      display: block;
+      transform: scaleY(-1);
+      filter: blur(3.5px) brightness(0.85) saturate(1.15);
+      opacity: 0.22;
+    }
+
+    /* Ambient orange floor specular sheen */
+    .hero__mg-reflection-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(255, 140, 20, 0.18) 0%,
+        rgba(230, 90, 0, 0.06) 35%,
+        transparent 75%
+      );
+      pointer-events: none;
+    }
+
+    /* =========================================================
+       ONE LAB. TWO MICROGRIDS. — Showcase with transparent PNG
+       ========================================================= */
+    .mg-section { background: #FFF9F2; }
+
+    /* Wide combined image showcase */
+    .mg-showcase {
+      width: 100%;
+      max-width: 1200px;
+      margin: 3rem auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .mg-showcase__glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(ellipse at 50% 60%, rgba(255,154,31,0.16) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .mg-showcase__img-wrap {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .mg-showcase__img {
+      width: 100%;
+      max-height: 580px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 28px 70px rgba(42,18,8,0.38)) drop-shadow(0 8px 22px rgba(255,122,0,0.16));
+      transition: filter 0.5s ease, transform 0.6s var(--ease-out);
+    }
+    .mg-showcase__img-wrap:hover .mg-showcase__img {
+      transform: translateY(-10px);
+      filter: drop-shadow(0 36px 80px rgba(42,18,8,0.48)) drop-shadow(0 10px 28px rgba(255,154,31,0.30));
+    }
+
+    /* Two info blocks below the combined image — equal height, full width */
+    .mg-info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      align-items: stretch;
+    }
+    @media (max-width: 639px) {
+      .mg-info-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    .mg-info-block {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(201,75,0,0.20);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 6px 24px rgba(42,18,8,0.07);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
+    }
+    .mg-info-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--mg-info-accent, #FF7A00);
+    }
+    .mg-info-block--1 { --mg-info-accent: #FF7A00; }
+    .mg-info-block--2 { --mg-info-accent: #C94B00; }
+    .mg-info-block:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 50px rgba(42,18,8,0.13);
+      border-color: rgba(255,122,0,0.40);
+    }
+    .mg-info-block__badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      padding: 0.28rem 0.9rem;
+      border-radius: 999px;
+      background: var(--mg-info-accent, #FF7A00);
+      color: #2A1208;
+      margin-bottom: 0.9rem;
+      align-self: flex-start;
+    }
+    .mg-info-block--2 .mg-info-block__badge { color: #FFFFFF; }
+    .mg-info-block__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.55rem;
+      line-height: 1.3;
+    }
+    .mg-info-block__desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
+      flex: 1;
+    }
+    .mg-info-block__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .mg-info-block__tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #FFF4E5;
+      color: #C94B00;
+      border-radius: 7px;
+      padding: 0.22rem 0.65rem;
+    }
+    .mg-info-block__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #C94B00;
+      margin-top: auto;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+    .mg-info-block:hover .mg-info-block__link { gap: 0.65rem; color: #FF7A00; }
+    .mg-info-block__link-arr { transition: transform 0.2s ease; display: inline-block; }
+    .mg-info-block:hover .mg-info-block__link-arr { transform: translateX(5px); }
+
+    /* Explore Facilities CTA row */
+    .mg-explore-row {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+
+    /* =========================================================
+       FACILITIES & TECHNOLOGIES
+       ========================================================= */
+    .ft-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .ft-card {
+      background: #fff;
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .ft-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 16px 16px 0 0;
+      background: var(--ft-accent, #FF7A00);
+      transition: height 0.3s ease;
+    }
+    .ft-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(42,18,8,0.1);
+      border-color: rgba(255,122,0,0.3);
+    }
+    .ft-card:hover::before { height: 4px; }
+
+    /* Accent variations */
+    .ft-card--emerald { --ft-accent: #FF7A00; }
+    .ft-card--teal    { --ft-accent: #C94B00; }
+    .ft-card--amber   { --ft-accent: #FF9F1C; }
+
+    .ft-card__icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #FFF4E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-shrink: 0;
+      transition: transform 0.3s var(--ease-out);
+    }
+    .ft-card:hover .ft-card__icon-wrap { transform: rotate(3deg) scale(1.05); }
+
+    .ft-card__icon-wrap svg {
+      width: 22px; height: 22px;
+      stroke-width: 1.7;
+      color: #C94B00;
+    }
+
+    .ft-card__category {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #C94B00;
+      margin-bottom: 0.28rem;
+    }
+
+    .ft-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 0.45rem;
+      line-height: 1.35;
+    }
+    .ft-card__desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.1rem;
+      flex: 1;
+    }
+    .ft-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #C94B00;
+      transition: gap 0.2s ease;
+      margin-top: auto;
+    }
+    .ft-card:hover .ft-card__link-arr { transform: translateX(4px); }
+    .ft-card__link-arr { transition: transform 0.2s ease; display: inline-block; }
+
+    /* =========================================================
+       DEMONSTRATIONS & WORKSHOPS
+       ========================================================= */
+    .demo-section { background: #2A1208; }
+    .demo-section .section-title { color: #fff; }
+    .demo-section .section-subtitle { color: rgba(255,255,255,0.68); }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .demo-card-v2 {
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
+    }
+    .demo-card-v2:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      border-color: rgba(255,154,31,0.4);
+    }
+    .demo-card-v2__header {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-card-v2__header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--demo-accent, #FF7A00);
+    }
+    .demo-card-v2--5  { --demo-accent: #FF7A00; }
+    .demo-card-v2--15 { --demo-accent: #FF9F1C; }
+    .demo-card-v2--30 { --demo-accent: #FFC857; }
+
+    .demo-card-v2__num {
+      font-size: clamp(2.5rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+      color: #FF9A1F;
+    }
+
+    .demo-card-v2__unit {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .demo-card-v2__body { padding: 1.4rem 1.5rem 1.6rem; }
+    .demo-card-v2__type {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.7rem;
+      background: rgba(255,122,0,0.18);
+      color: #FF9A1F;
+    }
+
+    .demo-card-v2__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+    .demo-card-v2__desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+    }
+    .demo-card-v2__cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      font-style: italic;
+    }
+
+    /* =========================================================
+       LATEST UPDATES
+       ========================================================= */
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .update-card {
+      background: #fff;
+      border: 1.5px solid var(--color-gray-200);
+      border-radius: 14px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.25s ease;
+    }
+    .update-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(42,18,8,0.09);
+      border-color: rgba(255,122,0,0.3);
+    }
+    .update-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .update-card__category {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: #FFF4E5;
+      color: #C94B00;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .update-card:hover .update-card__category {
+      background: #FF7A00;
+      color: #2A1208;
+    }
+    .update-card__date {
+      font-size: 0.72rem;
+      color: var(--color-gray-400);
+      font-weight: 600;
+    }
+    .update-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .update-card__desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 0;
+    }
+    .updates-footer-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 2.2rem;
+    }
+
+    /* =========================================================
+       VISIT THE SMART GRID R&D CENTER
+       ========================================================= */
+    .visit-section {
+      background: linear-gradient(135deg, #2A1208 0%, #C94B00 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .visit-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Visit section — transparent ee block image (no rectangular frame) */
+    .visit__imgcol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .visit__imgcol-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255,154,31,0.20) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+      animation: mgGlowPulse 7s ease-in-out infinite;
+    }
+    .visit__ee-img {
+      width: 100%;
+      max-height: 460px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.45)) drop-shadow(0 6px 18px rgba(255,122,0,0.25));
+      transition: filter 0.5s ease, transform 0.5s var(--ease-out);
+    }
+    .visit__imgcol:hover .visit__ee-img {
+      transform: translateY(-6px);
+      filter: drop-shadow(0 28px 60px rgba(0,0,0,0.55)) drop-shadow(0 8px 22px rgba(255,154,31,0.35));
+    }
+
+    .visit__content {}
+    .visit__h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .visit__desc {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .visit__cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+    .visit-info-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .visit-info-pill {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 10px;
+      padding: 0.8rem 1.1rem;
+      flex: 1;
+      min-width: 130px;
+    }
+    .visit-info-pill__label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #FFC857;
+      margin-bottom: 0.3rem;
+    }
+    .visit-info-pill__value {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+    }
+
+    /* =========================================================
+       FOOTER overrides (deep brown palette)
+       ========================================================= */
+    .page-home .footer {
+      background-color: #1A0B04;
+      padding: 3.5rem 0 2rem;
+    }
+    .page-home .footer__grid {
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .page-home .footer__credit-label { color: #FF9A1F; }
+    .page-home .footer__link:hover   { color: #FF9A1F; }
+    .page-home .footer__social-link:hover {
+      background-color: #FF7A00;
+      color: #2A1208;
+      border-color: #FF7A00;
+    }
+
+    /* =========================================================
+       SCROLL REVEAL (override global)
+       ========================================================= */
+    .page-home .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .page-home .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .page-home .reveal-delay-1 { transition-delay: 80ms; }
+    .page-home .reveal-delay-2 { transition-delay: 160ms; }
+    .page-home .reveal-delay-3 { transition-delay: 240ms; }
+    .page-home .reveal-delay-4 { transition-delay: 320ms; }
+    .page-home .reveal-delay-5 { transition-delay: 400ms; }
+
+    /* =========================================================
+       SECTION HEADERS (dark-on-dark)
+       ========================================================= */
+    .demo-section .section-label,
+    .visit-section .section-label { color: #FF9A1F; }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 1199px) {
+      .hero__layout { gap: 2rem; }
+      .hero__mg-single-img,
+      .hero__mg-reflection-img { max-height: clamp(300px, 42vw, 460px); }
+      .hero__mg-reflection-wrap { height: 65px; }
+      .mg-showcase__img { max-height: 460px; }
+    }
+
+    @media (max-width: 1023px) {
+      .hero { min-height: 85vh; min-height: 85svh; }
+      .hero__layout { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .hero__mg-stage { max-width: 100%; perspective: 1400px; }
+      .hero__mg-main-wrap { transform: rotateY(-1.5deg) rotateX(0.6deg); }
+      .hero__mg-contact-shadow { transform: rotateY(-1.5deg); }
+      .hero__mg-reflection-wrap { transform: rotateY(-1.5deg) rotateX(-0.6deg); height: 55px; }
+      .hero__mg-single-img,
+      .hero__mg-reflection-img { max-height: clamp(260px, 36vw, 380px); }
+      .ft-grid { grid-template-columns: repeat(2, 1fr); }
+      .demo-grid { grid-template-columns: repeat(3, 1fr); }
+      .updates-grid { grid-template-columns: repeat(2, 1fr); }
+      .mg-showcase__img { max-height: 380px; }
+      .mg-info-row { gap: 1.5rem; }
+      .mg-info-block { padding: 1.6rem 1.8rem; }
+    }
+
+    @media (max-width: 767px) {
+      .hero { min-height: auto; background-position: center center; padding-top: calc(var(--nav-height) + 2rem); padding-bottom: 3rem; }
+      .hero__layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero__img-col { order: 2; align-items: center; padding-top: 0; margin-top: 0; margin-bottom: 1rem; }
+      .hero-text-col { order: 1; padding-bottom: 1.5rem; }
+      .hero__desc { max-width: 100%; }
+      .hero__mg-stage { max-width: 480px; }
+      .hero__mg-main-wrap { transform: rotateY(-1deg) rotateX(0.4deg); }
+      .hero__mg-contact-shadow { transform: rotateY(-1deg); }
+      .hero__mg-single-img,
+      .hero__mg-reflection-img { max-height: 290px; }
+      .hero__mg-reflection-wrap { height: 45px; transform: rotateY(-1deg) rotateX(-0.4deg); }
+      .mg-info-row {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .mg-info-block { padding: 1.5rem 1.7rem; }
+      .mg-showcase__img { max-height: 300px; }
+      .ft-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .updates-grid { grid-template-columns: 1fr; }
+      .visit-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .visit__imgcol { order: -1; }
+      .visit__ee-img { max-height: 300px; }
+      .page-home .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 479px) {
+      .hero__h1 { font-size: clamp(1.85rem, 7vw, 2.3rem); }
+      .hero__mg-stage { max-width: 320px; }
+      .hero__mg-main-wrap { transform: rotateY(-0.6deg) rotateX(0.2deg); }
+      .hero__mg-contact-shadow { transform: rotateY(-0.6deg); }
+      .hero__mg-single-img,
+      .hero__mg-reflection-img { max-height: 220px; }
+      .hero__mg-reflection-wrap { height: 32px; transform: rotateY(-0.6deg) rotateX(-0.2deg); }
+      .ft-grid { grid-template-columns: 1fr; }
+      .page-home .footer__grid { grid-template-columns: 1fr; }
+      .hero__cta { flex-direction: column; }
+      .mg-info-block { padding: 1.3rem 1.4rem; }
+      .mg-showcase__img { max-height: 220px; }
+    }
+  </style>
+
+</head>
+
+
+<body class="page-home">
+
+  <!-- ════════════════════════════════════════════════════════════
+       NAVBAR  (unchanged — do not modify)
+  ═══════════════════════════════════════════════════════════════ -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link active" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link active">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main class="page-content" style="margin-top: 0;">
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 1 — HERO (FULL ORANGE ENERGY BACKGROUND)
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__ambient-pulse"></div>
+
+      <div class="container">
+        <div class="hero__layout">
+
+          <!-- LEFT — Content -->
+          <div class="hero-text-col">
+            <div class="hero__eyebrow" aria-hidden="true">
+              <span class="hero__eyebrow-dot"></span>
+              IIT Hyderabad &nbsp;·&nbsp; Smart Grid R&amp;D Center
+            </div>
+
+            <h1 class="hero__h1" id="hero-heading">
+              Smart Grid<br>
+              <span class="hero__h1-accent">R&amp;D Center</span>
+            </h1>
+
+            <p class="hero__tagline">
+              Exploring the Future of Intelligent Energy Systems
+            </p>
+
+            <p class="hero__desc">
+              A dedicated research and demonstration facility at IIT Hyderabad featuring two microgrid platforms, renewable energy systems, energy storage, power conversion and real-time monitoring infrastructure.
+            </p>
+
+            <div class="hero__cta">
+              <a href="facilities.html" class="btn btn--primary btn--lg">Explore Our Facilities &rarr;</a>
+              <a href="contact.html"    class="btn btn--outline-white btn--lg">Visit the Lab &rarr;</a>
+            </div>
+
+            <div class="hero__credits">
+              <span class="hero__credits-label">Supported by</span>
+
+              <div class="hero__credit-pill">
+                <div class="hero__credit-logo">
+                  <img src="assets/images/logos/ls-electricals-logo.png" alt="LS Electricals" class="hero__credit-logo-img">
+                </div>
+                <div class="hero__credit-text">
+                  <span class="hero__credit-role">Funded by</span>
+                  <span class="hero__credit-name">LS Electricals</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT — Empty column to keep the left content positioned in the same place -->
+          <div class="hero__img-col" aria-hidden="true"></div>
+
+        </div>
+      </div>
+
+      <!-- Bottom transition mask into next section -->
+      <div class="hero__bottom-transition"></div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 2 — ONE LAB. TWO MICROGRIDS.
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section mg-section" aria-labelledby="mg-heading">
+      <div class="container">
+
+        <div class="section-header reveal" style="max-width:680px;">
+          <span class="section-label">The Smart Grid Lab</span>
+          <h2 class="section-title" id="mg-heading">One Lab. Two Microgrids.</h2>
+          <p class="section-subtitle">
+            The Smart Grid R&amp;D Center at IIT Hyderabad brings together two microgrid platforms in a dedicated environment for research, demonstration, experimentation and hands-on learning.
+          </p>
+        </div>
+
+
+        <!-- Wide combined Microgrid 1+2 showcase -->
+        <div class="mg-showcase reveal">
+          <div class="mg-showcase__glow" aria-hidden="true"></div>
+          <div class="mg-showcase__img-wrap">
+            <img src="assets/images/lab/microgrid-1-2.png"
+                 alt="Smart Grid R&D Center Microgrid 1 and Microgrid 2 laboratory platforms"
+                 class="mg-showcase__img"
+                 loading="lazy"
+                 width="1200" height="700">
+          </div>
+        </div>
+
+        <!-- Two info blocks -->
+        <div class="mg-info-row">
+
+          <!-- Microgrid 1 info -->
+          <div class="mg-info-block mg-info-block--1 reveal">
+            <div class="mg-info-block__badge">Microgrid 1</div>
+            <h3 class="mg-info-block__title">Renewable Energy &amp; Energy Storage Testbed</h3>
+            <p class="mg-info-block__desc">
+              A microgrid platform combining renewable energy generation and energy-storage facilities for research, experimentation and demonstration.
+            </p>
+            <div class="mg-info-block__tags">
+              <span class="mg-info-block__tag">☀️ Solar</span>
+              <span class="mg-info-block__tag">💨 Wind</span>
+              <span class="mg-info-block__tag">🔋 Li-ion Battery</span>
+              <span class="mg-info-block__tag">⚡ Supercapacitor</span>
+            </div>
+            <a href="facilities.html" class="mg-info-block__link">
+              Explore Microgrid 1 <span class="mg-info-block__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Microgrid 2 info -->
+          <div class="mg-info-block mg-info-block--2 reveal reveal-delay-1">
+            <div class="mg-info-block__badge">Microgrid 2</div>
+            <h3 class="mg-info-block__title">Renewable Energy &amp; Power System Testbed</h3>
+            <p class="mg-info-block__desc">
+              A microgrid platform integrating renewable and fuel-cell-based energy resources with power conversion and grid-interfacing facilities.
+            </p>
+            <div class="mg-info-block__tags">
+              <span class="mg-info-block__tag">☀️ Solar</span>
+              <span class="mg-info-block__tag">🧪 Hydrogen Fuel Cell</span>
+              <span class="mg-info-block__tag">⚙️ AC Generation</span>
+            </div>
+            <a href="facilities.html" class="mg-info-block__link">
+              Explore Microgrid 2 <span class="mg-info-block__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Explore CTA -->
+        <div class="mg-explore-row reveal reveal-delay-2">
+          <a href="facilities.html" class="btn btn--primary">Explore Our Facilities →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 3 — FACILITIES & TECHNOLOGIES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section section--alt" aria-labelledby="ft-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">What's Inside</span>
+          <h2 class="section-title" id="ft-heading">Facilities &amp; Technologies</h2>
+          <p class="section-subtitle">
+            Explore the research infrastructure and technologies available within the Smart Grid R&amp;D Center.
+          </p>
+        </div>
+
+        <div class="ft-grid">
+
+          <!-- 1 · CEMS -->
+          <div class="ft-card ft-card--emerald reveal">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">Energy Management</span>
+            <h3 class="ft-card__title">CEMS</h3>
+            <p class="ft-card__desc">Energy monitoring and management infrastructure.</p>
+            <a href="research.html#cems" class="ft-card__link">
+              Explore CEMS <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 2 · UPS -->
+          <div class="ft-card ft-card--teal reveal reveal-delay-1">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2L4.5 7v5c0 4.25 3.13 8.22 7.5 9 4.37-.78 7.5-4.75 7.5-9V7z"/>
+                <polyline points="12 8 12 14"/>
+                <line x1="9" y1="11" x2="15" y2="11"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">Power Quality</span>
+            <h3 class="ft-card__title">UPS</h3>
+            <p class="ft-card__desc">UPS monitoring and power continuity systems.</p>
+            <a href="research.html#ups" class="ft-card__link">
+              Explore UPS <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 3 · EV -->
+          <div class="ft-card ft-card--amber reveal reveal-delay-2">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="1" y="7" width="22" height="11" rx="3" ry="3"/>
+                <path d="M5 18v2M19 18v2"/>
+                <path d="M9 11l1.5 3L13 9l1.5 3H17"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">E-Mobility</span>
+            <h3 class="ft-card__title">EV</h3>
+            <p class="ft-card__desc">Electric vehicle integration and charging infrastructure.</p>
+            <a href="research.html#ev" class="ft-card__link">
+              Explore EV <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 4 · Smart Grid -->
+          <div class="ft-card ft-card--emerald reveal reveal-delay-1">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/>
+                <circle cx="4"  cy="5"  r="2"/>
+                <circle cx="20" cy="5"  r="2"/>
+                <circle cx="4"  cy="19" r="2"/>
+                <circle cx="20" cy="19" r="2"/>
+                <line x1="6"  y1="6"  x2="10" y2="10"/>
+                <line x1="18" y1="6"  x2="14" y2="10"/>
+                <line x1="6"  y1="18" x2="10" y2="14"/>
+                <line x1="18" y1="18" x2="14" y2="14"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">Grid Modernisation</span>
+            <h3 class="ft-card__title">Smart Grid</h3>
+            <p class="ft-card__desc">Smart grid research and system integration facilities.</p>
+            <a href="research.html#smart-grid" class="ft-card__link">
+              Explore Smart Grid <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 5 · Microgrid -->
+          <div class="ft-card ft-card--teal reveal reveal-delay-2">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                <line x1="4"  y1="9"  x2="20" y2="9"/>
+                <line x1="9"  y1="4"  x2="9"  y2="20"/>
+                <circle cx="14.5" cy="14.5" r="2.5"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">Distributed Energy</span>
+            <h3 class="ft-card__title">Microgrid</h3>
+            <p class="ft-card__desc">Integrated microgrid platforms for research and demonstration.</p>
+            <a href="research.html#microgrid" class="ft-card__link">
+              Explore Microgrid <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- 6 · Monitoring -->
+          <div class="ft-card ft-card--amber reveal reveal-delay-3">
+            <div class="ft-card__icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8"  y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+                <polyline points="6 9 9 12 12 9 15 13 18 10"/>
+              </svg>
+            </div>
+            <span class="ft-card__category">Real-Time Analytics</span>
+            <h3 class="ft-card__title">Monitoring</h3>
+            <p class="ft-card__desc">Real-time monitoring and visualization infrastructure.</p>
+            <a href="facilities.html" class="ft-card__link">
+              Explore Monitoring <span class="ft-card__link-arr" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 4 — DEMONSTRATIONS & WORKSHOPS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section demo-section" aria-labelledby="demo-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Learning &amp; Engagement</span>
+          <h2 class="section-title" id="demo-heading">Demonstrations &amp; Workshops</h2>
+          <p class="section-subtitle">
+            Experience the Smart Grid R&amp;D Center through structured demonstrations and hands-on technical sessions designed for different visitor groups and available time formats.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+
+          <!-- 5 min -->
+          <div class="demo-card-v2 demo-card-v2--5 reveal">
+            <div class="demo-card-v2__header">
+              <div class="demo-card-v2__num">5</div>
+              <div class="demo-card-v2__unit">MIN</div>
+            </div>
+            <div class="demo-card-v2__body">
+              <div class="demo-card-v2__type">Quick Overview</div>
+              <h3 class="demo-card-v2__title">Executive Overview</h3>
+              <p class="demo-card-v2__desc">
+                A rapid introduction to the Smart Grid R&amp;D Center — framing the energy challenge, the lab's facilities and research significance.
+              </p>
+              <p class="demo-card-v2__cta">Demo Video Coming Soon</p>
+            </div>
+          </div>
+
+          <!-- 15 min -->
+          <div class="demo-card-v2 demo-card-v2--15 reveal reveal-delay-1">
+            <div class="demo-card-v2__header">
+              <div class="demo-card-v2__num">15</div>
+              <div class="demo-card-v2__unit">MIN</div>
+            </div>
+            <div class="demo-card-v2__body">
+              <div class="demo-card-v2__type">Technical Demonstration</div>
+              <h3 class="demo-card-v2__title">Lab &amp; Facility Tour</h3>
+              <p class="demo-card-v2__desc">
+                Focused demonstration of the microgrid platforms, monitoring systems and key research equipment for delegations and academic visitors.
+              </p>
+              <p class="demo-card-v2__cta">Demo Video Coming Soon</p>
+            </div>
+          </div>
+
+          <!-- 30 min -->
+          <div class="demo-card-v2 demo-card-v2--30 reveal reveal-delay-2">
+            <div class="demo-card-v2__header">
+              <div class="demo-card-v2__num">30</div>
+              <div class="demo-card-v2__unit">MIN</div>
+            </div>
+            <div class="demo-card-v2__body">
+              <div class="demo-card-v2__type">Extended Demonstration / Class</div>
+              <h3 class="demo-card-v2__title">Comprehensive Demo</h3>
+              <p class="demo-card-v2__desc">
+                An in-depth walkthrough of both microgrids with live equipment interaction, monitoring system demonstration and Q&amp;A.
+              </p>
+              <p class="demo-card-v2__cta">Demo Video Coming Soon</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+          <a href="events.html" class="btn btn--primary">View Workshops &amp; Events →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 5 — LATEST UPDATES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="updates-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">News &amp; Updates</span>
+          <h2 class="section-title" id="updates-heading">Latest Updates</h2>
+          <p class="section-subtitle">
+            Recent activities, events and announcements from the Smart Grid R&amp;D Center.
+          </p>
+        </div>
+
+        <div class="updates-grid">
+
+          <!-- Update 1 -->
+          <div class="update-card reveal">
+            <div class="update-card__meta">
+              <span class="update-card__category">Demonstration</span>
+              <span class="update-card__date">Weekly</span>
+            </div>
+            <div class="update-card__title">
+              Smart Grid &amp; Microgrid Demonstration Sessions
+            </div>
+            <p class="update-card__desc">
+              Structured demonstrations (5, 15, and 30 minutes) for delegations, students, and industry visitors at the lab.
+            </p>
+          </div>
+
+          <!-- Update 2 -->
+          <div class="update-card reveal reveal-delay-1">
+            <div class="update-card__meta">
+              <span class="update-card__category">Workshop</span>
+              <span class="update-card__date">Upcoming</span>
+            </div>
+            <div class="update-card__title">
+              Technical Workshop on Microgrid Systems
+            </div>
+            <p class="update-card__desc">
+              Hands-on training on renewable generation, energy storage integration, and power conversion systems.
+            </p>
+          </div>
+
+          <!-- Update 3 -->
+          <div class="update-card reveal reveal-delay-2">
+            <div class="update-card__meta">
+              <span class="update-card__category">Lab Visit</span>
+              <span class="update-card__date">Open</span>
+            </div>
+            <div class="update-card__title">
+              Academic &amp; Institutional Delegation Tours
+            </div>
+            <p class="update-card__desc">
+              Guided tours covering the two physical microgrid platforms, CEMS, and real-time monitoring testbed.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="updates-footer-row reveal">
+          <a href="events.html" class="btn btn--outline">View All Events →</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════
+         SECTION 6 — VISIT THE SMART GRID R&D CENTER
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="visit-section" role="region" aria-labelledby="visit-heading">
+      <div class="container">
+        <div class="visit-layout">
+
+          <!-- Left — EE Block transparent PNG -->
+          <div class="visit__imgcol reveal">
+            <div class="visit__imgcol-glow" aria-hidden="true"></div>
+            <img src="assets/images/lab/ee block.png"
+                 alt="Electrical engineering laboratory facility at the Smart Grid R&D Center"
+                 class="visit__ee-img"
+                 loading="lazy"
+                 width="900" height="700">
+          </div>
+
+          <!-- Right — CTA -->
+          <div class="visit__content reveal reveal-delay-1">
+            <span class="section-label section-label--dark">Open for Visitors</span>
+            <h2 class="visit__h2" id="visit-heading">
+              Visit the Smart Grid<br>R&amp;D Center
+            </h2>
+            <p class="visit__desc">
+              Explore the laboratory, experience the microgrid platforms, discover the research infrastructure and learn about ongoing activities.
+            </p>
+            <div class="visit__cta">
+              <a href="contact.html" class="btn btn--primary btn--lg">Plan a Visit</a>
+              <a href="contact.html" class="btn btn--outline-white btn--lg">Contact Us</a>
+            </div>
+            <div class="visit-info-row">
+              
+              <div class="visit-info-pill">
+                <div class="visit-info-pill__label">Demo Duration</div>
+                <div class="visit-info-pill__value">5, 15 or 30 minutes</div>
+              </div>
+              <div class="visit-info-pill">
+                <div class="visit-info-pill__label">Location</div>
+                <div class="visit-info-pill__value">IIT Hyderabad Campus</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            A dedicated research and demonstration facility at IIT Hyderabad for smart grid, microgrid, renewable energy and power systems research.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item">
+              <span class="footer__credit-label">Funded by:</span> LS Electricals
+            </div>
+            <div class="footer__credit-item">
+              <span class="footer__credit-label">Institution:</span> IIT Hyderabad
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Facilities</div>
+          <nav class="footer__links" aria-label="Facilities links">
+            <a href="facilities.html" class="footer__link">Microgrid 1</a>
+            <a href="facilities.html" class="footer__link">Microgrid 2</a>
+            <a href="facilities.html" class="footer__link">Energy Storage</a>
+            <a href="facilities.html" class="footer__link">Power Conversion</a>
+            <a href="facilities.html" class="footer__link">Monitoring</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems"       class="footer__link">CEMS</a>
+            <a href="research.html#ups"        class="footer__link">UPS Systems</a>
+            <a href="research.html#ev"         class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid"  class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="about.html"        class="footer__link">About Us</a>
+            <a href="team.html"         class="footer__link">Team</a>
+            <a href="events.html"       class="footer__link">Workshops</a>
+            <a href="startup.html"      class="footer__link">Power Sense</a>
+            <a href="media.html"        class="footer__link">Media</a>
+            <a href="contact.html"      class="footer__link">Contact</a>
+          </nav>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.
+        </p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Main JS (navigation, scroll, tabs) -->
+  <script src="js/main.js"></script>
+
+  <!-- Homepage animation controller -->
+  <script>
+    (function () {
+      /* ── Staggered card reveal via IntersectionObserver ───────── */
+      const staggerGroups = document.querySelectorAll(
+        '.mg-info-row, .ft-grid, .demo-grid, .updates-grid'
+      );
+
+      const staggerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const cards = entry.target.querySelectorAll(
+            '.mg-info-block, .ft-card, .demo-card-v2, .update-card'
+          );
+          cards.forEach((card, i) => {
+            setTimeout(() => {
+              card.classList.add('visible');
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, i * 80);
+          });
+
+          staggerObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      staggerGroups.forEach(g => {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          g.querySelectorAll('.mg-info-block, .ft-card, .demo-card-v2, .update-card').forEach(c => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(28px)';
+            c.style.transition = 'opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1)';
+          });
+        }
+        staggerObserver.observe(g);
+      });
+
+      /* ── Showcase image reveal when scrolled into view ────────── */
+      const showcaseEl = document.querySelector('.mg-showcase__img');
+      if (showcaseEl) {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          showcaseEl.style.opacity = '0';
+          showcaseEl.style.transform = 'translateY(36px)';
+          showcaseEl.style.transition = 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)';
+          const showcaseObs = new IntersectionObserver(([e]) => {
+            if (!e.isIntersecting) return;
+            showcaseEl.style.opacity = '1';
+            showcaseEl.style.transform = 'translateY(0)';
+            showcaseObs.disconnect();
+          }, { threshold: 0.1 });
+          showcaseObs.observe(showcaseEl);
+        }
+      }
+
+      /* ── EE block visit section reveal ───────────────────────── */
+      const eeImg = document.querySelector('.visit__ee-img');
+      if (eeImg) {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          eeImg.style.opacity = '0';
+          eeImg.style.transform = 'translateY(32px)';
+          eeImg.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
+          const eeObs = new IntersectionObserver(([e]) => {
+            if (!e.isIntersecting) return;
+            eeImg.style.opacity = '1';
+            eeImg.style.transform = 'translateY(0)';
+            eeObs.disconnect();
+          }, { threshold: 0.1 });
+          eeObs.observe(eeImg);
+        }
+      }
+
+      /* ── Ensure reduced-motion: skip all animations ──────────── */
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll(
+          '.hero__eyebrow, .hero__h1, .hero__tagline, .hero__desc, .hero__cta, .hero__credits, .hero__img-col, .hero__mg-main-wrap, .hero__lab-glow, .visit__imgcol-glow'
+        ).forEach(el => {
+          el.style.animation = 'none';
+          el.style.opacity   = '1';
+          el.style.transform = 'none';
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

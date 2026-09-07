@@ -1,0 +1,271 @@
+/* ============================================================
+   Smart Grid R&D Center — IITH
+   responsive.css — Breakpoints & Mobile Styles
+   ============================================================ */
+
+/* ── Breakpoints ─────────────────────────────────────────────
+   sm:  640px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+───────────────────────────────────────────────────────────── */
+
+/* ── Navbar Responsiveness ──────────────────────────────────── */
+@media (min-width: 1024px) and (max-width: 1240px) {
+  .navbar__inner {
+    padding: 0 var(--space-4);
+  }
+  .navbar__nav {
+    gap: 0.15rem;
+  }
+  .navbar__link {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.5rem;
+  }
+  .navbar__link--cta {
+    padding: 0.4rem 0.85rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__brand-sub {
+    display: none;
+  }
+  .navbar__brand-name {
+    font-size: 0.82rem;
+  }
+  .navbar__logo {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ── Footer Grid ─────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (max-width: 639px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ── Hero ────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .hero {
+    padding: var(--space-16) 0 var(--space-12);
+  }
+
+  .hero__title {
+    font-size: var(--text-4xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-base);
+  }
+
+  .hero__funding {
+    gap: var(--space-5);
+  }
+}
+
+/* ── Grids ───────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 639px) {
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Forms ───────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .breadcrumb__title {
+    font-size: var(--text-3xl);
+  }
+
+  .breadcrumb__subtitle {
+    font-size: var(--text-base);
+  }
+}
+
+/* ── Detail Row ──────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .detail-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* ── Patent Entry ────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .patent-entry__header {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+/* ── Pipeline ────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .pipeline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pipeline__arrow {
+    transform: rotate(90deg);
+    align-self: center;
+  }
+}
+
+/* ── Section ─────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+}
+
+/* ── Storyline ───────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .storyline__step::after {
+    display: none;
+  }
+}
+
+/* ── Visitor Journey ─────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .visitor-journey {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .journey-step::after {
+    display: none;
+  }
+}
+
+/* ── Selfie Point ────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .selfie-point {
+    padding: var(--space-6);
+  }
+
+  .selfie-point__frame {
+    padding: var(--space-6);
+  }
+
+  .selfie-point__lab-name {
+    font-size: var(--text-xl);
+  }
+}
+
+/* ── Stats ───────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .stat-card {
+    padding: var(--space-5);
+  }
+
+  .stat-card__number {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* ── Container padding ───────────────────────────────────────── */
+@media (max-width: 639px) {
+  .container {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* ── General Typography ──────────────────────────────────────── */
+@media (max-width: 767px) {
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+  h4 { font-size: var(--text-xl); }
+}
+
+/* ── Demo Cards ──────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .demo-card__duration {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* ── Tech Card ───────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .tech-card__header {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+}
+
+/* ── QR Block ────────────────────────────────────────────────── */
+@media (max-width: 479px) {
+  .qr-block {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* ── Tabs ────────────────────────────────────────────────────── */
+@media (max-width: 639px) {
+  .tabs {
+    overflow-x: auto;
+    gap: 0;
+  }
+
+  .tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* ── Global Mobile Overflow Prevention ──────────────────────── */
+/* Prevents page-level horizontal scroll on mobile.             */
+/* Inner elements with overflow-x:auto remain scrollable.       */
+@media (max-width: 639px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+}

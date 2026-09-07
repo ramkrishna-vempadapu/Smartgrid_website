@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Sense &mdash; Startup &amp; Industry Impact | Smart Grid R&D Center</title>
+  <meta name="description" content="Power Sense Pvt. Ltd. — Deep-tech energy technology startup originating from Smart Grid R&D Center, IIT Hyderabad. Smart energy monitoring, IoT, CEMS, UPS, and industry training.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+  <style>
+
+    /* ══════════════════════════════════════════════════════════
+       POWER SENSE — STARTUP & INDUSTRY IMPACT PAGE SCOPED CSS
+       ══════════════════════════════════════════════════════════ */
+
+    .page-startup { background-color: var(--warm-white); }
+
+    /* ── Hero ── */
+    .ps-hero {
+      position: relative;
+      background: linear-gradient(135deg, #140501 0%, #240E05 45%, #3D1B0C 100%);
+      color: #FFFFFF;
+      padding: calc(var(--nav-height) + 2rem) 0 3rem;
+      overflow: hidden;
+      border-bottom: 1.5px solid rgba(255, 122, 0, 0.28);
+    }
+    .ps-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 85% 20%, rgba(255, 122, 0, 0.16) 0%, transparent 48%),
+        radial-gradient(circle at 10% 80%, rgba(255, 154, 31, 0.1) 0%, transparent 45%),
+        linear-gradient(rgba(255, 122, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 122, 0, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 38px 38px, 38px 38px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ps-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ps-hero__grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media(max-width: 960px){
+      .ps-hero__grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .ps-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFC857;
+      background: rgba(255, 154, 31, 0.14);
+      border: 1px solid rgba(255, 154, 31, 0.35);
+      padding: 0.32rem 0.95rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .ps-hero__eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: #FF9A1F;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #FF9A1F;
+    }
+    .ps-hero__title {
+      font-size: clamp(2.1rem, 3.8vw, 3rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.025em;
+    }
+    .ps-hero__subtitle {
+      font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+      color: rgba(255, 241, 214, 0.9);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .ps-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .ps-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #FF7A00 0%, #C94B00 100%);
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(255, 122, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.22s ease;
+    }
+    .ps-btn-primary:hover {
+      background: linear-gradient(135deg, #FF9A1F 0%, #FF7A00 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(255, 122, 0, 0.45);
+      color: #FFFFFF;
+    }
+    .ps-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.8rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 200, 87, 0.35);
+      transition: all 0.22s ease;
+    }
+    .ps-btn-secondary:hover {
+      background: rgba(255, 200, 87, 0.18);
+      border-color: #FFC857;
+      color: #FFC857;
+      transform: translateY(-2px);
+    }
+
+    /* ── Compact Power Sense Identity & QR Card ── */
+    .ps-id-card {
+      background: linear-gradient(135deg, rgba(36, 14, 5, 0.92) 0%, rgba(24, 8, 2, 0.96) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 154, 31, 0.38);
+      border-radius: 16px;
+      padding: clamp(1rem, 2vw, 1.35rem);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(255, 122, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(0.75rem, 1.8vw, 1.25rem);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .ps-id-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #FF7A00, #FFC857, #FF7A00);
+      opacity: 0.9;
+    }
+    .ps-id-card:hover {
+      border-color: rgba(255, 154, 31, 0.65);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 122, 0, 0.2);
+    }
+
+    /* Left: Square Logo Box */
+    .ps-id-logo-box {
+      width: clamp(110px, 11vw, 135px);
+      height: clamp(110px, 11vw, 135px);
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 154, 31, 0.3);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+    .ps-id-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Vertical Divider */
+    .ps-id-divider {
+      width: 1px;
+      align-self: stretch;
+      background: linear-gradient(to bottom, transparent, rgba(255, 154, 31, 0.3), transparent);
+      flex-shrink: 0;
+    }
+
+    /* Right: QR Box & Info */
+    .ps-id-portal {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.75rem, 1.5vw, 1rem);
+      flex: 1;
+      min-width: 0;
+    }
+    .ps-id-qr-box {
+      width: clamp(90px, 8.5vw, 108px);
+      height: clamp(90px, 8.5vw, 108px);
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 154, 31, 0.3);
+      border-radius: 10px;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+    .ps-id-qr-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .ps-id-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+    .ps-id-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #FFC857;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .ps-id-title {
+      font-size: clamp(0.85rem, 1.2vw, 0.98rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .ps-id-link {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #FF9A1F;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.25rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .ps-id-link__arrow {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    .ps-id-link:hover {
+      color: #FFC857;
+      text-decoration: underline;
+    }
+    .ps-id-link:hover .ps-id-link__arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* Mobile Adaptations (≤600px) */
+    @media(max-width: 600px){
+      .ps-id-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.25rem;
+        gap: 1rem;
+      }
+      .ps-id-divider {
+        width: 80%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(255, 154, 31, 0.3), transparent);
+      }
+      .ps-id-portal {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+      }
+      .ps-id-info {
+        text-align: left;
+      }
+    }
+    @media(max-width: 420px){
+      .ps-id-portal {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .ps-id-info {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* ── Metrics Strip ── */
+    .ps-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      background: linear-gradient(135deg, #240E05 0%, #2E1408 100%);
+      border: 1.5px solid rgba(255, 154, 31, 0.28);
+      border-radius: 14px;
+      padding: 1.4rem 1.75rem;
+      margin-top: 2rem;
+    }
+    @media(max-width: 768px){
+      .ps-metrics-strip { grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.25rem; }
+    }
+    @media(max-width: 440px){
+      .ps-metrics-strip { grid-template-columns: 1fr; text-align: center; }
+    }
+    .ps-metric-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .ps-metric-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #FF9A1F;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .ps-metric-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255, 241, 214, 0.82);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Section Containers ── */
+    .ps-section { padding: clamp(2.75rem, 5vw, 4.25rem) 0; }
+    .ps-section--alt { background: #FFFFFF; }
+    .ps-section--cream { background: #FFF9F2; }
+    .ps-section--dark {
+      background: linear-gradient(135deg, #180702 0%, #2A1208 60%, #3D1B0C 100%);
+      color: #FFFFFF;
+    }
+
+    .ps-section-header {
+      max-width: 780px;
+      margin: 0 auto clamp(1.75rem, 3.5vw, 2.5rem);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .ps-section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--energy-burnt);
+      margin-bottom: 0.35rem;
+    }
+    .ps-section-label--light { color: #FF9A1F; }
+    .ps-section-title {
+      font-size: clamp(1.55rem, 2.8vw, 2rem);
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .ps-section-title--light { color: #FFFFFF; }
+    .ps-section-desc {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .ps-section-desc--light { color: rgba(255, 241, 214, 0.88); }
+
+    /* ── Company Story 2-Col Layout ── */
+    .ps-story-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.25rem;
+      align-items: center;
+    }
+    @media(max-width: 860px){
+      .ps-story-grid { grid-template-columns: 1fr; }
+    }
+    .ps-story-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(42, 18, 8, 0.06);
+    }
+    .ps-story-card__quote {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+      border-left: 3.5px solid var(--energy-orange);
+      padding-left: 1rem;
+    }
+    .ps-story-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    @media(max-width: 540px){
+      .ps-story-points { grid-template-columns: 1fr; }
+    }
+    .ps-story-point {
+      background: #FFF9F2;
+      border: 1px solid rgba(201, 75, 0, 0.15);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── Platform Architecture Diagram ── */
+    .ps-arch-card {
+      background: linear-gradient(135deg, #200B03 0%, #2A1208 50%, #38180A 100%);
+      color: #FFFFFF;
+      border: 1.5px solid rgba(255, 154, 31, 0.35);
+      border-radius: 18px;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    .ps-arch-track {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.4rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem 0 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 122, 0, 0.35) transparent;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .ps-arch-node {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 154, 31, 0.22);
+      border-radius: 10px;
+      padding: 0.85rem 0.65rem;
+      min-width: 105px;
+      flex: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.22s ease;
+    }
+    .ps-arch-node:hover {
+      background: rgba(255, 122, 0, 0.15);
+      border-color: #FF9A1F;
+      transform: translateY(-2px);
+    }
+    .ps-arch-node__icon { font-size: 1.4rem; line-height: 1; }
+    .ps-arch-node__name {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .ps-arch-node__sub {
+      font-size: 0.62rem;
+      color: rgba(255, 241, 214, 0.7);
+    }
+    .ps-arch-arrow {
+      color: var(--energy-orange);
+      font-size: 1.15rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    /* ── Solutions 8-Card Grid ── */
+    .ps-solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width: 1100px){
+      .ps-solutions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 580px){
+      .ps-solutions-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 767px) {
+      /* Prevent architecture diagram from causing page overflow */
+      .ps-arch-card {
+        overflow: hidden;
+        max-width: 100%;
+      }
+    }
+    .ps-sol-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 14px;
+      padding: 1.4rem;
+      box-shadow: 0 3px 12px rgba(42, 18, 8, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .ps-sol-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5px;
+      background: linear-gradient(90deg, var(--energy-orange), var(--energy-amber));
+      opacity: 0.85;
+    }
+    .ps-sol-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(80, 25, 0, 0.12);
+      border-color: rgba(255, 122, 0, 0.45);
+    }
+    .ps-sol-card__icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #FFF1D6 0%, #FFE5B4 100%);
+      border: 1px solid rgba(255, 154, 31, 0.4);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+    .ps-sol-card__title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin: 0;
+    }
+    .ps-sol-card__desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── Deployments Cards ── */
+    .ps-deploy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width: 1024px){
+      .ps-deploy-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 580px){
+      .ps-deploy-grid { grid-template-columns: 1fr; }
+    }
+    .ps-deploy-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 14px;
+      padding: 1.4rem;
+      box-shadow: 0 4px 16px rgba(42, 18, 8, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.22s ease;
+    }
+    .ps-deploy-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(80, 25, 0, 0.12);
+      border-color: var(--energy-orange);
+    }
+    .ps-deploy-card__badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #166534;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+    .ps-deploy-card__campus {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin: 0 0 0.25rem;
+    }
+    .ps-deploy-card__type {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      margin-bottom: 0.5rem;
+    }
+    .ps-deploy-card__desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0 0 0.75rem;
+    }
+    .ps-deploy-card__meta {
+      margin-top: auto;
+      padding-top: 0.65rem;
+      border-top: 1px dashed rgba(201, 75, 0, 0.15);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+    }
+
+    /* ── Featured Products (CEMS & UPS) ── */
+    .ps-featured-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+    @media(max-width: 860px){
+      .ps-featured-grid { grid-template-columns: 1fr; }
+    }
+    .ps-featured-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(42, 18, 8, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+    .ps-featured-card__head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ps-featured-card__icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #FFF1D6 0%, #FFE5B4 100%);
+      border: 1.5px solid rgba(255, 154, 31, 0.45);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+    .ps-placeholder-box {
+      background: #FFF9F2;
+      border: 1.5px dashed rgba(201, 75, 0, 0.35);
+      border-radius: 10px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      min-height: 120px;
+      color: var(--energy-burnt);
+    }
+    .ps-placeholder-box__label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .ps-placeholder-box__note {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Training & Courses Grid ── */
+    .ps-courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width: 960px){
+      .ps-courses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 580px){
+      .ps-courses-grid { grid-template-columns: 1fr; }
+    }
+    .ps-course-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 14px;
+      padding: 1.4rem;
+      box-shadow: 0 4px 16px rgba(42, 18, 8, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      transition: all 0.22s ease;
+    }
+    .ps-course-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(80, 25, 0, 0.12);
+      border-color: var(--energy-orange);
+    }
+    .ps-course-card__title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin: 0;
+    }
+    .ps-course-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .ps-course-feature {
+      font-size: 0.78rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ── Startup Journey Timeline ── */
+    .ps-journey-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.75rem;
+    }
+    @media(max-width: 1024px){
+      .ps-journey-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    }
+    @media(max-width: 580px){
+      .ps-journey-grid { grid-template-columns: 1fr; }
+    }
+    .ps-journey-node {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-energy);
+      border-radius: 12px;
+      padding: 1.15rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-shadow: 0 3px 10px rgba(42, 18, 8, 0.05);
+    }
+    .ps-journey-node__num {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      letter-spacing: 0.08em;
+    }
+    .ps-journey-node__title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .ps-journey-node__desc {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* ── Why Power Sense Grid ── */
+    .ps-value-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width: 960px){
+      .ps-value-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 540px){
+      .ps-value-grid { grid-template-columns: 1fr; }
+    }
+    .ps-value-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-energy);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .ps-value-card__num {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--energy-orange);
+      line-height: 1;
+    }
+    .ps-value-card__title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin: 0;
+    }
+    .ps-value-card__desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* ── Final CTA Banner ── */
+    .ps-cta-banner {
+      background: linear-gradient(135deg, #180702 0%, #2A1208 55%, #3D1B0C 100%);
+      color: #FFFFFF;
+      border: 1.5px solid rgba(255, 154, 31, 0.35);
+      border-radius: 20px;
+      padding: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .ps-cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 122, 0, 0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .ps-cta-banner__title {
+      font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.02em;
+    }
+    .ps-cta-banner__desc {
+      font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+      color: rgba(255, 241, 214, 0.88);
+      max-width: 680px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.6;
+    }
+    .ps-cta-banner__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+  </style>
+</head>
+
+<body class="page-startup">
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link active" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link active">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main style="margin-top: 0;">
+
+
+    <!-- ══ HERO SECTION ═════════════════════════════════════════ -->
+    <header class="ps-hero" aria-label="Power Sense Overview">
+      <div class="container">
+        <div class="ps-hero__grid">
+          <div>
+            <div class="ps-hero__eyebrow">
+              <span class="ps-hero__eyebrow-dot"></span>
+              POWER SENSE &middot; SMART ENERGY &middot; IOT &middot; INTELLIGENT MONITORING
+            </div>
+            <h1 class="ps-hero__title">Powering the Future of Intelligent Energy</h1>
+            <p class="ps-hero__subtitle">
+              Building intelligent energy-monitoring, IoT and automation solutions for campuses, industries and smart infrastructure. Born from the Smart Grid R&amp;D Center at IIT Hyderabad.
+            </p>
+            <div class="ps-hero__actions">
+              <a href="#solutions" class="ps-btn-primary">
+                Explore Power Sense &rarr;
+              </a>
+              <a href="https://www.powersense.in/" target="_blank" rel="noopener noreferrer" class="ps-btn-secondary">
+                Visit Website &#x2197;
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Showcase Card: Unified Identity & QR Card -->
+          <div class="ps-id-card">
+            <!-- Left: Compact Square Logo Container -->
+            <div class="ps-id-logo-box">
+              <img src="assets/images/logos/powersense-logo.png" alt="Power Sense Pvt. Ltd. Logo" class="ps-id-logo-img" loading="eager">
+            </div>
+
+            <!-- Divider -->
+            <div class="ps-id-divider" aria-hidden="true"></div>
+
+            <!-- Right: QR Code & Portal Info -->
+            <div class="ps-id-portal">
+              <div class="ps-id-qr-box">
+                <img src="assets/images/startup/qr/powersense-qr.png" alt="Scan QR code to visit Power Sense website" class="ps-id-qr-img" width="100" height="100">
+              </div>
+              <div class="ps-id-info">
+                <span class="ps-id-label">SCAN TO VISIT POWERSENSE</span>
+                <div class="ps-id-title">Power Sense Portal</div>
+                <a href="https://powersense.in/" target="_blank" rel="noopener noreferrer" class="ps-id-link">
+                  Visit powersense.in <span class="ps-id-link__arrow">&#x2197;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Strip -->
+        <div class="ps-metrics-strip" aria-label="Company Statistics">
+          <div class="ps-metric-item">
+            <span class="ps-metric-num">10+</span>
+            <span class="ps-metric-label">Active Deployments</span>
+          </div>
+          <div class="ps-metric-item">
+            <span class="ps-metric-num">4+</span>
+            <span class="ps-metric-label">Partner Campuses</span>
+          </div>
+          <div class="ps-metric-item">
+            <span class="ps-metric-num">24/7</span>
+            <span class="ps-metric-label">IoT Analytics</span>
+          </div>
+          <div class="ps-metric-item">
+            <span class="ps-metric-num">Real-Time</span>
+            <span class="ps-metric-label">Telemetry &amp; Alerts</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- ══ COMPANY STORY ═════════════════════════════════════════ -->
+    <section class="ps-section" id="story" aria-label="Company Introduction">
+      <div class="container">
+        <div class="ps-story-grid">
+          <div>
+            <span class="ps-section-label">Company Profile</span>
+            <h2 class="ps-section-title">From Energy Visibility to Intelligent Action</h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
+              <strong>Power Sense Pvt. Ltd.</strong> is a deep-tech spin-off company originating from applied research at the Smart Grid R&amp;D Center, IIT Hyderabad. We engineer robust hardware and cloud-connected IoT systems that empower institutional campuses, industrial facilities, and utilities to monitor, analyze, and optimize electrical energy in real time.
+            </p>
+            <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin: 0;">
+              By bridging precision electrical measurement with edge computing and cloud analytics, Power Sense eliminates energy blind spots, prevents costly downtime, and provides actionable intelligence for sustainable power management.
+            </p>
+          </div>
+
+          <div class="ps-story-card">
+            <div class="ps-story-card__quote">
+              &ldquo;Transforming raw electrical parameters into clear, continuous, and automated energy intelligence.&rdquo;
+            </div>
+            <div class="ps-story-points">
+              <div class="ps-story-point"><span>⚡</span> Smart Energy Monitoring</div>
+              <div class="ps-story-point"><span>🌐</span> IoT Device Integration</div>
+              <div class="ps-story-point"><span>📊</span> Real-Time Analytics</div>
+              <div class="ps-story-point"><span>🔔</span> Instant Fault Alerts</div>
+              <div class="ps-story-point"><span>🔋</span> Energy Management</div>
+              <div class="ps-story-point"><span>🤖</span> Intelligent Automation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ PLATFORM ARCHITECTURE ═════════════════════════════════ -->
+    <section class="ps-section ps-section--alt" id="platform" aria-label="Platform Architecture" style="overflow-x: hidden;">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">System Architecture</span>
+          <h2 class="ps-section-title">Power Sense Intelligent Energy Platform</h2>
+          <p class="ps-section-desc">
+            An integrated hardware-to-cloud architecture providing continuous visibility and automated control from electrical busbars to executive dashboards.
+          </p>
+        </div>
+
+        <div class="ps-arch-card">
+          <div class="ps-arch-track" role="list">
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">⚡</div>
+              <div class="ps-arch-node__name">Field Devices</div>
+              <div class="ps-arch-node__sub">Transformers, Loads</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">🎛️</div>
+              <div class="ps-arch-node__name">Smart Meters</div>
+              <div class="ps-arch-node__sub">Sensors &amp; CTs</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">🔌</div>
+              <div class="ps-arch-node__name">Modbus / RS485</div>
+              <div class="ps-arch-node__sub">Telemetry Bus</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">📟</div>
+              <div class="ps-arch-node__name">Edge Gateway</div>
+              <div class="ps-arch-node__sub">Edge Processing</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">☁️</div>
+              <div class="ps-arch-node__name">Secure Cloud</div>
+              <div class="ps-arch-node__sub">Data Ingestion</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">🖥️</div>
+              <div class="ps-arch-node__name">Web Dashboard</div>
+              <div class="ps-arch-node__sub">Live Telemetry</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" role="listitem">
+              <div class="ps-arch-node__icon">📱</div>
+              <div class="ps-arch-node__name">User Access</div>
+              <div class="ps-arch-node__sub">Mobile &amp; Web</div>
+            </div>
+            <div class="ps-arch-arrow" aria-hidden="true">&rarr;</div>
+            <div class="ps-arch-node" style="background: rgba(255,122,0,0.2); border-color: #FFC857;" role="listitem">
+              <div class="ps-arch-node__icon">🔔</div>
+              <div class="ps-arch-node__name" style="color: #FFC857;">Analytics</div>
+              <div class="ps-arch-node__sub" style="color: #FFF1D6;">Alerts &amp; Action</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ CORE SOLUTIONS ════════════════════════════════════════ -->
+    <section class="ps-section" id="solutions" aria-label="Core Solutions">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Our Capabilities</span>
+          <h2 class="ps-section-title">What We Build</h2>
+          <p class="ps-section-desc">
+            Scalable, industrial-grade energy technologies and IoT applications tailored for campuses, commercial facilities, and utilities.
+          </p>
+        </div>
+
+        <div class="ps-solutions-grid">
+          <!-- 1 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">⚡</div>
+            <h3 class="ps-sol-card__title">Smart Energy Monitoring</h3>
+            <p class="ps-sol-card__desc">Continuous electrical monitoring across sub-stations, building feeders, and high-load equipment.</p>
+          </div>
+          <!-- 2 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">📊</div>
+            <h3 class="ps-sol-card__title">Energy Management</h3>
+            <p class="ps-sol-card__desc">Deep analytics of energy consumption, peak demand, power factor, and operational energy patterns.</p>
+          </div>
+          <!-- 3 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">🔋</div>
+            <h3 class="ps-sol-card__title">UPS Monitoring</h3>
+            <p class="ps-sol-card__desc">Real-time status, battery condition, load continuity, and health tracking for mission-critical UPS systems.</p>
+          </div>
+          <!-- 4 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">☀️</div>
+            <h3 class="ps-sol-card__title">Solar Monitoring</h3>
+            <p class="ps-sol-card__desc">Rooftop and ground-mount solar PV generation tracking, inverter efficiency metrics, and performance analytics.</p>
+          </div>
+          <!-- 5 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">🌱</div>
+            <h3 class="ps-sol-card__title">Smart IoT Farming</h3>
+            <p class="ps-sol-card__desc">IoT-enabled environmental sensing, automated irrigation control, and microgrid-connected agri-energy solutions.</p>
+          </div>
+          <!-- 6 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">📈</div>
+            <h3 class="ps-sol-card__title">Real-Time Energy Analytics</h3>
+            <p class="ps-sol-card__desc">Visual dashboards for phase voltage, load current, active/reactive power, harmonics, and load balancing.</p>
+          </div>
+          <!-- 7 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">🔔</div>
+            <h3 class="ps-sol-card__title">Fault &amp; Alert Systems</h3>
+            <p class="ps-sol-card__desc">Instant threshold breach notifications, phase-imbalance alarms, and predictive warning notifications.</p>
+          </div>
+          <!-- 8 -->
+          <div class="ps-sol-card">
+            <div class="ps-sol-card__icon">🌐</div>
+            <h3 class="ps-sol-card__title">IoT Device Integration</h3>
+            <p class="ps-sol-card__desc">Seamless multi-protocol interfacing bridging smart meters, sensors, Modbus, and PLCs with secure cloud backends.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ REAL-WORLD DEPLOYMENTS ════════════════════════════════ -->
+    <section class="ps-section ps-section--cream" id="deployments" aria-label="Real-World Deployments">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Field Validation</span>
+          <h2 class="ps-section-title">From Prototype to Real-World Deployment</h2>
+          <p class="ps-section-desc">
+            Power Sense systems are actively deployed and delivering uninterrupted telemetry across leading academic campuses and engineering testbeds.
+          </p>
+        </div>
+
+        <div class="ps-deploy-grid">
+          <!-- BVRIT -->
+          <div class="ps-deploy-card">
+            <span class="ps-deploy-card__badge">Live Deployment</span>
+            <h3 class="ps-deploy-card__campus">BVRIT</h3>
+            <div class="ps-deploy-card__type">Energy &amp; Solar Monitoring</div>
+            <p class="ps-deploy-card__desc">
+              Campus-wide smart metering network, live feeder telemetry streaming, and distributed rooftop solar PV performance monitoring.
+            </p>
+            <div class="ps-deploy-card__meta">&check; Campus Energy &amp; Solar Array</div>
+          </div>
+
+          <!-- MGIT -->
+          <div class="ps-deploy-card">
+            <span class="ps-deploy-card__badge">Live Deployment</span>
+            <h3 class="ps-deploy-card__campus">MGIT</h3>
+            <div class="ps-deploy-card__type">Energy &amp; UPS Monitoring</div>
+            <p class="ps-deploy-card__desc">
+              Uninterruptible power supply telemetry, battery condition tracking, and real-time electrical parameter observation across academic blocks.
+            </p>
+            <div class="ps-deploy-card__meta">&check; UPS Health &amp; Power Telemetry</div>
+          </div>
+
+          <!-- CBIT -->
+          <div class="ps-deploy-card">
+            <span class="ps-deploy-card__badge">Live Deployment</span>
+            <h3 class="ps-deploy-card__campus">CBIT</h3>
+            <div class="ps-deploy-card__type">Campus Energy Monitoring</div>
+            <p class="ps-deploy-card__desc">
+              High-voltage substation and feeder power quality logging, maximum demand tracking, and automated consumption auditing.
+            </p>
+            <div class="ps-deploy-card__meta">&check; Substation &amp; Feeder Analytics</div>
+          </div>
+
+          <!-- BITS Warangal -->
+          <div class="ps-deploy-card">
+            <span class="ps-deploy-card__badge">Live Deployment</span>
+            <h3 class="ps-deploy-card__campus">BITS Warangal</h3>
+            <div class="ps-deploy-card__type">Energy &amp; Solar PV Monitoring</div>
+            <p class="ps-deploy-card__desc">
+              Institutional energy management setup integrating building-level sub-metering with solar generation tracking and yield estimation.
+            </p>
+            <div class="ps-deploy-card__meta">&check; Multi-building Smart Grid</div>
+          </div>
+        </div>
+
+        <!-- Additional Agri-IoT Highlight -->
+        <div style="margin-top: 1.5rem; background: #FFFFFF; border: 1.5px solid var(--border-energy); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.5rem;">🌱</span>
+            <div>
+              <div style="font-size: 0.92rem; font-weight: 800; color: var(--energy-dark);">IIT Hyderabad — Smart IoT Farming &amp; Agri-Energy Testbed</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Specialized precision soil-environmental sensing and microgrid-connected automated irrigation.</div>
+            </div>
+          </div>
+          <span class="ps-deploy-card__badge" style="margin: 0;">Active Testbed</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ HARDWARE + IOT ════════════════════════════════════════ -->
+    <section class="ps-section ps-section--alt" id="hardware" aria-label="Hardware and IoT Integration">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Engineering Foundation</span>
+          <h2 class="ps-section-title">Hardware Meets Intelligence</h2>
+          <p class="ps-section-desc">
+            Custom-engineered sensing, measurement, and communication hardware built for durability, precision, and harsh industrial environments.
+          </p>
+        </div>
+
+        <div class="ps-solutions-grid">
+          <!-- 1 -->
+          <div class="ps-sol-card">
+            <!-- ADD POWERSENSE HARDWARE IMAGE -->
+            <div class="ps-placeholder-box">
+              <span style="font-size: 1.75rem;">📟</span>
+              <span class="ps-placeholder-box__label">Edge IoT Gateways</span>
+              <span class="ps-placeholder-box__note">Modbus RS485 &middot; Wi-Fi &middot; Ethernet</span>
+            </div>
+            <h3 class="ps-sol-card__title" style="margin-top: 0.5rem;">Industrial Edge Gateways</h3>
+            <p class="ps-sol-card__desc">Embedded micro-controllers for local protocol translation, data buffering, and secure cloud ingestion.</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="ps-sol-card">
+            <!-- ADD SMART METER IMAGE -->
+            <div class="ps-placeholder-box">
+              <span style="font-size: 1.75rem;">🎛️</span>
+              <span class="ps-placeholder-box__label">Smart Metering Nodes</span>
+              <span class="ps-placeholder-box__note">Class 0.5 / 1.0 Accuracy</span>
+            </div>
+            <h3 class="ps-sol-card__title" style="margin-top: 0.5rem;">Smart Meters &amp; Transducers</h3>
+            <p class="ps-sol-card__desc">True-RMS voltage, current, power factor, frequency, and harmonic distortion measurement hardware.</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="ps-sol-card">
+            <!-- ADD CEMS HARDWARE IMAGE -->
+            <div class="ps-placeholder-box">
+              <span style="font-size: 1.75rem;">⚡</span>
+              <span class="ps-placeholder-box__label">CEMS Feeder Panels</span>
+              <span class="ps-placeholder-box__note">Campus Feeder Telemetry</span>
+            </div>
+            <h3 class="ps-sol-card__title" style="margin-top: 0.5rem;">CEMS Infrastructure</h3>
+            <p class="ps-sol-card__desc">Centralized multi-feeder data concentrators and automated load-shedding control interfaces.</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="ps-sol-card">
+            <!-- ADD UPS HARDWARE IMAGE -->
+            <div class="ps-placeholder-box">
+              <span style="font-size: 1.75rem;">🔋</span>
+              <span class="ps-placeholder-box__label">UPS Telemetry Modules</span>
+              <span class="ps-placeholder-box__note">DC / AC Power Conditioning</span>
+            </div>
+            <h3 class="ps-sol-card__title" style="margin-top: 0.5rem;">UPS Monitoring Hardware</h3>
+            <p class="ps-sol-card__desc">Isolated sensor interfaces for battery bank state estimation, DC bus voltage, and inverter health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ FEATURED PRODUCTS: CEMS & UPS ═════════════════════════ -->
+    <section class="ps-section" id="products" aria-label="Featured Products">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Flagship Products</span>
+          <h2 class="ps-section-title">Campus &amp; Critical Infrastructure Solutions</h2>
+          <p class="ps-section-desc">
+            Explore live telemetry and supervisory platforms developed from lab prototypes into operational software tools.
+          </p>
+        </div>
+
+        <div class="ps-featured-grid">
+          <!-- CEMS Card -->
+          <div class="ps-featured-card">
+            <div class="ps-featured-card__head">
+              <div class="ps-featured-card__icon">⚡</div>
+              <div>
+                <span class="ps-deploy-card__badge">Live Deployment</span>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--energy-dark); margin: 0;">
+                  CEMS &mdash; Campus Energy Management System
+                </h3>
+              </div>
+            </div>
+
+            <!-- ADD CEMS DASHBOARD IMAGE -->
+            <div class="ps-placeholder-box" style="min-height: 140px;">
+              <span style="font-size: 2rem;">📊</span>
+              <span class="ps-placeholder-box__label">CEMS Telemetry Portal</span>
+              <span class="ps-placeholder-box__note">Real-time load forecasting, peak-shaving analytics, and multi-feeder overview</span>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+              An end-to-end campus energy management system providing real-time data acquisition, automated energy auditing, dynamic load balancing, and renewable integration analytics.
+            </p>
+
+            <a href="https://script.google.com/a/macros/bvrit.ac.in/s/AKfycbwtvywmOVEmUmt_KmbZaSXvZNxsMh5ci2DDdfCG1TCch1gr3E3QqI5xYCxbnaI5N0F6/exec"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ps-btn-primary"
+               style="align-self: flex-start;">
+              Explore CEMS &rarr;
+            </a>
+          </div>
+
+          <!-- UPS Card -->
+          <div class="ps-featured-card">
+            <div class="ps-featured-card__head">
+              <div class="ps-featured-card__icon">🔋</div>
+              <div>
+                <span class="ps-deploy-card__badge">Live Monitoring</span>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--energy-dark); margin: 0;">
+                  UPS &amp; Critical Power Monitoring
+                </h3>
+              </div>
+            </div>
+
+            <!-- ADD UPS MONITORING IMAGE -->
+            <div class="ps-placeholder-box" style="min-height: 140px;">
+              <span style="font-size: 2rem;">⚡</span>
+              <span class="ps-placeholder-box__label">UPS Monitoring Console</span>
+              <span class="ps-placeholder-box__note">Battery bank diagnostics, harmonic distortion filtering, and seamless transfer telemetry</span>
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
+              Mission-critical UPS health and power conditioning observation platform ensuring harmonic-free, uninterrupted power across industrial facilities and data centers.
+            </p>
+
+            <a href="https://script.google.com/macros/s/AKfycbwMkNT8K24xMB-YTlmEhZgeusYnoZo8wzuH7rghkw4shE5gEBPPvr6dJ94xPZ3gMcfU/exec"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ps-btn-primary"
+               style="align-self: flex-start;">
+              Explore UPS Monitoring &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ POWER SENSE LIVE MONITORING ═══════════════════════════ -->
+    <section class="ps-section ps-section--dark" id="live-monitoring" aria-label="Live Monitoring">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label ps-section-label--light">Live Telemetry</span>
+          <h2 class="ps-section-title ps-section-title--light">Power Sense Live &mdash; Real-Time Infrastructure Monitoring</h2>
+          <p class="ps-section-desc ps-section-desc--light">
+            Continuous real-time observation streaming telemetry across connected sub-stations, solar installations, and critical loads.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); border: 1.5px solid rgba(255, 154, 31, 0.35); border-radius: 16px; padding: 2rem; max-width: 880px; margin: 0 auto; text-align: center;">
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.75rem;">
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,154,31,0.2);">
+              <div style="color: #22C55E; font-size: 1.25rem; font-weight: 800;">ONLINE</div>
+              <div style="color: #FFFFFF; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">BVRIT Feeder</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,154,31,0.2);">
+              <div style="color: #22C55E; font-size: 1.25rem; font-weight: 800;">ONLINE</div>
+              <div style="color: #FFFFFF; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">MGIT UPS</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,154,31,0.2);">
+              <div style="color: #22C55E; font-size: 1.25rem; font-weight: 800;">ONLINE</div>
+              <div style="color: #FFFFFF; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">CBIT Grid</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 10px; border: 1px solid rgba(255,154,31,0.2);">
+              <div style="color: #22C55E; font-size: 1.25rem; font-weight: 800;">ONLINE</div>
+              <div style="color: #FFFFFF; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">BITS Solar</div>
+            </div>
+          </div>
+
+          <p style="color: rgba(255,241,214,0.9); font-size: 0.92rem; max-width: 620px; margin: 0 auto 1.5rem; line-height: 1.6;">
+            Access real-time telemetry streaming, historical load curves, event logging, and power factor analysis via the official Power Sense Live portal.
+          </p>
+
+          <a href="https://www.powersense.in/Live-Monitoring"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="ps-btn-primary">
+            View Live Monitoring &#x2197;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ ENERGY MANAGEMENT PIPELINE ════════════════════════════ -->
+    <section class="ps-section ps-section--alt" id="energy-management" aria-label="Energy Intelligence">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Energy Intelligence</span>
+          <h2 class="ps-section-title">Five Steps from Telemetry to Cost Optimization</h2>
+          <p class="ps-section-desc">
+            Transforming high-frequency electrical measurements into structured energy accounting, peak-demand reduction, and operational savings.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">01</span>
+            <div class="ps-journey-node__title">Monitor</div>
+            <p class="ps-journey-node__desc">Continuous True-RMS logging of V, I, kW, kVA, and harmonics.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">02</span>
+            <div class="ps-journey-node__title">Analyze</div>
+            <p class="ps-journey-node__desc">Historical trend evaluation, baseline load profiling, and power factor analysis.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">03</span>
+            <div class="ps-journey-node__title">Detect</div>
+            <p class="ps-journey-node__desc">Anomaly identification, phase unbalance detection, and loss localization.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">04</span>
+            <div class="ps-journey-node__title">Alert</div>
+            <p class="ps-journey-node__desc">Instant SMS/email notifications on threshold breaches or power quality faults.</p>
+          </div>
+          <div class="ps-journey-node" style="border-color: var(--energy-orange); background: #FFF9F2;">
+            <span class="ps-journey-node__num" style="color: var(--energy-orange);">05</span>
+            <div class="ps-journey-node__title" style="color: var(--energy-burnt);">Optimize</div>
+            <p class="ps-journey-node__desc">Dynamic load shifting, peak shaving, and power factor correction.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="https://www.powersense.in/solutions/energy-management"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="ps-btn-primary">
+            Explore Energy Management Solutions &#x2197;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ POWER SENSE ACADEMY & COURSES ═════════════════════════ -->
+    <section class="ps-section ps-section--cream" id="training" aria-label="Training and Online Courses">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Technical Education</span>
+          <h2 class="ps-section-title">Power Sense Academy</h2>
+          <p class="ps-section-desc">
+            Industry-focused online learning for engineering students and working professionals. Master real-world power systems, electrical machines, circuits, and energy management.
+          </p>
+        </div>
+
+        <div class="ps-courses-grid">
+          <!-- Course 1 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">📊</div>
+            <h3 class="ps-course-card__title">Energy Management</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Industrial energy auditing, maximum demand control, power quality mitigation, and energy economics.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">⚡</div>
+            <h3 class="ps-course-card__title">Power Systems</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Transmission line modeling, power flow analysis, fault calculation, stability, and digital protection.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">🔋</div>
+            <h3 class="ps-course-card__title">DC Machines</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              DC generator and motor fundamentals, speed control methods, starting mechanisms, and industrial testing.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">🔌</div>
+            <h3 class="ps-course-card__title">DC Circuits</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Network theorems, Kirchhoff's laws, nodal/mesh analysis, transients, and DC power calculations.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+
+          <!-- Course 5 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">🌊</div>
+            <h3 class="ps-course-card__title">AC Circuits</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Single-phase and three-phase circuits, phasor diagrams, resonance, power factor, and complex power.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+
+          <!-- Course 6 -->
+          <div class="ps-course-card">
+            <div style="font-size: 1.6rem;">⚙️</div>
+            <h3 class="ps-course-card__title">AC Machines</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0;">
+              Induction motors, synchronous generators, transformers, equivalent circuits, and industrial drives.
+            </p>
+            <ul class="ps-course-features">
+              <li class="ps-course-feature"><span>🎥</span> HD Video Tutorials</li>
+              <li class="ps-course-feature"><span>📝</span> Take-Home Exam</li>
+              <li class="ps-course-feature"><span>📜</span> Certification by Power Sense Pvt. Ltd.</li>
+              <li class="ps-course-feature"><span>⚡</span> Industry-Focused Learning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="https://www.powersense.in/training"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="ps-btn-primary">
+            Explore Online Courses &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ LEARN EXPERIMENT BUILD ════════════════════════════════ -->
+    <section class="ps-section ps-section--alt" aria-label="Learning and Development Pipeline">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Integrated Learning</span>
+          <h2 class="ps-section-title">Learn &rarr; Experiment &rarr; Build</h2>
+          <p class="ps-section-desc">
+            Bridging online curriculum with state-of-the-art physical smart grid testbeds and real-world commercial deployments.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.75rem;">
+          <div class="ps-journey-node" style="text-align: center; align-items: center;">
+            <div style="font-size: 1.5rem;">💻</div>
+            <div class="ps-journey-node__title">Online Learning</div>
+            <p class="ps-journey-node__desc">Power Sense Academy video courses &amp; fundamentals</p>
+          </div>
+          <div class="ps-journey-node" style="text-align: center; align-items: center;">
+            <div style="font-size: 1.5rem;">🔬</div>
+            <div class="ps-journey-node__title">Lab Experience</div>
+            <p class="ps-journey-node__desc">Smart Grid R&amp;D Center physical laboratory</p>
+          </div>
+          <div class="ps-journey-node" style="text-align: center; align-items: center;">
+            <div style="font-size: 1.5rem;">⚡</div>
+            <div class="ps-journey-node__title">Hands-On Testing</div>
+            <p class="ps-journey-node__desc">Microgrid and power electronics testbeds</p>
+          </div>
+          <div class="ps-journey-node" style="text-align: center; align-items: center;">
+            <div style="font-size: 1.5rem;">🎛️</div>
+            <div class="ps-journey-node__title">Prototype Dev</div>
+            <p class="ps-journey-node__desc">Fabricating edge IoT and metering hardware</p>
+          </div>
+          <div class="ps-journey-node" style="text-align: center; align-items: center; border-color: var(--energy-orange); background: #FFF9F2;">
+            <div style="font-size: 1.5rem;">🚀</div>
+            <div class="ps-journey-node__title" style="color: var(--energy-burnt);">Industry Deployment</div>
+            <p class="ps-journey-node__desc">Institutional and commercial scale implementations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ RESEARCH TO STARTUP JOURNEY ═══════════════════════════ -->
+    <section class="ps-section" id="journey" aria-label="Research to Startup Journey">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Commercialisation Pathway</span>
+          <h2 class="ps-section-title">The Research-to-Startup Journey</h2>
+          <p class="ps-section-desc">
+            The six-stage translation pathway that evolved fundamental academic research at IIT Hyderabad into a commercially operating engineering enterprise.
+          </p>
+        </div>
+
+        <div class="ps-journey-grid">
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">01</span>
+            <div class="ps-journey-node__title">Research</div>
+            <p class="ps-journey-node__desc">Formulating state-estimation and energy management algorithms at IIT Hyderabad.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">02</span>
+            <div class="ps-journey-node__title">Technology</div>
+            <p class="ps-journey-node__desc">Designing power conditioning circuits and edge IoT telemetry protocols.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">03</span>
+            <div class="ps-journey-node__title">Prototype</div>
+            <p class="ps-journey-node__desc">Fabricating physical test benches and smart metering hardware nodes.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">04</span>
+            <div class="ps-journey-node__title">Validation</div>
+            <p class="ps-journey-node__desc">Rigorous experimental testing across microgrid testbeds in the laboratory.</p>
+          </div>
+          <div class="ps-journey-node">
+            <span class="ps-journey-node__num">05</span>
+            <div class="ps-journey-node__title">Deployment</div>
+            <p class="ps-journey-node__desc">Field trials and multi-building installations across university campuses.</p>
+          </div>
+          <div class="ps-journey-node" style="border-color: var(--energy-orange); background: #FFF9F2;">
+            <span class="ps-journey-node__num" style="color: var(--energy-orange);">06</span>
+            <div class="ps-journey-node__title" style="color: var(--energy-burnt);">Startup Impact</div>
+            <p class="ps-journey-node__desc">Commercial scale-up, live monitoring services, and Power Sense Pvt. Ltd.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ INDUSTRY COLLABORATION & VALUE PROPOSITION ════════════ -->
+    <section class="ps-section ps-section--alt" id="collaboration" aria-label="Industry Collaboration">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Applied Innovation</span>
+          <h2 class="ps-section-title">Industry Collaboration &amp; Technology Partnership</h2>
+          <p class="ps-section-desc">
+            Collaborating with universities, industrial plants, facility managers, and energy utilities to deploy customized monitoring and IoT infrastructure.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+          <div class="ps-story-point"><span>🏢</span> Campus Energy Management</div>
+          <div class="ps-story-point"><span>🏭</span> Industrial Energy Monitoring</div>
+          <div class="ps-story-point"><span>🔋</span> UPS Monitoring &amp; Health</div>
+          <div class="ps-story-point"><span>☀️</span> Solar PV Generation Analytics</div>
+          <div class="ps-story-point"><span>🌱</span> Smart IoT &amp; Agri-Energy</div>
+          <div class="ps-story-point"><span>📈</span> Custom Energy Analytics</div>
+          <div class="ps-story-point"><span>📟</span> Hardware Gateway Dev</div>
+          <div class="ps-story-point"><span>🎓</span> Corporate &amp; Student Training</div>
+        </div>
+
+        <div style="background: #FFF9F2; border: 1.5px solid var(--border-energy); border-radius: 14px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--energy-dark); margin: 0 0 0.25rem;">
+              Partner with Power Sense Pvt. Ltd.
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; max-width: 650px;">
+              For deployment consultations, hardware integration, or customized training workshops, connect with our engineering team.
+            </p>
+          </div>
+          <a href="contact.html" class="ps-btn-primary">
+            Collaborate With Power Sense &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ WHY POWER SENSE ═══════════════════════════════════════ -->
+    <section class="ps-section ps-section--cream" id="why" aria-label="Why Power Sense">
+      <div class="container">
+        <div class="ps-section-header">
+          <span class="ps-section-label">Value Proposition</span>
+          <h2 class="ps-section-title">Why Power Sense?</h2>
+          <p class="ps-section-desc">
+            Four key pillars that distinguish Power Sense as a practical, research-backed energy technology partner.
+          </p>
+        </div>
+
+        <div class="ps-value-grid">
+          <div class="ps-value-card">
+            <span class="ps-value-card__num">01</span>
+            <h3 class="ps-value-card__title">Real-Time Visibility</h3>
+            <p class="ps-value-card__desc">Continuous, high-frequency True-RMS monitoring eliminating blind spots across electrical networks.</p>
+          </div>
+          <div class="ps-value-card">
+            <span class="ps-value-card__num">02</span>
+            <div class="ps-value-card__title">Intelligent Analytics</div>
+            <p class="ps-value-card__desc">Actionable power factor, peak demand, and harmonic distortion insights for measurable savings.</p>
+          </div>
+          <div class="ps-value-card">
+            <span class="ps-value-card__num">03</span>
+            <div class="ps-value-card__title">IoT &amp; Hardware Integration</div>
+            <p class="ps-value-card__desc">Robust, custom-engineered edge gateways and sensor interfaces with open multi-protocol support.</p>
+          </div>
+          <div class="ps-value-card">
+            <span class="ps-value-card__num">04</span>
+            <div class="ps-value-card__title">Practical Energy Solutions</div>
+            <p class="ps-value-card__desc">Field-proven deployments across multiple academic institutions and active industrial setups.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ FUTURE VISION & FINAL CTA ═════════════════════════════ -->
+    <section class="ps-section" id="cta" aria-label="Future Vision and Actions">
+      <div class="container">
+        <div class="ps-cta-banner">
+          <div style="font-size: 0.75rem; font-weight: 800; color: #FFC857; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem;">
+            BUILDING INTELLIGENT ENERGY ECOSYSTEMS
+          </div>
+          <h2 class="ps-cta-banner__title">Ready to Build Smarter Energy Infrastructure?</h2>
+          <p class="ps-cta-banner__desc">
+            Power Sense brings together energy monitoring, IoT, analytics, automation, hardware and engineering knowledge to build smarter, more resilient energy infrastructure.
+          </p>
+          <div class="ps-cta-banner__buttons">
+            <a href="https://www.powersense.in/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ps-btn-primary">
+              Visit Power Sense &#x2197;
+            </a>
+            <a href="https://www.powersense.in/solutions/energy-management"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ps-btn-secondary">
+              Explore Solutions &#x2197;
+            </a>
+            <a href="https://www.powersense.in/training"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ps-btn-secondary">
+              Explore Courses &#x2197;
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            Research in CEMS, UPS, EV Integration, Smart Grid, and Microgrid technologies at IIT Hyderabad.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item"><span class="footer__credit-label">Funded by:</span> LS Electricals</div>
+            <div class="footer__credit-item"><span class="footer__credit-label">Institution:</span> IIT Hyderabad</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research &amp; Startup</div>
+          <nav class="footer__links" aria-label="Research and Startup links">
+            <a href="research.html#cems" class="footer__link">CEMS</a>
+            <a href="research.html#ups" class="footer__link">UPS Systems</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="startup.html" class="footer__link">Power Sense Pvt Ltd</a>
+            <a href="https://www.powersense.in/" target="_blank" rel="noopener noreferrer" class="footer__link">Power Sense Portal &#x2197;</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Lab</div>
+          <nav class="footer__links" aria-label="Lab links">
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="team.html" class="footer__link">Team</a>
+            <a href="facilities.html" class="footer__link">Facilities</a>
+            <a href="events.html" class="footer__link">Workshops</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="contact.html" class="footer__link">Contact Us</a>
+            <a href="media.html" class="footer__link">Media &amp; Videos</a>
+            <a href="media.html#visitor-experience" class="footer__link">Visit the Lab</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Smart Grid R&amp;D Center, IIT Hyderabad &amp; Power Sense Pvt. Ltd. All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">&#x1D54F;</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">&#x25B6;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+</body>
+</html>

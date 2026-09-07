@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media &amp; Visitor Experience — Smart Grid R&amp;D Center | IIT Hyderabad</title>
+  <meta name="description" content="Official Institutional Photo Archive &amp; Visitor Experience of the Smart Grid R&amp;D Center, IIT Hyderabad. Browse DISCOM batches, student workshops, delegations, equipment setup, hardware prototypes, and the interactive Lab Selfie Point.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=3.0">
+  <link rel="stylesheet" href="css/components.css?v=3.0">
+  <link rel="stylesheet" href="css/responsive.css?v=3.0">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <!-- Scoped Premium Styles for Institutional Media Archive -->
+  <style>
+    /* ── Base Container & Padding Fixes ──────────────────────── */
+    .media-page {
+      padding-top: var(--nav-height);
+      background-color: var(--color-off-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    /* Standard Unified Container for all Media Page Sections */
+    .media-container {
+      width: min(1200px, calc(100% - 40px));
+      max-width: 1200px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    @media (max-width: 767px) {
+      .media-container {
+        width: calc(100% - 32px);
+      }
+    }
+
+    /* ── 1. Hero Section ─────────────────────────────────────── */
+    .media-hero {
+      position: relative;
+      background: radial-gradient(circle at 85% 20%, rgba(255, 122, 0, 0.22), transparent 50%),
+                  radial-gradient(circle at 15% 80%, rgba(201, 75, 0, 0.18), transparent 45%),
+                  linear-gradient(135deg, #180a04 0%, #2a1208 55%, #3d1b0c 100%);
+      color: #ffffff;
+      padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(2.2rem, 4vw, 3.2rem);
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 122, 0, 0.25);
+    }
+
+    .media-hero__grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 159, 28, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 159, 28, 0.05) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      opacity: 0.75;
+    }
+
+    .media-hero__glow {
+      position: absolute;
+      top: -80px;
+      right: 8%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 122, 0, 0.25) 0%, rgba(201, 75, 0, 0.08) 50%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .media-hero__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .media-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(255, 122, 0, 0.15);
+      border: 1px solid rgba(255, 159, 28, 0.4);
+      color: var(--energy-light-amber);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .media-hero__title {
+      font-size: clamp(2rem, 4.8vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+
+    .media-hero__title span {
+      background: linear-gradient(135deg, #FF9F1C, #FFC857);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .media-hero__subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: rgba(255, 249, 242, 0.9);
+      line-height: 1.6;
+      max-width: 820px;
+      margin: 0 auto 2rem;
+    }
+
+    .media-hero__highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .media-highlight-card {
+      background: rgba(42, 18, 8, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 159, 28, 0.28);
+      border-radius: 14px;
+      padding: 1.15rem 0.95rem;
+      text-align: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(24, 10, 4, 0.3);
+    }
+
+    .media-highlight-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--energy-orange);
+      background: rgba(61, 27, 12, 0.85);
+      box-shadow: 0 12px 30px rgba(255, 122, 0, 0.25);
+    }
+
+    .media-highlight-card__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.35rem;
+      display: inline-block;
+    }
+
+    .media-highlight-card__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--energy-light-amber);
+      margin-bottom: 0.2rem;
+    }
+
+    .media-highlight-card__desc {
+      font-size: var(--text-xs);
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* ── 2. Media Category Navigation (Sticky) ───────────────── */
+    .media-cat-nav {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(201, 75, 0, 0.16);
+      padding: 0.75rem 0;
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(42, 18, 8, 0.06);
+    }
+
+    .media-cat-nav__scroll {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.2rem 0;
+      align-items: center;
+    }
+
+    .media-cat-nav__scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .media-cat-nav__link {
+      white-space: nowrap;
+      padding: 0.5rem 1.1rem;
+      border-radius: 9999px;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--warm-white);
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .media-cat-nav__link:hover {
+      background: var(--energy-pale-amber);
+      border-color: var(--energy-orange);
+      color: var(--energy-burnt);
+    }
+
+    .media-cat-nav__link--active {
+      background: var(--energy-burnt);
+      border-color: var(--energy-burnt);
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(201, 75, 0, 0.3);
+    }
+
+    /* ── Common Section Styling ──────────────────────────────── */
+    .media-archive-section {
+      padding: 56px 0;
+      border-top: 1px solid rgba(201, 75, 0, 0.1);
+      position: relative;
+      scroll-margin-top: calc(var(--nav-height) + 56px);
+    }
+
+    .media-archive-section:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    .media-archive-section:nth-child(odd) {
+      background-color: var(--color-off-white);
+    }
+
+    @media (max-width: 1024px) {
+      .media-archive-section {
+        padding: 44px 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .media-archive-section {
+        padding: 36px 0;
+      }
+    }
+
+    /* Compact, Professional Section Header */
+    .media-section-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 22px; /* Consistent compact 22px gap to cards */
+    }
+
+    .media-section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--energy-burnt);
+      background: var(--energy-pale-amber);
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.35rem;
+    }
+
+    .media-section-title {
+      font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+      font-weight: 800;
+      color: var(--energy-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+      line-height: 1.25;
+    }
+
+    .media-section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── 3. Research in Action (3 cols x 2 rows) ─────────────── */
+    .research-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 310px));
+      justify-content: center;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .research-highlight-card {
+      background: #ffffff;
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(42, 18, 8, 0.04);
+    }
+
+    .research-highlight-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--energy-orange);
+      box-shadow: 0 12px 28px rgba(80, 25, 0, 0.1);
+    }
+
+    .research-highlight-card__media {
+      height: 180px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #180903;
+    }
+
+    @media (max-width: 767px) {
+      .research-highlight-card__media {
+        height: 160px;
+      }
+    }
+
+    .research-highlight-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .research-highlight-card:hover .research-highlight-card__img {
+      transform: scale(1.05);
+    }
+
+    .research-highlight-card__tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(42, 18, 8, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--energy-light-amber);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 159, 28, 0.3);
+    }
+
+    .research-highlight-card__body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .research-highlight-card__header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 6px;
+    }
+
+    .research-highlight-card__icon {
+      font-size: 1.2rem;
+    }
+
+    .research-highlight-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .research-highlight-card__desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .research-highlight-card__action {
+      padding-top: 10px;
+      border-top: 1px solid rgba(201, 75, 0, 0.12);
+      margin-top: auto;
+    }
+
+    .research-highlight-card__btn {
+      background: none;
+      border: none;
+      color: var(--energy-burnt);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0;
+      transition: color 0.2s ease;
+    }
+
+    .research-highlight-card__btn:hover {
+      color: var(--energy-orange);
+    }
+
+    /* ── Professional Album Cards Grid (Normal Proportions) ─── */
+    .archive-albums-grid {
+      display: grid;
+      gap: 24px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* 3 Columns centered for DISCOM & Students (Normal ~310px width) */
+    .archive-albums-grid--3-col {
+      grid-template-columns: repeat(3, minmax(0, 310px));
+      justify-content: center;
+    }
+
+    /* Centered 2 Columns for Visitors & Hardware */
+    .archive-albums-grid--2-col {
+      grid-template-columns: repeat(2, minmax(0, 310px));
+      justify-content: center;
+    }
+
+    /* Centered 1 Column for Lab Setup */
+    .archive-albums-grid--1-col {
+      grid-template-columns: minmax(0, 310px);
+      justify-content: center;
+    }
+
+    @media (max-width: 1024px) {
+      .research-highlight-grid {
+        grid-template-columns: repeat(2, minmax(0, 310px));
+        justify-content: center;
+        gap: 20px;
+      }
+      .archive-albums-grid,
+      .archive-albums-grid--3-col,
+      .archive-albums-grid--2-col,
+      .archive-albums-grid--1-col {
+        grid-template-columns: repeat(2, minmax(0, 310px));
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .research-highlight-grid {
+        grid-template-columns: minmax(0, 350px);
+        justify-content: center;
+        gap: 16px;
+      }
+      .archive-albums-grid,
+      .archive-albums-grid--3-col,
+      .archive-albums-grid--2-col,
+      .archive-albums-grid--1-col {
+        grid-template-columns: minmax(0, 350px);
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+
+    /* Single Album Card */
+    .archive-album-card {
+      background: #ffffff;
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(42, 18, 8, 0.04);
+    }
+
+    .archive-album-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--energy-orange);
+      box-shadow: 0 12px 28px rgba(80, 25, 0, 0.1);
+    }
+
+    .archive-album-card__media {
+      position: relative;
+      height: 180px;
+      width: 100%;
+      background: #180903;
+      overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+      .archive-album-card__media {
+        height: 160px;
+      }
+    }
+
+    .archive-album-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .archive-album-card:hover .archive-album-card__img {
+      transform: scale(1.05);
+    }
+
+    .archive-album-card__badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--energy-burnt);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .archive-album-card__badge--dim {
+      background: rgba(42, 18, 8, 0.7);
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .archive-album-card__count {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(42, 18, 8, 0.85);
+      backdrop-filter: blur(4px);
+      color: var(--energy-light-amber);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.18rem 0.5rem;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 159, 28, 0.3);
+    }
+
+    .archive-album-card__empty-cover {
+      height: 180px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #241107 0%, #35170a 100%);
+      color: var(--energy-light-amber);
+      gap: 0.4rem;
+    }
+
+    @media (max-width: 767px) {
+      .archive-album-card__empty-cover {
+        height: 160px;
+      }
+    }
+
+    .archive-empty-icon {
+      font-size: 1.8rem;
+      opacity: 0.7;
+    }
+
+    .archive-empty-text {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+    }
+
+    .archive-album-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(42, 18, 8, 0.4);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .archive-album-card:hover .archive-album-card__overlay {
+      opacity: 1;
+    }
+
+    .archive-album-card__cta {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: 0.4rem 0.95rem;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Card Content Structure matching Point 4 order */
+    .archive-album-card__body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .archive-album-card__category-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--energy-burnt);
+      background: var(--energy-pale-amber);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 8px; /* 8px down to title */
+    }
+
+    .archive-album-card__title {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+
+    .archive-album-card__subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--energy-burnt);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .archive-album-card__desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+
+    .archive-album-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-top: 10px;
+      border-top: 1px solid rgba(201, 75, 0, 0.12);
+      margin-top: auto; /* Aligns footer cleanly at bottom */
+      flex-wrap: wrap;
+    }
+
+    .archive-album-card__photo-count {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      background: var(--energy-pale-amber);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .archive-album-card__action-link {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .archive-album-card:hover .archive-album-card__action-link {
+      color: var(--energy-orange);
+    }
+
+    .archive-album-card__action-link--muted {
+      color: var(--text-muted) !important;
+    }
+
+    /* ── Album Photo Gallery View ────────────────────────────── */
+    .archive-photo-view {
+      background: #ffffff;
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      border-radius: 16px;
+      padding: clamp(1.2rem, 3vw, 1.75rem);
+      box-shadow: 0 6px 20px rgba(42, 18, 8, 0.06);
+    }
+
+    .archive-photo-view__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: var(--warm-white);
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      border-radius: 10px;
+      padding: 0.65rem 1.1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .archive-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #ffffff;
+      color: var(--energy-burnt);
+      border: 1.5px solid var(--energy-orange);
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(201, 75, 0, 0.1);
+    }
+
+    .archive-back-btn:hover {
+      background: var(--energy-burnt);
+      color: #ffffff;
+      border-color: var(--energy-burnt);
+      transform: translateX(-3px);
+    }
+
+    .archive-photo-view__breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .archive-photo-view__crumb-link {
+      color: var(--energy-burnt);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .archive-photo-view__crumb-sep {
+      color: rgba(201, 75, 0, 0.4);
+      font-weight: 700;
+    }
+
+    .archive-photo-view__crumb-active {
+      color: var(--energy-dark);
+      font-weight: 700;
+    }
+
+    .archive-photo-view__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201, 75, 0, 0.12);
+      flex-wrap: wrap;
+    }
+
+    .archive-photo-view__titles {
+      max-width: 800px;
+    }
+
+    .archive-photo-view__badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--energy-burnt);
+      background: var(--energy-pale-amber);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+
+    .archive-photo-view__title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.25rem;
+      line-height: 1.25;
+    }
+
+    .archive-photo-view__institution {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--energy-burnt);
+      margin-bottom: 0.35rem;
+    }
+
+    .archive-photo-view__desc {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .archive-photo-counter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: var(--warm-white);
+      border: 1px solid rgba(201, 75, 0, 0.2);
+      color: var(--energy-burnt);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .archive-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      .archive-photos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .archive-photos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .archive-photos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .archive-photo-item {
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      background: #180903;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(42, 18, 8, 0.04);
+    }
+
+    .archive-photo-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--energy-orange);
+      box-shadow: 0 10px 24px rgba(80, 25, 0, 0.12);
+    }
+
+    .archive-photo-item__box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .archive-photo-item__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.35s ease;
+      display: block;
+    }
+
+    .archive-photo-item:hover .archive-photo-item__img {
+      transform: scale(1.06);
+    }
+
+    .archive-photo-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(42, 18, 8, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .archive-photo-item:hover .archive-photo-item__overlay {
+      opacity: 1;
+    }
+
+    .archive-photo-item__zoom {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .archive-photo-item__idx {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(24, 10, 4, 0.85);
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+
+    .archive-empty-state {
+      background: var(--warm-white);
+      border: 1px dashed rgba(201, 75, 0, 0.3);
+      border-radius: 14px;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 1.5rem auto;
+    }
+
+    .archive-empty-state__icon {
+      font-size: 2.5rem;
+      color: var(--energy-orange);
+      margin-bottom: 0.4rem;
+    }
+
+    .archive-empty-state__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .archive-empty-state__desc {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Lightbox Styles with Photo Download ─────────────────── */
+    .photo-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .photo-lightbox--open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .photo-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 8, 4, 0.94);
+      backdrop-filter: blur(8px);
+    }
+
+    .photo-lightbox__content {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      width: 100%;
+      background: #1e0e06;
+      border: 1px solid rgba(255, 159, 28, 0.35);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .photo-lightbox__topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+      background: #160803;
+      border-bottom: 1px solid rgba(255, 159, 28, 0.2);
+    }
+
+    .photo-lightbox__top-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .photo-lightbox__badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: var(--energy-burnt);
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .photo-lightbox__counter {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 700;
+    }
+
+    .photo-lightbox__top-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .photo-lightbox__btn-download {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      border: none;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .photo-lightbox__btn-download:hover {
+      background: var(--energy-amber);
+      transform: translateY(-1px);
+    }
+
+    .photo-lightbox__close {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .photo-lightbox__close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .photo-lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .photo-lightbox__nav--prev { left: 15px; }
+    .photo-lightbox__nav--next { right: 15px; }
+
+    .photo-lightbox__nav:hover {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .photo-lightbox__stage {
+      display: flex;
+      flex-direction: column;
+      max-height: 82vh;
+      overflow-y: auto;
+    }
+
+    .photo-lightbox__img {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      background: #100602;
+    }
+
+    .photo-lightbox__info {
+      padding: 1.25rem 1.4rem;
+      color: #ffffff;
+      background: #241107;
+      border-top: 1px solid rgba(255, 159, 28, 0.2);
+    }
+
+    .photo-lightbox__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+
+    .photo-lightbox__desc {
+      font-size: 0.85rem;
+      color: rgba(255, 249, 242, 0.85);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ── 9. Official Lab Selfie Point (Corrected Clean Layout) ── */
+    .selfie-creator-section {
+      background: linear-gradient(180deg, #180a04 0%, #2a1208 50%, #3d1b0c 100%);
+      color: #ffffff;
+      padding: 56px 0;
+      border-top: 1px solid rgba(255, 122, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 122, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: calc(var(--nav-height) + 56px);
+    }
+
+    @media (max-width: 1024px) {
+      .selfie-creator-section {
+        padding: 44px 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .selfie-creator-section {
+        padding: 36px 0;
+      }
+    }
+
+    .selfie-creator-section__glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255, 122, 0, 0.14) 0%, rgba(201, 75, 0, 0.04) 50%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    /* Clean, Centered Container for Selfie Point (Points 14, 15, 16) */
+    .selfie-point-container {
+      max-width: 1000px;
+      width: min(1000px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 767px) {
+      .selfie-point-container {
+        width: calc(100% - 32px);
+      }
+    }
+
+    .selfie-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 24px;
+    }
+
+    .selfie-eyebrow {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--energy-light-amber);
+      background: rgba(255, 122, 0, 0.2);
+      border: 1px solid rgba(255, 159, 28, 0.35);
+      padding: 0.22rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .selfie-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .selfie-subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+      color: rgba(255, 249, 242, 0.88);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Centered Canvas Frame (Points 15, 18) */
+    .selfie-canvas-stage {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      background: #140702;
+      border: 2px solid rgba(255, 159, 28, 0.4);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+
+    #selfie-canvas {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      aspect-ratio: 1536 / 1024;
+      display: block;
+      margin: 0 auto;
+      cursor: grab;
+      touch-action: none;
+    }
+
+    /* Selfie Control Toolbar (Point 17) */
+    .selfie-controls-panel {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(42, 18, 8, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 159, 28, 0.35);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      box-sizing: border-box;
+    }
+
+    .selfie-actions-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .selfie-main-btn {
+      min-width: 180px;
+      justify-content: center;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.85rem;
+    }
+
+    .selfie-adjust-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 0;
+      border-top: 1px solid rgba(255, 159, 28, 0.18);
+      border-bottom: 1px solid rgba(255, 159, 28, 0.18);
+    }
+
+    .selfie-ctrl-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 159, 28, 0.4);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      user-select: none;
+    }
+
+    .selfie-ctrl-btn:hover {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      border-color: var(--energy-orange);
+      transform: translateY(-1px);
+    }
+
+    .selfie-hint-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .selfie-status-hint {
+      font-size: 0.75rem;
+      color: var(--energy-light-amber);
+      font-style: italic;
+      margin: 0;
+    }
+
+    .selfie-privacy-note {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .selfie-hashtags-wrap {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .selfie-hashtags-title {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .selfie-hashtags-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .hashtag {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 159, 28, 0.35);
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .hashtag:hover {
+      background: var(--energy-orange);
+      color: var(--energy-dark);
+      border-color: var(--energy-orange);
+      transform: translateY(-1px);
+    }
+
+    /* ── Toast Notification ──────────────────────────────────── */
+    .media-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--energy-dark);
+      color: var(--energy-light-amber);
+      border: 1.5px solid var(--energy-orange);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      z-index: 100001;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .media-toast--visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── 10. Visitor CTA Banner ──────────────────────────────── */
+    .visitor-cta-section {
+      background: linear-gradient(135deg, #180903 0%, #2A1208 60%, #3D1B0C 100%);
+      color: #ffffff;
+      padding: 56px 0;
+      text-align: center;
+      position: relative;
+      border-top: 1px solid rgba(255, 122, 0, 0.25);
+    }
+
+    @media (max-width: 1024px) {
+      .visitor-cta-section {
+        padding: 44px 0;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .visitor-cta-section {
+        padding: 36px 0;
+      }
+    }
+
+    .visitor-cta__inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .visitor-cta__title {
+      font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .visitor-cta__text {
+      font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .visitor-cta__actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Responsive Adaptations ──────────────────────────────── */
+    @media (max-width: 767px) {
+      .media-hero__highlights {
+        grid-template-columns: 1fr;
+      }
+      .photo-lightbox__nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .selfie-actions-row {
+        flex-direction: column;
+      }
+      .selfie-main-btn {
+        width: 100%;
+      }
+      .selfie-adjust-row {
+        gap: 0.35rem;
+      }
+      .selfie-ctrl-btn {
+        flex: 1 1 calc(25% - 0.35rem);
+        justify-content: center;
+        padding: 0.4rem 0.5rem;
+        font-size: 0.7rem;
+      }
+      .selfie-hint-row {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body class="media-page">
+
+  <!-- NAVBAR (Preserved Global Fixed Structure) -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link active" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link active">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main class="page-content" id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <header class="media-hero" aria-label="Media &amp; Visitor Experience Hero">
+      <div class="media-hero__grid-bg"></div>
+      <div class="media-hero__glow"></div>
+      <div class="media-container">
+        <div class="media-hero__inner">
+          <div class="media-hero__eyebrow">
+            <span>⚡</span> SMART GRID R&amp;D CENTER · IIT HYDERABAD
+          </div>
+          <h1 class="media-hero__title">
+            Media &amp; <span>Visitor Experience</span>
+          </h1>
+          <p class="media-hero__subtitle">
+            Explore the people, workshops, demonstrations, laboratory activities and real-world experiences that bring Smart Grid R&amp;D Center research to life.
+          </p>
+
+          <!-- 4 Visual Highlights -->
+          <div class="media-hero__highlights">
+            <div class="media-highlight-card">
+              <span class="media-highlight-card__icon">🛠️</span>
+              <h3 class="media-highlight-card__title">Workshops &amp; Batches</h3>
+              <p class="media-highlight-card__desc">Industry &amp; capacity building technical training</p>
+            </div>
+            <div class="media-highlight-card">
+              <span class="media-highlight-card__icon">🎓</span>
+              <h3 class="media-highlight-card__title">Student Batches</h3>
+              <p class="media-highlight-card__desc">Academic cohorts &amp; hands-on study tours</p>
+            </div>
+            <div class="media-highlight-card">
+              <span class="media-highlight-card__icon">🔬</span>
+              <h3 class="media-highlight-card__title">Laboratory Setup</h3>
+              <p class="media-highlight-card__desc">Real-time microgrid &amp; SCADA telemetry setups</p>
+            </div>
+            <div class="media-highlight-card">
+              <span class="media-highlight-card__icon">💡</span>
+              <h3 class="media-highlight-card__title">Hardware &amp; Prototypes</h3>
+              <p class="media-highlight-card__desc">Experimental testing &amp; wireless motor control</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. STICKY CATEGORY NAVIGATION BAR -->
+    <nav class="media-cat-nav" aria-label="Media Category Filter Bar">
+      <div class="media-container">
+        <div class="media-cat-nav__scroll" role="tablist">
+          <button class="media-cat-nav__link media-cat-nav__link--active" data-target="main-content" role="tab">All</button>
+          <button class="media-cat-nav__link" data-target="research-action" role="tab">Research</button>
+          <button class="media-cat-nav__link" data-target="discom-batches" role="tab">DISCOM</button>
+          <button class="media-cat-nav__link" data-target="student-batches" role="tab">Students</button>
+          <button class="media-cat-nav__link" data-target="visitors-delegations" role="tab">Visitors</button>
+          <button class="media-cat-nav__link" data-target="lab-setup" role="tab">Lab Setup</button>
+          <button class="media-cat-nav__link" data-target="hardware-testing" role="tab">Hardware</button>
+          <button class="media-cat-nav__link" data-target="selfie-point" role="tab">Selfie Point 📸</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 3. RESEARCH IN ACTION -->
+    <section class="media-archive-section" id="research-action" aria-label="Research in Action">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">Visual Introduction</span>
+          <h2 class="media-section-title">Research in Action</h2>
+          <p class="media-section-subtitle">
+            Representative visual highlights across smart grid research, student learning, industry interaction, and laboratory testbeds.
+          </p>
+        </div>
+
+        <div class="research-highlight-grid" id="research-action-grid">
+          <!-- Dynamically populated from RESEARCH_HIGHLIGHTS in data/media.js (3 cols x 2 rows) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INDUSTRY VISITS & DISCOM BATCHES -->
+    <section class="media-archive-section" id="discom-batches" aria-label="Industry Visits &amp; DISCOM Batches">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">RDSS • Capacity Building</span>
+          <h2 class="media-section-title">Industry Visits &amp; DISCOM Batches</h2>
+          <p class="media-section-subtitle">
+            Middle management engineers and power utility delegations participating in smart-grid and SCADA training under the national RDSS scheme.
+          </p>
+        </div>
+
+        <div id="discom-section-mount">
+          <!-- Populated dynamically: 3 equal cards aligned -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. STUDENT WORKSHOPS / STUDENT BATCHES -->
+    <section class="media-archive-section" id="student-batches" aria-label="Student Workshops &amp; Learning Experiences">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">Academic Training &amp; Cohorts</span>
+          <h2 class="media-section-title">Student Workshops &amp; Learning Experiences</h2>
+          <p class="media-section-subtitle">
+            Undergraduate and postgraduate engineering researchers exploring microgrid testbeds, real-time power flow control, and simulator consoles.
+          </p>
+        </div>
+
+        <div id="students-section-mount">
+          <!-- Populated dynamically: 3 equal cards aligned -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. VISITORS & DELEGATIONS -->
+    <section class="media-archive-section" id="visitors-delegations" aria-label="Visitors &amp; Delegations">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">Institutional Guests</span>
+          <h2 class="media-section-title">Visitors &amp; Delegations</h2>
+          <p class="media-section-subtitle">
+            Senior leadership, technical delegations, and power sector partners reviewing laboratory infrastructure and technology transfer pathways.
+          </p>
+        </div>
+
+        <div id="visitors-section-mount">
+          <!-- Populated dynamically: 2 cards centered horizontally -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. EQUIPMENT & LABORATORY SETUP -->
+    <section class="media-archive-section" id="lab-setup" aria-label="Equipment &amp; Laboratory Setup">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">Research Infrastructure</span>
+          <h2 class="media-section-title">Equipment &amp; Laboratory Setup</h2>
+          <p class="media-section-subtitle">
+            Full-scale experimental arrangements, real-time digital simulation platforms, touchscreen SCADA consoles, and high-voltage test racks.
+          </p>
+        </div>
+
+        <div id="setup-section-mount">
+          <!-- Populated dynamically: 1 card centered horizontally with standard card width -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. HARDWARE DEVELOPMENT & TESTING -->
+    <section class="media-archive-section" id="hardware-testing" aria-label="Hardware Development &amp; Testing">
+      <div class="media-container">
+        <div class="media-section-header">
+          <span class="media-section-label">Prototyping &amp; Rigs</span>
+          <h2 class="media-section-title">Hardware Development &amp; Testing</h2>
+          <p class="media-section-subtitle">
+            Custom relay controllers, IoT telemetry modules, and live wireless motor performance diagnostics.
+          </p>
+        </div>
+
+        <div id="hardware-section-mount">
+          <!-- Populated dynamically: 2 cards centered horizontally -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. OFFICIAL LAB SELFIE POINT & INTERACTIVE CREATOR -->
+    <section class="selfie-creator-section" id="selfie-point" aria-label="Official Lab Selfie Point">
+      <div class="selfie-creator-section__glow"></div>
+      <div class="selfie-point-container">
+        
+        <!-- Header completely above image with clear spacing (Points 14, 16) -->
+        <div class="selfie-header">
+          <span class="selfie-eyebrow">Signature Interactive Feature</span>
+          <h2 class="selfie-title">Official Lab Selfie Point</h2>
+          <p class="selfie-subtitle">
+            Capture your visit to the Smart Grid R&amp;D Center and take home an official Smart Grid R&amp;D Center commemorative photograph.
+          </p>
+        </div>
+
+        <!-- HTML5 Canvas Preview Stage (max-width: 900px, preserves 1536x1024 aspect ratio) -->
+        <div class="selfie-canvas-stage">
+          <canvas id="selfie-canvas"></canvas>
+        </div>
+
+        <!-- Interactive Control Toolbar (max-width: 900px, centered below frame) -->
+        <div class="selfie-controls-panel">
+          <!-- Primary Actions: Upload & Download (Point 17) -->
+          <div class="selfie-actions-row">
+            <input type="file" id="selfie-upload-input" accept="image/*" style="display: none;">
+            <button class="btn btn--primary selfie-main-btn" id="btn-selfie-upload">
+              📁 Upload Photo
+            </button>
+            <button class="btn btn--primary selfie-main-btn" id="btn-selfie-download">
+              💾 Download Result
+            </button>
+          </div>
+
+          <!-- Position & Zoom Controls (Point 17) -->
+          <div class="selfie-adjust-row" aria-label="Position and Zoom Controls">
+            <button class="selfie-ctrl-btn" id="btn-selfie-zoom-out" title="Zoom Out">🔍 Zoom −</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-zoom-in" title="Zoom In">🔍 Zoom +</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-up" title="Move Up">⬆ Up</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-down" title="Move Down">⬇ Down</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-left" title="Move Left">⬅ Left</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-right" title="Move Right">➡ Right</button>
+            <button class="selfie-ctrl-btn" id="btn-selfie-reset" title="Reset Position">↺ Reset</button>
+          </div>
+
+          <!-- Status / Guidance Hint -->
+          <div class="selfie-hint-row">
+            <p class="selfie-status-hint" id="selfie-status-msg">
+              💡 Tip: Drag with your mouse or finger directly on the photo to reposition it!
+            </p>
+            <span class="selfie-privacy-note">
+              🔒 100% Private — Processed entirely inside your web browser.
+            </span>
+          </div>
+        </div>
+
+        <!-- Social Media Hashtags -->
+        <div class="selfie-hashtags-wrap">
+          <div class="selfie-hashtags-title">Click to copy recommended social media hashtags:</div>
+          <div class="selfie-hashtags-list">
+            <span class="hashtag">#SmartGridIITH</span>
+            <span class="hashtag">#SGRnDCenter</span>
+            <span class="hashtag">#IITH</span>
+            <span class="hashtag">#PowerSensePvtLtd</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. VISITOR CALL TO ACTION -->
+    <section class="visitor-cta-section" id="visit-cta" aria-label="Experience the Smart Grid Center">
+      <div class="media-container">
+        <div class="visitor-cta__inner">
+          <h2 class="visitor-cta__title">Experience the Smart Grid R&amp;D Center</h2>
+          <p class="visitor-cta__text">
+            Explore our laboratory, demonstrations, research infrastructure and innovation ecosystem at IIT Hyderabad.
+          </p>
+          <div class="visitor-cta__actions">
+            <a href="facilities.html" class="btn btn--lg btn--primary">Visit the Lab →</a>
+            <a href="contact.html" class="btn btn--lg btn--outline-white">Contact Us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 11. FOOTER (Preserved Official Smart Grid Footer) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            Research in CEMS, UPS, EV Integration, Smart Grid, and Microgrid technologies at IIT Hyderabad.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item"><span class="footer__credit-label">Funded by:</span> LS Electricals</div>
+            <div class="footer__credit-item"><span class="footer__credit-label">Institution:</span> IIT Hyderabad</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems" class="footer__link">CEMS</a>
+            <a href="research.html#ups" class="footer__link">UPS Systems</a>
+            <a href="research.html#ev" class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid" class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Lab</div>
+          <nav class="footer__links" aria-label="Lab links">
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="team.html" class="footer__link">Team</a>
+            <a href="facilities.html" class="footer__link">Facilities</a>
+            <a href="events.html" class="footer__link">Workshops</a>
+            <a href="startup.html" class="footer__link">Power Sense</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="contact.html" class="footer__link">Contact Us</a>
+            <a href="media.html" class="footer__link">Media &amp; Videos</a>
+            <a href="facilities.html" class="footer__link">Visit the Lab</a>
+            <a href="media.html#selfie-point" class="footer__link">Selfie Point</a>
+          </nav>
+          <div style="margin-top:1.5rem;">
+            <div class="footer__col-title">Hashtags</div>
+            <div style="display:flex;flex-direction:column;gap:0.25rem;margin-top:0.5rem;">
+              <span style="font-size:0.8rem;color:var(--color-green);">#SmartGridIITH</span>
+              <span style="font-size:0.8rem;color:var(--color-green);">#SGRnDCenter</span>
+              <span style="font-size:0.8rem;color:var(--color-green);">#IITH</span>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-style:italic;font-size:0.7rem;">Recommended — subject to approval</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data/media.js?v=3.0"></script>
+  <script src="js/main.js?v=3.0"></script>
+  <script src="js/media.js?v=3.0"></script>
+  <script src="js/qr.js?v=3.0"></script>
+</body>
+</html>

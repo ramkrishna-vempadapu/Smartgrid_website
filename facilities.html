@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab Facilities &amp; Infrastructure — Smart Grid R&D Center | IIT Hyderabad</title>
+  <meta name="description" content="Explore the Smart Grid R&D Center's laboratory infrastructure: dual microgrids, renewable energy sources, energy storage, hardware development, cybersecurity research and real-time monitoring.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+  <style>
+
+    /* ══════════════════════════════════════════════════════════
+       FACILITIES PAGE — SCOPED CSS
+       ══════════════════════════════════════════════════════════ */
+
+    /* ── Base ── */
+    .page-facilities { background-color: var(--warm-white); }
+
+    /* ── Hero ── */
+    .fac-hero {
+      position: relative;
+      background: linear-gradient(135deg,#1a0802 0%,#2A1208 55%,#3D1B0C 100%);
+      color:#fff; padding: calc(var(--nav-height) + 1.5rem) 0 2.25rem;
+      overflow: hidden; border-bottom: 1px solid rgba(255,122,0,0.18);
+    }
+    .fac-hero::before {
+      content:''; position:absolute; top:-30%; right:-8%; width:500px; height:500px;
+      background:radial-gradient(circle,rgba(255,122,0,0.14) 0%,transparent 65%);
+      border-radius:50%; pointer-events:none; z-index:0;
+    }
+    .fac-hero .fac-container { position:relative; z-index:1; text-align:center; max-width:860px; margin:0 auto; padding:0 1.5rem; }
+    .fac-hero__eyebrow {
+      display:inline-flex; align-items:center; gap:.45rem; font-size:.72rem; font-weight:700;
+      letter-spacing:.12em; text-transform:uppercase; color:#FFC857;
+      background:rgba(255,154,31,.12); border:1px solid rgba(255,154,31,.28);
+      padding:.28rem .9rem; border-radius:999px; margin-bottom:.65rem;
+    }
+    .fac-hero__eyebrow-dot { width:5px; height:5px; background:#FF9A1F; border-radius:50%; }
+    .fac-hero__title { font-size:clamp(1.9rem,3.4vw,2.6rem); font-weight:800; color:#fff; line-height:1.15; margin-bottom:.4rem; letter-spacing:-.02em; }
+    .fac-hero__subtitle { font-size:clamp(.9rem,1.5vw,1rem); color:rgba(255,241,214,.85); line-height:1.55; max-width:680px; margin:0 auto 1.25rem; font-weight:400; }
+    .fac-hero__stats { display:flex; justify-content:center; gap:2.5rem; flex-wrap:wrap; }
+    .fac-hero__stat { text-align:center; }
+    .fac-hero__stat-num { font-size:1.45rem; font-weight:800; color:#FF9A1F; display:block; }
+    .fac-hero__stat-label { font-size:.72rem; color:rgba(255,241,214,.75); text-transform:uppercase; letter-spacing:.06em; }
+
+    /* ── Layout Helpers ── */
+    .fac-container { max-width:var(--container-max); margin:0 auto; padding:0 1.5rem; }
+    .fac-container--wide { max-width:1360px; }
+
+    /* ── Section Shell ── */
+    .fac-section { padding:clamp(2.5rem,5vw,4rem) 0; }
+    .fac-section--alt { background:var(--white); }
+    .fac-section--dark { background:linear-gradient(135deg,#1a0802 0%,#2A1208 100%); color:#fff; }
+
+    .fac-section-header { max-width:740px; margin:0 auto clamp(1.5rem,3vw,2.25rem); text-align:center; padding:0 1rem; }
+    .fac-section-label { display:inline-block; font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--energy-burnt); margin-bottom:.2rem; }
+    .fac-section-label--light { color:#FF9A1F; }
+    .fac-section-title { font-size:clamp(1.45rem,2.6vw,1.8rem); font-weight:800; color:var(--energy-dark); margin-bottom:.35rem; letter-spacing:-.015em; }
+    .fac-section-title--light { color:#fff; }
+    .fac-section-desc { font-size:.92rem; color:var(--text-muted); line-height:1.55; margin:0; }
+    .fac-section-desc--light { color:rgba(255,241,214,.82); }
+
+    /* ── Overview Grid ── */
+    .fac-overview-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.15rem; }
+    @media(max-width:1023px){ .fac-overview-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:639px){ .fac-overview-grid { grid-template-columns:1fr; } }
+    .fac-ov-card {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-md);
+      padding:1.25rem; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:.5rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .fac-ov-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
+    .fac-ov-card__icon { font-size:1.7rem; }
+    .fac-ov-card__title { font-size:.95rem; font-weight:700; color:var(--energy-dark); margin:0; }
+    .fac-ov-card__text { font-size:.8rem; color:var(--text-muted); line-height:1.45; margin:0; }
+
+    /* ── PROPERLY ADJUSTED TESTBED CARDS & IMAGES ── */
+    .fac-testbed-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media(max-width:960px){
+      .fac-testbed-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+    }
+    .fac-testbed-card {
+      background: var(--white);
+      border: 1px solid var(--border-energy);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(42, 18, 8, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform .28s var(--ease-out), box-shadow .28s var(--ease-out), border-color .2s;
+    }
+    .fac-testbed-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(80, 25, 0, 0.15);
+      border-color: rgba(255, 122, 0, 0.5);
+    }
+    .fac-testbed-card__img-box {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 270px;
+      max-height: 360px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #240E05 0%, #150702 100%);
+      border-bottom: 1.5px solid var(--border-energy);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .fac-testbed-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fac-testbed-card:hover .fac-testbed-card__img {
+      transform: scale(1.035);
+    }
+    .fac-testbed-card__tag {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      background: rgba(31, 12, 4, 0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #FFC857;
+      border: 1px solid rgba(255, 154, 31, 0.38);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      z-index: 2;
+    }
+    .fac-testbed-card__zoom-hint {
+      position: absolute;
+      bottom: 0.75rem;
+      right: 0.75rem;
+      background: rgba(31, 12, 4, 0.85);
+      backdrop-filter: blur(4px);
+      color: #FFF1D6;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.28rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.22s ease;
+      z-index: 2;
+    }
+    .fac-testbed-card:hover .fac-testbed-card__zoom-hint {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fac-testbed-card__body {
+      padding: 1.5rem 1.65rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .fac-testbed-card__title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin: 0 0 .45rem;
+      letter-spacing: -0.01em;
+    }
+    .fac-testbed-card__text {
+      font-size: .88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0 0 1.1rem;
+    }
+    .fac-bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .fac-bullet-item {
+      font-size: .84rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: .45rem;
+      line-height: 1.45;
+    }
+    .fac-bullet-dot {
+      color: var(--energy-orange);
+      font-weight: 800;
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .fac-testbed-card__footer {
+      margin-top: auto;
+      padding-top: .85rem;
+      border-top: 1px solid rgba(201, 75, 0, 0.12);
+    }
+    .fac-cta-link {
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .fac-cta-link:hover { color: var(--energy-orange); }
+
+    /* ── 4-col Generic Card Grid ── */
+    .fac-4col { display:grid; grid-template-columns:repeat(4,1fr); gap:1.15rem; }
+    @media(max-width:1023px){ .fac-4col { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:639px){ .fac-4col { grid-template-columns:1fr; } }
+
+    /* ── 3-col Generic ── */
+    .fac-3col { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    @media(max-width:900px){ .fac-3col { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:639px){ .fac-3col { grid-template-columns:1fr; } }
+
+    /* ── 2-col Generic ── */
+    .fac-2col { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
+    @media(max-width:767px){ .fac-2col { grid-template-columns:1fr; } }
+
+    /* ── Basic content card ── */
+    .fac-card {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-md);
+      padding:1.25rem; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:.45rem;
+    }
+    .fac-card--accent-left { border-left:3px solid var(--energy-orange); }
+    .fac-card--accent-top  { border-top:3px solid var(--energy-orange); }
+    .fac-card__icon { font-size:1.6rem; }
+    .fac-card__title { font-size:.95rem; font-weight:700; color:var(--energy-dark); margin:0; }
+    .fac-card__text  { font-size:.81rem; color:var(--text-muted); line-height:1.45; margin:0; }
+
+    /* ── IMAGE PLACEHOLDER ── */
+    .fac-img-placeholder {
+      width:100%; aspect-ratio:16/9; background:#FFF1D6;
+      border:2px dashed rgba(201,75,0,.35); border-radius:var(--radius-md);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:.5rem; color:var(--energy-burnt); font-size:.8rem; font-weight:600;
+      letter-spacing:.04em; text-align:center; padding:1rem;
+    }
+    .fac-img-placeholder__icon { font-size:2rem; opacity:.5; }
+    .fac-img-placeholder--sm { aspect-ratio:4/3; }
+
+    /* ── Photo+Body card ── */
+    .fac-photo-card {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-lg);
+      overflow:hidden; box-shadow:var(--shadow-md); display:flex; flex-direction:column;
+      transition:transform .25s, box-shadow .25s;
+    }
+    .fac-photo-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+    .fac-photo-card__img-box { width:100%; height:190px; overflow:hidden; background:#FFF1D6; }
+    .fac-photo-card__img { width:100%; height:100%; object-fit:cover; transition:transform .3s; }
+    .fac-photo-card:hover .fac-photo-card__img { transform:scale(1.04); }
+    .fac-photo-card__body { padding:1.15rem; display:flex; flex-direction:column; gap:.35rem; flex:1; }
+    .fac-photo-card__title { font-size:.95rem; font-weight:700; color:var(--energy-dark); margin:0; }
+    .fac-photo-card__text  { font-size:.8rem; color:var(--text-muted); line-height:1.45; margin:0; }
+    .fac-photo-card__footer { margin-top:auto; padding-top:.65rem; border-top:1px solid rgba(201,75,0,.1); }
+
+    /* ── SCHEMATIC / FLOW ── */
+    .fac-schematic {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-lg);
+      padding:1.75rem 2rem; max-width:940px; margin:0 auto; box-shadow:var(--shadow-sm);
+    }
+    .fac-flow { display:flex; align-items:center; justify-content:space-between; gap:.6rem; flex-wrap:nowrap; }
+    @media(max-width:767px){ .fac-flow { flex-direction:column; gap:1rem; } }
+    .fac-flow-node {
+      background:#FFF9F2; border:1.5px solid var(--border-energy); border-radius:var(--radius-md);
+      padding:.75rem 1rem; text-align:center; flex:1; min-width:0; box-shadow:var(--shadow-sm);
+    }
+    .fac-flow-node__title { font-size:.75rem; font-weight:700; letter-spacing:.04em; color:var(--energy-burnt); text-transform:uppercase; }
+    .fac-flow-node__sub { font-size:.67rem; color:var(--text-muted); line-height:1.3; margin-top:.1rem; }
+    .fac-flow-arrow { color:var(--energy-orange); font-weight:700; font-size:1.2rem; flex-shrink:0; }
+    @media(max-width:767px){ .fac-flow-arrow { transform:rotate(90deg); } }
+
+    /* ── PIPELINE (vertical) ── */
+    .fac-pipeline { display:flex; flex-direction:column; align-items:center; gap:0; max-width:480px; margin:0 auto; }
+    .fac-pipe-node {
+      background:var(--white); border:1.5px solid var(--border-energy); border-radius:var(--radius-md);
+      padding:.6rem 1.5rem; text-align:center; width:100%; box-shadow:var(--shadow-sm);
+    }
+    .fac-pipe-node__title { font-size:.8rem; font-weight:700; color:var(--energy-burnt); text-transform:uppercase; letter-spacing:.05em; }
+    .fac-pipe-node__sub { font-size:.68rem; color:var(--text-muted); margin-top:.08rem; }
+    .fac-pipe-arrow { color:var(--energy-orange); font-size:1.1rem; font-weight:700; margin:.1rem 0; }
+
+    /* ── SHOWCASE / RACK BOX ── */
+    .fac-rack-box {
+      background:#FFF9F2; border:1px solid var(--border-energy); border-radius:var(--radius-lg);
+      padding:1.5rem; box-shadow:var(--shadow-sm);
+    }
+    .fac-rack-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; margin-bottom:1.15rem; padding-bottom:.6rem; border-bottom:1.5px solid rgba(201,75,0,.14); }
+    .fac-rack-title { font-size:1rem; font-weight:700; color:var(--energy-dark); margin:0; }
+
+    /* ── EXPERIMENT CARDS ── */
+    .fac-exp-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.9rem; }
+    @media(max-width:1180px){ .fac-exp-grid { grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:767px){ .fac-exp-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:479px){ .fac-exp-grid { grid-template-columns:1fr; } }
+    .fac-exp-card {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-md);
+      padding:1rem; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:.35rem;
+      transition:transform .2s, border-color .2s;
+    }
+    .fac-exp-card:hover { transform:translateY(-3px); border-color:rgba(255,122,0,.4); }
+    .fac-exp-card__num { font-size:.65rem; font-weight:800; color:var(--energy-burnt); letter-spacing:.06em; text-transform:uppercase; }
+    .fac-exp-card__title { font-size:.85rem; font-weight:700; color:var(--energy-dark); margin:0; line-height:1.3; }
+    .fac-exp-card__doc { font-size:.67rem; color:var(--energy-burnt); font-weight:600; margin-top:.1rem; }
+
+    /* ── DARK CYBERSECURITY CARD ── */
+    .fac-cyber-card {
+      background:linear-gradient(135deg,#1a0802 0%,#2A1208 100%);
+      border:1px solid rgba(255,122,0,.28); border-radius:var(--radius-lg);
+      padding:2rem 2rem 1.75rem; color:#fff; box-shadow:var(--shadow-lg);
+    }
+    .fac-cyber-card__title { font-size:1.25rem; font-weight:800; color:#fff; margin:0 0 .45rem; }
+    .fac-cyber-card__desc { font-size:.88rem; color:rgba(255,241,214,.82); line-height:1.55; margin-bottom:1.5rem; }
+    .fac-cyber-flow { display:flex; flex-direction:column; align-items:center; gap:.1rem; }
+    .fac-cyber-node {
+      background:rgba(255,122,0,.12); border:1px solid rgba(255,122,0,.35);
+      border-radius:var(--radius-md); padding:.5rem 1.5rem; text-align:center;
+      font-size:.8rem; font-weight:700; color:#FFC857; letter-spacing:.04em; text-transform:uppercase;
+    }
+    .fac-cyber-node--danger { background:rgba(239,68,68,.15); border-color:rgba(239,68,68,.35); color:#FCA5A5; }
+    .fac-cyber-node--safe { background:rgba(34,197,94,.12); border-color:rgba(34,197,94,.3); color:#86EFAC; }
+    .fac-cyber-arrow { color:var(--energy-orange); font-size:1rem; }
+
+    /* ── VOICE CONTROL CARD ── */
+    .fac-voice-card {
+      background:linear-gradient(135deg,#FFF9F2 0%,#fff 100%);
+      border:1px solid var(--border-energy); border-radius:var(--radius-lg);
+      padding:2rem; box-shadow:var(--shadow-md); display:flex; gap:2rem; align-items:center; flex-wrap:wrap;
+    }
+    .fac-voice-flow { display:flex; flex-direction:column; align-items:center; gap:.1rem; min-width:160px; }
+    .fac-voice-node {
+      background:#FFF1D6; border:1px solid rgba(201,75,0,.25); border-radius:var(--radius-md);
+      padding:.45rem 1.1rem; font-size:.78rem; font-weight:700; color:var(--energy-burnt);
+      text-align:center; text-transform:uppercase; letter-spacing:.04em; white-space:nowrap;
+    }
+    .fac-voice-arrow { color:var(--energy-orange); font-size:.95rem; }
+
+    /* ── CEMS & UPS BIG CARDS ── */
+    .fac-system-card {
+      background:var(--white); border:1px solid var(--border-energy); border-radius:var(--radius-lg);
+      overflow:hidden; box-shadow:var(--shadow-md); display:flex; flex-direction:column;
+    }
+    .fac-system-card__img-box { width:100%; height:200px; background:#FFF1D6; border-bottom:1px solid var(--border-energy); }
+    .fac-system-card__body { padding:1.5rem; display:flex; flex-direction:column; gap:.75rem; flex:1; }
+    .fac-system-card__title { font-size:1.1rem; font-weight:800; color:var(--energy-dark); margin:0; }
+    .fac-system-card__sub { font-size:.78rem; text-transform:uppercase; letter-spacing:.07em; font-weight:700; color:var(--energy-burnt); margin:-.3rem 0 .2rem; }
+    .fac-system-card__text { font-size:.85rem; color:var(--text-muted); line-height:1.5; margin:0; }
+    .fac-system-card__footer { margin-top:auto; padding-top:.75rem; border-top:1px solid rgba(201,75,0,.1); }
+
+    /* ── Gallery Grid ── */
+    .fac-gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:.85rem; }
+    @media(max-width:1023px){ .fac-gallery { grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:767px){ .fac-gallery { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:479px){ .fac-gallery { grid-template-columns:1fr; } }
+    .fac-gallery-item {
+      aspect-ratio:4/3; border-radius:var(--radius-md); overflow:hidden;
+      border:1px solid var(--border-energy); cursor:pointer; position:relative;
+      background:#FFF1D6;
+      transition:transform .22s, box-shadow .22s;
+    }
+    .fac-gallery-item:hover { transform:scale(1.025); box-shadow:var(--shadow-lg); }
+    .fac-gallery-item img { width:100%; height:100%; object-fit:cover; }
+    .fac-gallery-item__label {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top,rgba(42,18,8,.88) 0%,transparent 100%);
+      color:#fff; font-size:.72rem; font-weight:600; padding:.5rem .7rem .45rem;
+    }
+    .fac-gallery-placeholder {
+      width:100%; height:100%; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:.35rem; font-size:.72rem; font-weight:600;
+      color:var(--energy-burnt); text-align:center; padding:.5rem;
+    }
+    .fac-gallery-placeholder__icon { font-size:1.5rem; opacity:.5; }
+
+    /* ── MODALS ── */
+    .fac-modal {
+      position:fixed; inset:0; z-index:2500; display:flex; align-items:center; justify-content:center;
+      padding:1.25rem; opacity:0; pointer-events:none; transition:opacity .22s;
+    }
+    .fac-modal.active { opacity:1; pointer-events:auto; }
+    .fac-modal__backdrop { position:absolute; inset:0; background:rgba(18,6,2,.82); backdrop-filter:blur(8px); }
+    .fac-modal__dialog {
+      position:relative; z-index:10; background:#FFFDF9;
+      width:min(680px,calc(100% - 24px)); max-height:calc(100vh - 2.5rem);
+      border-radius:18px; box-shadow:0 25px 75px rgba(22,9,3,.52);
+      border:1px solid rgba(201,75,0,.25); overflow-y:auto;
+      transform:scale(.97) translateY(8px); transition:transform .22s;
+    }
+    .fac-modal.active .fac-modal__dialog { transform:scale(1) translateY(0); }
+    .fac-modal__close {
+      position:absolute; top:.85rem; right:.85rem; width:30px; height:30px; border-radius:50%;
+      background:rgba(42,18,8,.08); border:1px solid rgba(42,18,8,.15);
+      color:var(--energy-dark); font-size:1.15rem; display:flex; align-items:center;
+      justify-content:center; cursor:pointer; transition:all .2s; z-index:30;
+    }
+    .fac-modal__close:hover { background:var(--energy-orange); color:#fff; }
+    .fac-modal-img { width:100%; height:220px; object-fit:cover; border-bottom:1.5px solid var(--border-energy); }
+    .fac-modal-img--placeholder { background:#FFF1D6; display:flex; align-items:center; justify-content:center; font-size:.85rem; font-weight:600; color:var(--energy-burnt); }
+    .fac-modal-body { padding:1.4rem 1.5rem 1.6rem; }
+    .fac-modal-title { font-size:1.15rem; font-weight:800; color:var(--energy-dark); margin:0 0 .45rem; }
+    .fac-modal-desc { font-size:.86rem; color:var(--text-muted); line-height:1.5; margin-bottom:1rem; }
+    .fac-modal-subtitle { font-size:.9rem; font-weight:700; color:var(--energy-dark); margin:.85rem 0 .35rem; border-bottom:1px solid var(--border-energy); padding-bottom:.22rem; }
+
+    /* ── Lightbox ── */
+    .fac-lightbox {
+      position:fixed; inset:0; z-index:2600; display:flex; align-items:center; justify-content:center;
+      padding:1.5rem; opacity:0; pointer-events:none; transition:opacity .22s;
+    }
+    .fac-lightbox.active { opacity:1; pointer-events:auto; }
+    .fac-lightbox__backdrop { position:absolute; inset:0; background:rgba(12,4,1,.94); backdrop-filter:blur(10px); }
+    .fac-lightbox__dialog {
+      position:relative; z-index:10; max-width:92vw; max-height:90vh;
+      display:flex; align-items:center; justify-content:center;
+      transform:scale(.97); transition:transform .22s;
+    }
+    .fac-lightbox.active .fac-lightbox__dialog { transform:scale(1); }
+    .fac-lightbox__image { max-width:100%; max-height:88vh; border-radius:var(--radius-md); box-shadow:0 10px 40px rgba(0,0,0,.6); object-fit:contain; }
+    .fac-lightbox__close {
+      position:absolute; top:-2.5rem; right:0; background:transparent; color:#fff;
+      font-size:2rem; line-height:1; border:none; cursor:pointer; transition:color .2s;
+    }
+    .fac-lightbox__close:hover { color:var(--energy-orange); }
+
+    /* ── CTA Banner ── */
+    .fac-cta-banner {
+      background:linear-gradient(135deg,#1C0A03 0%,#2A1208 45%,#3D1B0C 100%);
+      border:1.5px solid rgba(201,75,0,.3); border-radius:var(--radius-lg);
+      padding:2.25rem 2rem; text-align:center; max-width:820px; margin:0 auto;
+      box-shadow:var(--shadow-lg);
+    }
+    .fac-cta-banner__title { font-size:clamp(1.25rem,2.5vw,1.55rem); font-weight:800; color:#fff; margin:0 0 .45rem; }
+    .fac-cta-banner__text { font-size:.88rem; color:rgba(255,241,214,.82); margin:0 auto 1.5rem; max-width:520px; line-height:1.5; }
+    .fac-cta-banner__buttons { display:flex; align-items:center; justify-content:center; gap:.85rem; flex-wrap:wrap; }
+
+    /* ── Badge ── */
+    .fac-badge {
+      display:inline-block; font-size:.65rem; font-weight:700; letter-spacing:.05em;
+      text-transform:uppercase; padding:.22rem .6rem; border-radius:999px;
+    }
+    .fac-badge--orange { background:#FFF1D6; color:#C94B00; border:1px solid #FFC857; }
+    .fac-badge--green  { background:rgba(34,197,94,.1); color:#16a34a; border:1px solid rgba(34,197,94,.3); }
+
+    /* Divider */
+    .fac-divider { height:1.5px; background:linear-gradient(to right,transparent,rgba(201,75,0,.25),transparent); margin:0; }
+
+  </style>
+</head>
+
+<body class="page-facilities">
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link active" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link active">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main style="margin-top:0;">
+
+
+    <!-- ══ HERO ══════════════════════════════════════════════════ -->
+    <header class="fac-hero" aria-label="Facilities Introduction">
+      <div class="fac-container">
+        <div class="fac-hero__eyebrow">
+          <span class="fac-hero__eyebrow-dot"></span>
+          SMART GRID R&amp;D CENTER &middot; IIT HYDERABAD
+        </div>
+        <h1 class="fac-hero__title">Lab Facilities &amp; Infrastructure</h1>
+        <p class="fac-hero__subtitle">
+          Advanced laboratory infrastructure for smart-grid research, microgrid experimentation,
+          renewable-energy integration, hardware development, cybersecurity and real-time energy management.
+        </p>
+        <div class="fac-hero__stats">
+          <div class="fac-hero__stat"><span class="fac-hero__stat-num">2</span><span class="fac-hero__stat-label">Microgrids</span></div>
+          <div class="fac-hero__stat"><span class="fac-hero__stat-num">5+</span><span class="fac-hero__stat-label">Energy Sources</span></div>
+          <div class="fac-hero__stat"><span class="fac-hero__stat-num">10+</span><span class="fac-hero__stat-label">Experiments</span></div>
+          <div class="fac-hero__stat"><span class="fac-hero__stat-num">CEMS</span><span class="fac-hero__stat-label">Hardware Dev</span></div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- ══ LABORATORY OVERVIEW ═══════════════════════════════════ -->
+    <section class="fac-section fac-section--alt" aria-label="Laboratory Overview">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Overview</span>
+          <h2 class="fac-section-title">Laboratory Infrastructure</h2>
+          <p class="fac-section-desc">
+            The Smart Grid R&amp;D Center provides a dedicated environment for research, experimentation, hardware development,
+            demonstration and training in smart grids and intelligent energy systems.
+          </p>
+        </div>
+        <div class="fac-overview-grid">
+          <div class="fac-ov-card"><div class="fac-ov-card__icon">🔌</div><h3 class="fac-ov-card__title">Smart Grid Research</h3><p class="fac-ov-card__text">Grid-connected and microgrid experimentation, power electronics and intelligent energy control.</p></div>
+          <div class="fac-ov-card"><div class="fac-ov-card__icon">🌐</div><h3 class="fac-ov-card__title">Microgrid Operations</h3><p class="fac-ov-card__text">Dual interconnected microgrids with renewable generation, storage and bidirectional conversion.</p></div>
+          <div class="fac-ov-card"><div class="fac-ov-card__icon">🖥️</div><h3 class="fac-ov-card__title">Hardware Development</h3><p class="fac-ov-card__text">CEMS hardware, UPS monitoring, energy-measurement devices, IoT-based energy systems.</p></div>
+          <div class="fac-ov-card"><div class="fac-ov-card__icon">🔐</div><h3 class="fac-ov-card__title">Advanced Research</h3><p class="fac-ov-card__text">Cybersecurity research, voice-command interfaces, meter &amp; motor testing and industrial evaluation.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ SMART GRID POWER SYSTEM ══════════════════════════════ -->
+    <section class="fac-section" id="testbeds" aria-label="Smart Grid Power System">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Core Testbeds</span>
+          <h2 class="fac-section-title">Smart Grid Power System</h2>
+          <p class="fac-section-desc">
+            An integrated laboratory platform for studying renewable generation, energy storage, power conversion, grid interaction,
+            measurement, control and load management. Microgrid 1 and Microgrid 2 can operate independently or as an interconnected system.
+          </p>
+        </div>
+        <div class="fac-testbed-grid">
+
+          <!-- MG1 -->
+          <article class="fac-testbed-card">
+            <div class="fac-testbed-card__img-box fac-gallery-item" data-img="assets/images/lab/microgrid-1.png" data-caption="Micro Grid — 1 Experimental Setup">
+              <span class="fac-testbed-card__tag">Core Testbed · Lab Setup</span>
+              <img src="assets/images/lab/microgrid-1.png" alt="Micro Grid 1 experimental testbed" class="fac-testbed-card__img" loading="lazy">
+              <span class="fac-testbed-card__zoom-hint">🔍 Enlarge Photo</span>
+            </div>
+            <div class="fac-testbed-card__body">
+              <h3 class="fac-testbed-card__title">Micro Grid — 1</h3>
+              <p class="fac-testbed-card__text">
+                Central testbed featuring solar and wind generation, Li-ion battery storage, supercapacitor storage,
+                DC bus, DC-DC conversion and bidirectional buck-boost conversion with measurement and control.
+              </p>
+              <ul class="fac-bullet-list" aria-label="Microgrid 1 capabilities">
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Solar energy generation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Wind energy generation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Li-ion battery energy storage</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Supercapacitor energy storage</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> DC-DC power conversion</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Bidirectional buck-boost conversion</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> DC bus operation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Power measurement &amp; monitoring</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Grid interfacing</li>
+              </ul>
+              <div class="fac-testbed-card__footer">
+                <button class="fac-cta-link btn-view-details" data-target="mg1" aria-label="View details for Micro Grid 1">
+                  View Details <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- MG2 -->
+          <article class="fac-testbed-card">
+            <div class="fac-testbed-card__img-box fac-gallery-item" data-img="assets/images/lab/microgrid-2.png" data-caption="Micro Grid — 2 Power Conversion Testbed">
+              <span class="fac-testbed-card__tag">Core Testbed · Lab Setup</span>
+              <img src="assets/images/lab/microgrid-2.png" alt="Micro Grid 2 experimental testbed" class="fac-testbed-card__img" loading="lazy">
+              <span class="fac-testbed-card__zoom-hint">🔍 Enlarge Photo</span>
+            </div>
+            <div class="fac-testbed-card__body">
+              <h3 class="fac-testbed-card__title">Micro Grid — 2</h3>
+              <p class="fac-testbed-card__text">
+                Advanced platform with solar, fuel-cell and three-phase generation, three-phase inverter, DC-DC conversion,
+                voltage/current sensing, RLC load control and real-time monitoring.
+              </p>
+              <ul class="fac-bullet-list" aria-label="Microgrid 2 capabilities">
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Solar energy generation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Fuel-cell-based generation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Three-phase AC generation interfaces</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> DC-DC power conversion</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Three-phase inverter interface</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Voltage/current sensing</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> RLC load control</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Monitoring &amp; experimentation</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Grid interfacing</li>
+              </ul>
+              <div class="fac-testbed-card__footer">
+                <button class="fac-cta-link btn-view-details" data-target="mg2" aria-label="View details for Micro Grid 2">
+                  View Details <span aria-hidden="true">&rarr;</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="fac-divider"></div>
+
+    <!-- ══ MULTI-SOURCE ENERGY GENERATION ═══════════════════════ -->
+    <section class="fac-section fac-section--alt" id="energy-sources" aria-label="Energy Sources">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Generation</span>
+          <h2 class="fac-section-title">Multi-Source Energy Generation</h2>
+          <p class="fac-section-desc">
+            The laboratory integrates multiple energy sources within its microgrid platforms for research and experimentation.
+          </p>
+        </div>
+        <div class="fac-4col">
+          <div class="fac-card fac-card--accent-left">
+            <div class="fac-card__icon">☀️</div>
+            <h3 class="fac-card__title">Solar Energy</h3>
+            <p class="fac-card__text">Solar photovoltaic generation integrated into both Microgrid 1 and Microgrid 2 platforms for grid-connected and islanded experimentation.</p>
+          </div>
+          <div class="fac-card fac-card--accent-left">
+            <div class="fac-card__icon">💨</div>
+            <h3 class="fac-card__title">Wind Energy</h3>
+            <p class="fac-card__text">Wind energy generation source integrated into Microgrid 1 for renewable power supply and energy-flow research.</p>
+          </div>
+          <div class="fac-card fac-card--accent-left">
+            <div class="fac-card__icon">⚗️</div>
+            <h3 class="fac-card__title">Fuel Cell</h3>
+            <p class="fac-card__text">Fuel-cell-based generation unit in Microgrid 2 providing an alternative clean energy source for experimental scenarios.</p>
+          </div>
+          <div class="fac-card fac-card--accent-left">
+            <div class="fac-card__icon">⚡</div>
+            <h3 class="fac-card__title">Three-Phase Generation</h3>
+            <p class="fac-card__text">Three-phase AC generation interfaces in Microgrid 2 enabling grid-compatible power output and power quality studies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ENERGY STORAGE & POWER CONVERSION ════════════════════ -->
+    <section class="fac-section" id="storage" aria-label="Energy Storage and Power Conversion">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Storage &amp; Conversion</span>
+          <h2 class="fac-section-title">Energy Storage &amp; Power Conversion</h2>
+          <p class="fac-section-desc">
+            Microgrid 1 integrates Li-ion battery and supercapacitor storage with DC-DC and bidirectional buck-boost converters.
+            Microgrid 2 includes a three-phase inverter for AC generation interfaces.
+          </p>
+        </div>
+        <div class="fac-4col" style="margin-bottom:1.5rem;">
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">🔋</div>
+            <h3 class="fac-card__title">Li-ion Battery</h3>
+            <p class="fac-card__text">Lithium-ion battery energy storage for charge/discharge management, backup supply and stability research in Microgrid 1.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">⚡</div>
+            <h3 class="fac-card__title">Supercapacitor</h3>
+            <p class="fac-card__text">Supercapacitor storage for high-power transient support, rapid charge/discharge cycles and energy buffering in Microgrid 1.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">🔄</div>
+            <h3 class="fac-card__title">DC-DC Conversion</h3>
+            <p class="fac-card__text">DC-DC converter units for voltage regulation and power routing between generation, storage and the DC bus.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">↔️</div>
+            <h3 class="fac-card__title">Bidirectional Buck-Boost</h3>
+            <p class="fac-card__text">Bidirectional buck-boost converters enabling controlled power flow between storage and the DC bus in both charge and discharge directions.</p>
+          </div>
+        </div>
+        <!-- Inverter -->
+        <div class="fac-schematic">
+          <div style="margin-bottom:1rem; display:flex; align-items:center; gap:.75rem;">
+            <span style="font-size:1.35rem;">🔁</span>
+            <div>
+              <div style="font-size:.95rem; font-weight:700; color:var(--energy-dark);">Three-Phase Inverter</div>
+              <div style="font-size:.82rem; color:var(--text-muted);">DC to three-phase AC conversion interface for grid-connected operation in Microgrid 2.</div>
+            </div>
+          </div>
+          <div class="fac-flow">
+            <div class="fac-flow-node"><div class="fac-flow-node__title">DC Bus</div><div class="fac-flow-node__sub">Input</div></div>
+            <span class="fac-flow-arrow">&rarr;</span>
+            <div class="fac-flow-node"><div class="fac-flow-node__title">Inverter</div><div class="fac-flow-node__sub">DC → AC</div></div>
+            <span class="fac-flow-arrow">&rarr;</span>
+            <div class="fac-flow-node"><div class="fac-flow-node__title">AC Bus</div><div class="fac-flow-node__sub">Three-Phase</div></div>
+            <span class="fac-flow-arrow">&rarr;</span>
+            <div class="fac-flow-node"><div class="fac-flow-node__title">Grid / Load</div><div class="fac-flow-node__sub">Output</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="fac-divider"></div>
+
+    <!-- ══ MEASUREMENT, MONITORING & CONTROL ════════════════════ -->
+    <section class="fac-section fac-section--alt" id="monitoring" aria-label="Measurement Monitoring Control">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Sensing &amp; Control</span>
+          <h2 class="fac-section-title">Measurement, Monitoring &amp; Control</h2>
+          <p class="fac-section-desc">
+            Comprehensive sensing, data acquisition, PLC control and PC-based monitoring for real-time observation
+            and management of the smart-grid laboratory.
+          </p>
+        </div>
+
+        <!-- Pipeline + Detail side by side -->
+        <div class="fac-2col" style="align-items:start; gap:2.5rem;">
+          <div class="fac-pipeline">
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">Voltage / Current Sensors</div><div class="fac-pipe-node__sub">Measurement transducers</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">Energy Metering</div><div class="fac-pipe-node__sub">Multifunction meters</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">Data Acquisition</div><div class="fac-pipe-node__sub">Signal conditioning</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">PLC Control</div><div class="fac-pipe-node__sub">Source &amp; load selection</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">Communication</div><div class="fac-pipe-node__sub">Data transfer</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">PC-Based Monitoring</div><div class="fac-pipe-node__sub">Real-time visualization</div></div>
+            <div class="fac-pipe-arrow">&darr;</div>
+            <div class="fac-pipe-node"><div class="fac-pipe-node__title">Analysis &amp; Control</div><div class="fac-pipe-node__sub">Energy management</div></div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div class="fac-card fac-card--accent-left">
+              <h3 class="fac-card__title">Voltage &amp; Current Measurement</h3>
+              <p class="fac-card__text">Dedicated voltage and current sensing transducers monitor electrical parameters across the microgrid platforms and bus interfaces.</p>
+            </div>
+            <div class="fac-card fac-card--accent-left">
+              <h3 class="fac-card__title">Multifunction Energy Metering</h3>
+              <p class="fac-card__text">Multifunction meters measure and log active/reactive power, voltage, current, power factor and energy consumption parameters.</p>
+            </div>
+            <div class="fac-card fac-card--accent-left">
+              <h3 class="fac-card__title">PLC-Based Source &amp; Load Selection</h3>
+              <p class="fac-card__text">PLC units manage source and load switching, enabling controlled experimental scenarios and automated protection responses.</p>
+            </div>
+            <div class="fac-card fac-card--accent-left">
+              <h3 class="fac-card__title">PC-Based Real-Time Monitoring</h3>
+              <p class="fac-card__text">Computer workstations provide real-time observation, logging and visualization of all electrical parameters across the laboratory setup.</p>
+            </div>
+
+            <!-- Real-time monitoring card with image slot -->
+            <div class="fac-photo-card">
+              <!-- FACILITY IMAGE: ADD REAL-TIME MONITORING IMAGE -->
+              <div class="fac-photo-card__img-box">
+                <div class="fac-img-placeholder">
+                  <div class="fac-img-placeholder__icon">📊</div>
+                  <div>ADD REAL-TIME MONITORING IMAGE</div>
+                </div>
+              </div>
+              <div class="fac-photo-card__body">
+                <h4 class="fac-photo-card__title">Real-Time Monitoring &amp; Energy Analytics</h4>
+                <p class="fac-photo-card__text">Real-time monitoring of electrical and energy parameters for observation, analysis, visualization and energy-management applications.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ EXPERIMENTS & RESEARCH CAPABILITIES ══════════════════ -->
+    <section class="fac-section" id="experiments" aria-label="Research Experiments">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Research</span>
+          <h2 class="fac-section-title">Experiments &amp; Research Capabilities</h2>
+          <p class="fac-section-desc">
+            Structured experimental studies covering renewable generation, storage, grid operation, load management and digital control.
+          </p>
+        </div>
+        <div class="fac-exp-grid">
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">01</div>
+            <h3 class="fac-exp-card__title">Solar Power Generation &amp; Conversion</h3>
+            <div class="fac-exp-card__doc">Documented in Manual</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">02</div>
+            <h3 class="fac-exp-card__title">Wind Energy Generation &amp; Conversion</h3>
+            <div class="fac-exp-card__doc">Documented in Manual</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">03</div>
+            <h3 class="fac-exp-card__title">Energy Storage &amp; Retrieval</h3>
+            <div class="fac-exp-card__doc">Documented in Manual</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">04</div>
+            <h3 class="fac-exp-card__title">Interconnected Microgrid Operation</h3>
+            <div class="fac-exp-card__doc">Documented in Manual</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">05</div>
+            <h3 class="fac-exp-card__title">Grid-Connected Operation</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">06</div>
+            <h3 class="fac-exp-card__title">Off-Grid / Islanded Operation</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">07</div>
+            <h3 class="fac-exp-card__title">Power Conversion Studies</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">08</div>
+            <h3 class="fac-exp-card__title">Electrical Measurement &amp; Monitoring</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">09</div>
+            <h3 class="fac-exp-card__title">Load Management &amp; RLC Control</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+          <div class="fac-exp-card">
+            <div class="fac-exp-card__num">10</div>
+            <h3 class="fac-exp-card__title">Digital &amp; PLC-Based Control</h3>
+            <div class="fac-exp-card__doc">Lab Capability</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="fac-divider"></div>
+
+    <!-- ══ HARDWARE TESTING & INDUSTRIAL EVALUATION ═════════════ -->
+    <section class="fac-section fac-section--alt" id="hardware-testing" aria-label="Hardware Testing and Evaluation">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Testing &amp; Evaluation</span>
+          <h2 class="fac-section-title">Hardware Testing &amp; Industrial Evaluation</h2>
+          <p class="fac-section-desc">
+            The laboratory conducts testing and evaluation of electrical meters, motors, equipment and prototype hardware
+            under controlled experimental conditions.
+          </p>
+        </div>
+        <div class="fac-3col">
+
+          <!-- Meter Testing -->
+          <div class="fac-photo-card">
+            <!-- FACILITY IMAGE: ADD METER TESTING PHOTO -->
+            <div class="fac-photo-card__img-box">
+              <div class="fac-img-placeholder fac-img-placeholder--sm">
+                <div class="fac-img-placeholder__icon">📟</div>
+                <div>ADD METER TESTING IMAGE</div>
+              </div>
+            </div>
+            <div class="fac-photo-card__body">
+              <h3 class="fac-photo-card__title">Electrical Meter Testing &amp; Evaluation</h3>
+              <p class="fac-photo-card__text">Testing and evaluation of electrical energy meters, multifunction meters, voltage/current measurement instruments and monitoring devices. Assessment of meter accuracy, communication integration and data logging performance.</p>
+            </div>
+            <div class="fac-photo-card__footer">
+              <button class="fac-cta-link btn-view-details" data-target="meter-testing">View Details &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Motor Testing -->
+          <div class="fac-photo-card">
+            <!-- FACILITY IMAGE: ADD MOTOR TESTING PHOTO -->
+            <div class="fac-photo-card__img-box">
+              <div class="fac-img-placeholder fac-img-placeholder--sm">
+                <div class="fac-img-placeholder__icon">⚙️</div>
+                <div>ADD MOTOR TESTING IMAGE</div>
+              </div>
+            </div>
+            <div class="fac-photo-card__body">
+              <h3 class="fac-photo-card__title">Motor Testing &amp; Evaluation</h3>
+              <p class="fac-photo-card__text">Laboratory testing and evaluation of motors and electrical equipment under controlled experimental conditions. Industrial motor evaluation for performance, control and integration with smart-grid systems.</p>
+            </div>
+            <div class="fac-photo-card__footer">
+              <button class="fac-cta-link btn-view-details" data-target="motor-testing">View Details &rarr;</button>
+            </div>
+          </div>
+
+          <!-- Lab Testing & Validation -->
+          <div class="fac-photo-card">
+            <div class="fac-photo-card__img-box">
+              <div class="fac-img-placeholder fac-img-placeholder--sm">
+                <div class="fac-img-placeholder__icon">🔬</div>
+                <div>ADD PROTOTYPE TESTING IMAGE</div>
+              </div>
+            </div>
+            <div class="fac-photo-card__body">
+              <h3 class="fac-photo-card__title">Lab Testing &amp; Validation</h3>
+              <p class="fac-photo-card__text">Experimental testing, performance analysis and research validation of prototype hardware, power electronic interfaces, sensor modules and IoT-enabled measurement systems.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hardware Showcase -->
+        <div class="fac-rack-box" style="margin-top:1.75rem;">
+          <div class="fac-rack-header">
+            <h3 class="fac-rack-title">Laboratory Hardware Showcase</h3>
+            <span class="fac-badge fac-badge--orange">Verified Display</span>
+          </div>
+          <div class="fac-3col">
+            <div class="fac-card"><div class="fac-card__icon">📟</div><h4 class="fac-card__title">Tested Energy Meters</h4><p class="fac-card__text">Commercial and custom digital energy meters evaluated under simulated grid-switching operations.</p></div>
+            <div class="fac-card"><div class="fac-card__icon">🔘</div><h4 class="fac-card__title">Motor Starters</h4><p class="fac-card__text">Industrial contactors and starter devices evaluated for smart-switch integration and protection compatibility.</p></div>
+            <div class="fac-card"><div class="fac-card__icon">🎛️</div><h4 class="fac-card__title">Converter Prototypes</h4><p class="fac-card__text">Custom-engineered inverter boards, digital gate drivers and controllers designed and validated in the laboratory.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ CEMS & UPS HARDWARE DEVELOPMENT ══════════════════════ -->
+    <section class="fac-section" id="cems-ups" aria-label="CEMS and UPS Hardware Development">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Energy Management Systems</span>
+          <h2 class="fac-section-title">Hardware Development &amp; Energy Management Systems</h2>
+          <p class="fac-section-desc">
+            Active hardware development for campus-scale energy management, UPS monitoring, measurement hardware,
+            data acquisition systems and intelligent monitoring gateways.
+          </p>
+        </div>
+        <div class="fac-2col" style="margin-bottom:1.5rem;">
+
+          <!-- CEMS -->
+          <div class="fac-system-card">
+            <!-- FACILITY IMAGE: ADD CEMS HARDWARE PHOTO -->
+            <div class="fac-system-card__img-box">
+              <div class="fac-img-placeholder">
+                <div class="fac-img-placeholder__icon">🏛️</div>
+                <div>ADD CEMS HARDWARE IMAGE</div>
+              </div>
+            </div>
+            <div class="fac-system-card__body">
+              <div class="fac-system-card__sub">Campus-Scale</div>
+              <h3 class="fac-system-card__title">CEMS Hardware Development</h3>
+              <p class="fac-system-card__text">
+                Development of Campus Energy Management System hardware for real-time monitoring, supervisory control,
+                energy telemetry, communication interfaces and data-logging infrastructure.
+              </p>
+              <ul class="fac-bullet-list">
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Energy monitoring hardware design</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Data acquisition &amp; communication</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Monitoring gateway development</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Embedded/IoT-based energy systems</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Real-time supervisory workstations</li>
+              </ul>
+              <div class="fac-system-card__footer">
+                <a href="research.html#cems" class="fac-cta-link">View Research &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPS -->
+          <div class="fac-system-card">
+            <!-- FACILITY IMAGE: ADD UPS HARDWARE PHOTO -->
+            <div class="fac-system-card__img-box">
+              <div class="fac-img-placeholder">
+                <div class="fac-img-placeholder__icon">🔌</div>
+                <div>ADD UPS HARDWARE IMAGE</div>
+              </div>
+            </div>
+            <div class="fac-system-card__body">
+              <div class="fac-system-card__sub">Power Quality &amp; Reliability</div>
+              <h3 class="fac-system-card__title">UPS Monitoring Hardware</h3>
+              <p class="fac-system-card__text">
+                Development and evaluation of UPS monitoring hardware including battery management interfaces,
+                power conditioning monitoring systems, control hardware and communication integration.
+              </p>
+              <ul class="fac-bullet-list">
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> UPS monitoring hardware development</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Battery management interface</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Power quality measurement</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Control &amp; communication hardware</li>
+                <li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span> Prototype testing &amp; validation</li>
+              </ul>
+              <div class="fac-system-card__footer">
+                <a href="research.html#ups" class="fac-cta-link">View Research &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Energy Monitoring + Control Hardware row -->
+        <div class="fac-2col">
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">📡</div>
+            <h3 class="fac-card__title">Energy Monitoring &amp; Data Acquisition</h3>
+            <p class="fac-card__text">Hardware development for energy measurement, parameter sensing, data acquisition, signal conditioning and telemetry transmission for smart-grid applications.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">🎮</div>
+            <h3 class="fac-card__title">Control &amp; Communication Hardware</h3>
+            <p class="fac-card__text">Design and development of control hardware, embedded controllers, IoT gateways and communication interfaces for intelligent energy monitoring systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="fac-divider"></div>
+
+    <!-- ══ CYBERSECURITY ════════════════════════════════════════ -->
+    <section class="fac-section fac-section--alt" id="cybersecurity" aria-label="Smart Grid Cybersecurity Research">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Research Area</span>
+          <h2 class="fac-section-title">Cybersecurity for Smart Energy Systems</h2>
+          <p class="fac-section-desc">
+            Research and experimentation on cybersecurity threats, attack scenarios, detection mechanisms and protection strategies for smart-grid and energy-monitoring infrastructure.
+          </p>
+        </div>
+        <div class="fac-2col" style="align-items:start;">
+          <div class="fac-cyber-card">
+            <h3 class="fac-cyber-card__title">Smart Grid Cybersecurity</h3>
+            <p class="fac-cyber-card__desc">
+              Research and experimentation related to cybersecurity, cyber-attack scenarios, system protection and secure
+              operation of smart-grid and energy-monitoring infrastructure.
+            </p>
+            <div class="fac-cyber-flow">
+              <div class="fac-cyber-node">ENERGY SYSTEM</div>
+              <div class="fac-cyber-arrow">&darr;</div>
+              <div class="fac-cyber-node">MONITORING &amp; COMMUNICATION</div>
+              <div class="fac-cyber-arrow">&darr;</div>
+              <div class="fac-cyber-node fac-cyber-node--danger">CYBER THREAT / ATTACK SCENARIO</div>
+              <div class="fac-cyber-arrow">&darr;</div>
+              <div class="fac-cyber-node">DETECTION</div>
+              <div class="fac-cyber-arrow">&darr;</div>
+              <div class="fac-cyber-node fac-cyber-node--safe">PROTECTION &amp; SAFE OPERATION</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <!-- FACILITY IMAGE: ADD CYBERSECURITY PHOTO -->
+            <div class="fac-img-placeholder" style="aspect-ratio:16/9;">
+              <div class="fac-img-placeholder__icon">🔐</div>
+              <div>ADD CYBERSECURITY / LAB PHOTO</div>
+            </div>
+            <div class="fac-card fac-card--accent-left">
+              <h4 class="fac-card__title">Research Scope</h4>
+              <p class="fac-card__text">Cyber-attack simulation and detection on smart energy networks, secure communication protocol evaluation, anomaly detection and resilience research for energy infrastructure.</p>
+            </div>
+            <div class="fac-card fac-card--accent-left">
+              <h4 class="fac-card__title">Research Note</h4>
+              <p class="fac-card__text">This is an academic research and experimentation area. Results represent laboratory findings and do not constitute commercial security products or guarantees.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ VOICE COMMAND / INTELLIGENT CONTROL ══════════════════ -->
+    <section class="fac-section" id="voice-control" aria-label="Voice Command Intelligent Control">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Intelligent Interfaces</span>
+          <h2 class="fac-section-title">Intelligent Voice-Controlled Interaction</h2>
+          <p class="fac-section-desc">
+            Exploration of voice-command interfaces for intelligent monitoring, control and interaction with energy and laboratory systems.
+          </p>
+        </div>
+        <div class="fac-voice-card">
+          <div class="fac-voice-flow" aria-label="Voice control flow diagram">
+            <div class="fac-voice-node">🎤 VOICE COMMAND</div>
+            <div class="fac-voice-arrow">&darr;</div>
+            <div class="fac-voice-node">COMMAND PROCESSING</div>
+            <div class="fac-voice-arrow">&darr;</div>
+            <div class="fac-voice-node">CONTROL SYSTEM</div>
+            <div class="fac-voice-arrow">&darr;</div>
+            <div class="fac-voice-node">ENERGY / LAB EQUIPMENT</div>
+          </div>
+          <div style="flex:1; display:flex; flex-direction:column; gap:1rem;">
+            <!-- FACILITY IMAGE: ADD VOICE CONTROL PHOTO -->
+            <div class="fac-img-placeholder fac-img-placeholder--sm">
+              <div class="fac-img-placeholder__icon">🎙️</div>
+              <div>ADD VOICE CONTROL IMAGE</div>
+            </div>
+            <div>
+              <h3 style="font-size:1rem;font-weight:700;color:var(--energy-dark);margin-bottom:.4rem;">Voice Command &amp; Intelligent Control</h3>
+              <p style="font-size:.85rem;color:var(--text-muted);line-height:1.55;">
+                The laboratory explores voice-command interfaces for hands-free monitoring, intelligent system interaction
+                and voice-driven control commands for energy and laboratory equipment. This is an active research area
+                bridging natural language processing with smart-grid control systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="fac-divider"></div>
+
+    <!-- ══ LABORATORY EQUIPMENT & PROTOTYPE SHOWCASE ════════════ -->
+    <section class="fac-section fac-section--alt" id="gallery" aria-label="Laboratory Equipment Gallery">
+      <div class="fac-container fac-container--wide">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Laboratory</span>
+          <h2 class="fac-section-title">Laboratory Equipment &amp; Prototypes</h2>
+          <p class="fac-section-desc">
+            Visual showcase of laboratory platforms, hardware setups and prototype developments.
+            Click any image to enlarge.
+          </p>
+        </div>
+        <div class="fac-gallery" id="fac-gallery-grid">
+
+          <!-- Real photos -->
+          <div class="fac-gallery-item" data-img="assets/images/lab/microgrid-1.png" data-caption="Micro Grid 1 Testbed">
+            <img src="assets/images/lab/microgrid-1.png" alt="Micro Grid 1 Testbed" loading="lazy">
+            <div class="fac-gallery-item__label">Micro Grid 1</div>
+          </div>
+          <div class="fac-gallery-item" data-img="assets/images/lab/microgrid-2.png" data-caption="Micro Grid 2 Testbed">
+            <img src="assets/images/lab/microgrid-2.png" alt="Micro Grid 2 Testbed" loading="lazy">
+            <div class="fac-gallery-item__label">Micro Grid 2</div>
+          </div>
+          <div class="fac-gallery-item" data-img="assets/images/lab/microgrid-1-2.png" data-caption="Combined Smart Grid Setup">
+            <img src="assets/images/lab/microgrid-1-2.png" alt="Combined Smart Grid Rack" loading="lazy">
+            <div class="fac-gallery-item__label">Smart Grid Rack Setup</div>
+          </div>
+
+          <!-- Placeholders — user to replace with actual photos -->
+          <!-- FACILITY IMAGE: ADD CEMS HARDWARE PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">🏛️</div><div>CEMS Hardware</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD UPS HARDWARE PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">🔌</div><div>UPS Hardware</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD METER TESTING PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">📟</div><div>Meter Testing</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD MOTOR TESTING PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">⚙️</div><div>Motor Testing</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD POWER ELECTRONICS PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">🎛️</div><div>Power Electronics</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD MONITORING WORKSTATION PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">🖥️</div><div>Monitoring Workstation</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD SENSORS PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">📡</div><div>Sensors &amp; Controllers</div></div>
+          </div>
+          <!-- FACILITY IMAGE: ADD PROTOTYPE PHOTO -->
+          <div class="fac-gallery-item">
+            <div class="fac-gallery-placeholder"><div class="fac-gallery-placeholder__icon">🔬</div><div>Prototype Hardware</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ TRAINING / TESTING / CERTIFICATION ═══════════════════ -->
+    <section class="fac-section" id="training" aria-label="Training Testing Certification">
+      <div class="fac-container">
+        <div class="fac-section-header">
+          <span class="fac-section-label">Training &amp; Support</span>
+          <h2 class="fac-section-title">Training, Testing &amp; Certification Support</h2>
+          <p class="fac-section-desc">
+            Facilities are available for student visits, researcher demonstrations, academic interactions, workshops,
+            equipment testing and industry engagement.
+          </p>
+        </div>
+        <div class="fac-3col" style="margin-bottom:1.5rem;">
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">🎓</div>
+            <h3 class="fac-card__title">Academic Training &amp; Demonstrations</h3>
+            <p class="fac-card__text">Hands-on laboratory demonstrations, practical experimentation, project guidance and academic training for students and researchers.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">🏭</div>
+            <h3 class="fac-card__title">Industry Interaction</h3>
+            <p class="fac-card__text">Technical demonstrations and equipment evaluation support for industry professionals, utility personnel and delegation visits.</p>
+          </div>
+          <div class="fac-card fac-card--accent-top">
+            <div class="fac-card__icon">📋</div>
+            <h3 class="fac-card__title">Certification Support</h3>
+            <p class="fac-card__text">Certificates are provided for applicable training, testing or participation activities.</p>
+          </div>
+        </div>
+        <div class="fac-2col">
+          <div class="fac-visitor-card fac-card">
+            <h3 class="fac-card__title">Academic &amp; Scholar Visits</h3>
+            <p class="fac-card__text">Arrangements for students, faculty delegations and research groups to tour the Smart Grid platforms and view live parameter logging demonstrations.</p>
+          </div>
+          <div class="fac-visitor-card fac-card">
+            <h3 class="fac-card__title">Practical Equipment Evaluation</h3>
+            <p class="fac-card__text">Support for meter testing, motor evaluation, prototype validation and hands-on interaction with laboratory instrumentation and hardware.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ VISIT / CONTACT CTA ══════════════════════════════════ -->
+    <section class="fac-section fac-section--alt" aria-label="Call to Action">
+      <div class="fac-container">
+        <div class="fac-cta-banner">
+          <h2 class="fac-cta-banner__title">Explore the Smart Grid R&amp;D Center</h2>
+          <p class="fac-cta-banner__text">Discover our laboratory infrastructure, research platforms and demonstration facilities.</p>
+          <div class="fac-cta-banner__buttons">
+            <a href="media.html#visitor-experience" class="btn btn--primary">Visit the Lab</a>
+            <a href="contact.html" class="btn btn--outline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════════════
+       DETAILS MODAL
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="fac-modal" id="fac-detail-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="fac-modal-title-el">
+    <div class="fac-modal__backdrop" id="fac-modal-backdrop"></div>
+    <div class="fac-modal__dialog">
+      <button class="fac-modal__close" id="fac-modal-close" aria-label="Close details">&times;</button>
+      <div id="fac-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       GALLERY LIGHTBOX
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="fac-lightbox" id="fac-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image lightbox">
+    <div class="fac-lightbox__backdrop" id="fac-lightbox-backdrop"></div>
+    <div class="fac-lightbox__dialog">
+      <button class="fac-lightbox__close" id="fac-lightbox-close" aria-label="Close lightbox">&times;</button>
+      <img id="fac-lightbox-img" src="" alt="" class="fac-lightbox__image">
+    </div>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo"><img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img"></div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">Research in CEMS, UPS, EV Integration, Smart Grid, and Microgrid technologies at IIT Hyderabad.</p>
+          <div class="footer__credits">
+            <div class="footer__credit-item"><span class="footer__credit-label">Funded by:</span> LS Electricals</div>
+            <div class="footer__credit-item"><span class="footer__credit-label">Institution:</span> IIT Hyderabad</div>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems" class="footer__link">CEMS</a>
+            <a href="research.html#ups" class="footer__link">UPS Systems</a>
+            <a href="research.html#ev" class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid" class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">Lab</div>
+          <nav class="footer__links" aria-label="Lab links">
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="team.html" class="footer__link">Team</a>
+            <a href="facilities.html" class="footer__link">Facilities</a>
+            <a href="events.html" class="footer__link">Workshops</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="contact.html" class="footer__link">Contact Us</a>
+            <a href="media.html" class="footer__link">Media &amp; Videos</a>
+            <a href="media.html#visitor-experience" class="footer__link">Visit the Lab</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" aria-label="Twitter">&#x1D54F;</a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" aria-label="YouTube">&#x25B6;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+  (function(){
+    'use strict';
+
+    // ── Detail Modal Data ──────────────────────────────────────
+    const MODAL_DATA = {
+      'mg1': {
+        title: 'Micro Grid — 1',
+        img:   'assets/images/lab/microgrid-1.png',
+        imgAlt: 'Micro Grid 1 Testbed',
+        desc: 'The central microgrid testbed featuring solar and wind generation, Li-ion battery and supercapacitor storage, DC bus, DC-DC converters, bidirectional buck-boost conversion, power measurement and grid interfacing. Can operate independently or interconnected with Microgrid 2.',
+        capabilities: [
+          'Solar energy generation',
+          'Wind energy generation',
+          'Li-ion battery energy storage',
+          'Supercapacitor energy storage',
+          'DC-DC power conversion',
+          'Bidirectional buck-boost conversion',
+          'DC bus operation',
+          'Power measurement and monitoring',
+          'Grid interfacing',
+          'PLC-based source and load selection'
+        ],
+        applications: [
+          'Renewable energy integration studies',
+          'Energy storage charge/discharge research',
+          'Bidirectional power flow experiments',
+          'Interconnected microgrid operation',
+          'Laboratory demonstrations and training'
+        ]
+      },
+      'mg2': {
+        title: 'Micro Grid — 2',
+        img:   'assets/images/lab/microgrid-2.png',
+        imgAlt: 'Micro Grid 2 Testbed',
+        desc: 'Advanced platform featuring solar, fuel-cell and three-phase generation, DC-DC conversion, three-phase inverter, voltage/current sensing, RLC load control and real-time monitoring. Supports interconnected operation with Microgrid 1.',
+        capabilities: [
+          'Solar energy generation',
+          'Fuel-cell-based generation',
+          'Three-phase AC generation interfaces',
+          'DC-DC power conversion',
+          'Three-phase inverter interface',
+          'Voltage and current sensing',
+          'RLC load control',
+          'Monitoring and experimentation',
+          'Grid interfacing'
+        ],
+        applications: [
+          'Fuel-cell generation studies',
+          'Three-phase power quality research',
+          'RLC load management experiments',
+          'Grid-connected inverter studies',
+          'Interconnected dual-microgrid operation'
+        ]
+      },
+      'meter-testing': {
+        title: 'Electrical Meter Testing & Evaluation',
+        imgPlaceholder: true,
+        imgIcon: '📟',
+        imgLabel: 'ADD METER TESTING IMAGE',
+        desc: 'The laboratory tests and evaluates various electrical meters including energy meters, multifunction meters and monitoring instruments under controlled experimental conditions.',
+        capabilities: [
+          'Electrical energy meter evaluation',
+          'Multifunction meter testing',
+          'Voltage and current measurement accuracy',
+          'Power factor and energy parameter monitoring',
+          'Meter communication integration testing',
+          'Data logging and monitoring performance'
+        ],
+        applications: [
+          'Meter accuracy validation',
+          'Smart meter integration research',
+          'Energy monitoring system development',
+          'Instrument calibration studies'
+        ]
+      },
+      'motor-testing': {
+        title: 'Motor Testing & Evaluation',
+        imgPlaceholder: true,
+        imgIcon: '⚙️',
+        imgLabel: 'ADD MOTOR TESTING IMAGE',
+        desc: 'Laboratory testing and evaluation of motors and electrical equipment under controlled experimental conditions, including performance characterisation and control integration studies.',
+        capabilities: [
+          'Motor performance testing',
+          'Electrical equipment evaluation',
+          'Industrial motor assessment',
+          'Motor control integration studies',
+          'Load testing under experimental conditions',
+          'Equipment interaction with smart-grid systems'
+        ],
+        applications: [
+          'Motor performance characterisation',
+          'Smart-grid load interaction research',
+          'Industrial equipment compatibility studies',
+          'Practical training and demonstrations'
+        ]
+      }
+    };
+
+    // ── Modal Logic ────────────────────────────────────────────
+    const modal   = document.getElementById('fac-detail-modal');
+    const mClose  = document.getElementById('fac-modal-close');
+    const mBack   = document.getElementById('fac-modal-backdrop');
+    const mCont   = document.getElementById('fac-modal-content');
+    let mLast     = null;
+
+    function escHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    function openModal(key, trigger){
+      const d = MODAL_DATA[key]; if(!d||!modal) return;
+      mLast = trigger;
+      const imgHtml = d.imgPlaceholder
+        ? `<div class="fac-modal-img fac-modal-img--placeholder"><span>${escHtml(d.imgIcon)} ${escHtml(d.imgLabel)}</span></div>`
+        : `<img src="${escHtml(d.img)}" alt="${escHtml(d.imgAlt||d.title)}" class="fac-modal-img">`;
+      const capHtml = (d.capabilities||[]).map(c=>`<li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span>${escHtml(c)}</li>`).join('');
+      const appHtml = (d.applications||[]).map(a=>`<li class="fac-bullet-item"><span class="fac-bullet-dot">&rsaquo;</span>${escHtml(a)}</li>`).join('');
+      mCont.innerHTML = `
+        ${imgHtml}
+        <div class="fac-modal-body">
+          <h3 class="fac-modal-title" id="fac-modal-title-el">${escHtml(d.title)}</h3>
+          <p class="fac-modal-desc">${escHtml(d.desc)}</p>
+          ${capHtml ? `<h4 class="fac-modal-subtitle">Capabilities</h4><ul class="fac-bullet-list" style="margin-bottom:1rem;">${capHtml}</ul>` : ''}
+          ${appHtml ? `<h4 class="fac-modal-subtitle">Research Applications</h4><ul class="fac-bullet-list">${appHtml}</ul>` : ''}
+        </div>`;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      mClose.focus();
+    }
+
+    function closeModal(){
+      if(!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      if(mLast) mLast.focus();
+    }
+
+    if(mClose) mClose.addEventListener('click', closeModal);
+    if(mBack)  mBack.addEventListener('click', closeModal);
+
+    document.querySelectorAll('.btn-view-details').forEach(btn=>{
+      const target = btn.dataset.target;
+      btn.setAttribute('tabindex','0');
+      btn.addEventListener('click', ()=>openModal(target, btn));
+      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openModal(target,btn); } });
+    });
+
+    // ── Gallery Lightbox ───────────────────────────────────────
+    const lb     = document.getElementById('fac-lightbox');
+    const lbImg  = document.getElementById('fac-lightbox-img');
+    const lbClose= document.getElementById('fac-lightbox-close');
+    const lbBack = document.getElementById('fac-lightbox-backdrop');
+
+    function openLightbox(src, alt){
+      if(!lb||!src) return;
+      lbImg.src = src; lbImg.alt = alt||'';
+      lb.classList.add('active');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      lbClose.focus();
+    }
+    function closeLightbox(){
+      if(!lb) return;
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+    }
+
+    if(lbClose) lbClose.addEventListener('click', closeLightbox);
+    if(lbBack)  lbBack.addEventListener('click', closeLightbox);
+
+    document.querySelectorAll('.fac-gallery-item[data-img]').forEach(item=>{
+      item.setAttribute('tabindex','0');
+      item.setAttribute('role','button');
+      item.setAttribute('aria-label','View image: '+(item.dataset.caption||''));
+      item.addEventListener('click', ()=>openLightbox(item.dataset.img, item.dataset.caption));
+      item.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLightbox(item.dataset.img, item.dataset.caption); } });
+    });
+
+    // ── Global ESC key ─────────────────────────────────────────
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Escape'){
+        if(lb && lb.classList.contains('active')) closeLightbox();
+        else if(modal && modal.classList.contains('active')) closeModal();
+      }
+    });
+
+  })();
+  </script>
+</body>
+</html>

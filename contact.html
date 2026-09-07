@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Smart Grid R&D Center | IIT Hyderabad</title>
+  <meta name="description" content="Contact the Smart Grid R&D Center at IIT Hyderabad. Location details, visitor planning, guestbook information, and contact forms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+
+  <style>
+    /* ── Contact page responsive fixes ─────────────────── */
+    .contact-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+      align-items: flex-start;
+      /* Prevent overflow from spilling out of the grid container */
+      min-width: 0;
+    }
+    .contact-grid-2 > * {
+      min-width: 0;
+      overflow: hidden;
+    }
+    @media (max-width: 767px) {
+      .contact-grid-2 {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+    }
+    @media (max-width: 639px) {
+      .contact-card-padded {
+        padding: var(--space-5) !important;
+      }
+    }
+    /* Contact form must respect container width */
+    .contact-form {
+      min-width: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta active" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta active">Contact</a>
+    </div>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- BREADCRUMB HEADER -->
+    <header class="breadcrumb" aria-label="Breadcrumb header">
+      <div class="container">
+        <nav class="breadcrumb__nav" aria-label="Breadcrumb">
+          <a href="index.html" class="breadcrumb__link">Home</a>
+          <span class="breadcrumb__sep">/</span>
+          <span class="breadcrumb__current">Contact</span>
+        </nav>
+        <h1 class="breadcrumb__title">Contact &amp; Visit Us</h1>
+        <p class="breadcrumb__subtitle">Reach out for academic collaborations, laboratory delegation tours, and research inquiries.</p>
+      </div>
+    </header>
+
+    <!-- CONTACT DETAILS & FORM -->
+    <section class="section" aria-label="Contact Information and Form">
+      <div class="container">
+        <div class="contact-grid-2 reveal">
+
+          <!-- LEFT COLUMN: Location & Info -->
+          <div>
+            <div class="card contact-card-padded" style="padding: var(--space-8); margin-bottom: var(--space-6);">
+              <div class="badge badge--green" style="margin-bottom: var(--space-3);">Lab Location</div>
+              <h2 class="card__title" style="font-size: var(--text-2xl); margin-bottom: var(--space-4);">Smart Grid R&amp;D Center</h2>
+
+              <div class="detail-list">
+                <div class="detail-row">
+                  <div class="detail-row__label">Institute</div>
+                  <div class="detail-row__value">Indian Institute of Technology Hyderabad (IITH)</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-row__label">Department</div>
+                  <div class="detail-row__value">Department of Electrical Engineering</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-row__label">Facility</div>
+                  <div class="detail-row__value">Smart Grid R&amp;D Center</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-row__label">Campus Address</div>
+                  <div class="detail-row__value">IIT Hyderabad, Kandi, Sangareddy, Telangana 502284, India</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-row__label">Email</div>
+                  <div class="detail-row__value">smartgrid@ee.iith.ac.in</div>
+                </div>
+                <div class="detail-row">
+                  <div class="detail-row__label">Phone</div>
+                  <div class="detail-row__value">+91 (040) 2301 6000</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- GUEST / VISITOR BOOK -->
+            <div class="card card--flat" style="background-color: var(--color-off-white); border-left: 4px solid var(--color-green); padding: var(--space-6); margin-bottom: var(--space-6);">
+              <div class="flex" style="gap: var(--space-4); align-items: center;">
+                <div style="font-size: 2rem;">📖</div>
+                <div>
+                  <h3 style="font-size: var(--text-base); color: var(--color-navy); margin-bottom: var(--space-1);">
+                    Guest &amp; Visitor Book
+                  </h3>
+                  <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: 0;">
+                    An official Guest &amp; Visitor Book is maintained at the laboratory entrance to record visitor feedback, comments, and delegation remarks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- VISITOR PLANNING -->
+            <div class="card card--flat" style="background: linear-gradient(135deg, #2A1208 0%, #3D1B0C 100%); color: var(--white); padding: var(--space-6); border: 1px solid rgba(255, 200, 87, 0.35); border-radius: var(--radius-lg); box-shadow: 0 10px 30px rgba(42, 18, 8, 0.25);">
+              <h3 style="color: var(--white); font-size: var(--text-base); margin-bottom: var(--space-3);">Planning a Lab Delegation Visit</h3>
+              <ul style="list-style: disc; padding-left: 1.25rem; font-size: var(--text-sm); color: rgba(255,249,242,0.85); margin-bottom: var(--space-4); line-height: 1.8;">
+                <li>Capacity: Seating arranged for up to <strong>15 to 20 members</strong></li>
+                <li>Demo Formats available: 5-min, 15-min, and 30-min structured formats</li>
+                <li>Selfie point with IITH and LS logos available for visitors</li>
+              </ul>
+              <a href="media.html#visitor-experience" class="btn btn--primary btn--sm">Explore Visitor Storyline</a>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Contact Form -->
+          <div>
+            <div class="contact-form">
+              <h3 style="color: var(--color-navy); font-size: var(--text-xl); margin-bottom: var(--space-2);">Send a Message</h3>
+              <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: var(--space-6);">
+                Submit your inquiry regarding academic research, student admissions, or delegation visits.
+              </p>
+
+              <!-- Form Fields -->
+              <form onsubmit="event.preventDefault(); alert('Thank you for your message. The Smart Grid R&D Center will respond shortly.');">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="c-name">Your Full Name *</label>
+                    <input class="form-input" id="c-name" type="text" placeholder="e.g. Dr. Jane Doe" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="c-email">Email Address *</label>
+                    <input class="form-input" id="c-email" type="email" placeholder="e.g. name@domain.com" required>
+                  </div>
+                </div>
+
+                <div class="form-row form-row--full">
+                  <div class="form-group">
+                    <label class="form-label" for="c-org">Affiliation / Organization</label>
+                    <input class="form-input" id="c-org" type="text" placeholder="e.g. University / Company">
+                  </div>
+                </div>
+
+                <div class="form-row form-row--full">
+                  <div class="form-group">
+                    <label class="form-label" for="c-subject">Subject / Inquiry Type *</label>
+                    <select class="form-select" id="c-subject" required>
+                      <option value="">Select an inquiry type</option>
+                      <option value="visit">Request a Demonstration Visit (15–20 pax)</option>
+                      <option value="research">Academic Research Collaboration</option>
+                      <option value="startup">Power Sense / Technology Transfer</option>
+                      <option value="general">General Lab Inquiry</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row form-row--full">
+                  <div class="form-group">
+                    <label class="form-label" for="c-message">Your Message *</label>
+                    <textarea class="form-textarea" id="c-message" placeholder="Please describe the purpose of your visit or inquiry..." required></textarea>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn--primary" style="width: 100%; justify-content: center;">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DIGITAL PRESENCE -->
+    <section class="section section--alt" aria-label="Social Media Connections">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">Digital Presence</span>
+          <h2 class="section-title">Connect with the Center</h2>
+          <p class="section-subtitle">
+            Stay updated with the latest research milestones, preprint releases, and lab developments.
+          </p>
+        </div>
+
+        <div class="grid grid-3 reveal">
+          <div class="card" style="text-align: center; padding: var(--space-6);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-2);">𝕏</div>
+            <h4 class="card__title">Twitter / X</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-green-dark); font-weight: 600; margin: 0;">@IITHyderabad</p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: var(--space-6);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-2); color: #0A66C2;">in</div>
+            <h4 class="card__title">LinkedIn</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-green-dark); font-weight: 600; margin: 0;">Smart Grid R&amp;D Center</p>
+          </div>
+
+          <div class="card" style="text-align: center; padding: var(--space-6);">
+            <div style="font-size: 2.5rem; margin-bottom: var(--space-2); color: #FF0000;">▶</div>
+            <h4 class="card__title">YouTube</h4>
+            <p style="font-size: var(--text-sm); color: var(--color-green-dark); font-weight: 600; margin: 0;">IIT Hyderabad Official</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            Research in CEMS, UPS, EV Integration, Smart Grid, and Microgrid technologies at IIT Hyderabad.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item"><span class="footer__credit-label">Funded by:</span> LS Electricals</div>
+            <div class="footer__credit-item"><span class="footer__credit-label">Institution:</span> IIT Hyderabad</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems" class="footer__link">CEMS</a>
+            <a href="research.html#ups" class="footer__link">UPS Systems</a>
+            <a href="research.html#ev" class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid" class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Lab</div>
+          <nav class="footer__links" aria-label="Lab links">
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="team.html" class="footer__link">Team</a>
+            <a href="facilities.html" class="footer__link">Facilities</a>
+            <a href="events.html" class="footer__link">Events</a>
+            <a href="startup.html" class="footer__link">Power Sense</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="contact.html" class="footer__link">Contact Us</a>
+            <a href="media.html" class="footer__link">Media &amp; Videos</a>
+            <a href="media.html#visitor-experience" class="footer__link">Visit the Lab</a>
+            <a href="media.html#selfie-point" class="footer__link">Selfie Point</a>
+          </nav>
+          <div style="margin-top:1.5rem;">
+            <div class="footer__col-title">Hashtags</div>
+            <div style="display:flex;flex-direction:column;gap:0.25rem;margin-top:0.5rem;">
+              <span style="font-size:0.8rem;color:var(--color-green);">#SmartGridIITH</span>
+              <span style="font-size:0.8rem;color:var(--color-green);">#SGRnDCenter</span>
+              <span style="font-size:0.8rem;color:var(--color-green);">#IITH</span>
+              <span style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-style:italic;font-size:0.7rem;">Recommended — subject to approval</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

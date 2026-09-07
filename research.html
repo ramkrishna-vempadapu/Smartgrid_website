@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research &amp; Technologies — Smart Grid R&D Center | IIT Hyderabad</title>
+  <meta name="description" content="Applied research and technology platforms at Smart Grid R&D Center, IIT Hyderabad: CEMS, UPS, EV Integration, Smart Grid, and Microgrid systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+  <link rel="stylesheet" href="css/components.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
+  <style>
+
+    /* ══════════════════════════════════════════════════════════
+       RESEARCH PAGE — PREMIUM ACADEMIC REDESIGN SCOPED CSS
+       ══════════════════════════════════════════════════════════ */
+
+    /* ── Base ── */
+    .page-research { background-color: var(--warm-white); }
+
+    /* ── Hero ── */
+    .res-hero {
+      position: relative;
+      background: linear-gradient(135deg, #180702 0%, #2A1208 55%, #3D1B0C 100%);
+      color: #FFFFFF;
+      padding: calc(var(--nav-height) + 1.75rem) 0 2.5rem;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 122, 0, 0.22);
+    }
+    .res-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 82% 25%, rgba(255, 122, 0, 0.14) 0%, transparent 48%),
+        radial-gradient(circle at 15% 75%, rgba(255, 154, 31, 0.09) 0%, transparent 42%),
+        linear-gradient(rgba(255, 122, 0, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 122, 0, 0.035) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .res-hero .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .res-hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFC857;
+      background: rgba(255, 154, 31, 0.12);
+      border: 1px solid rgba(255, 154, 31, 0.3);
+      padding: 0.28rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .res-hero__eyebrow-dot {
+      width: 5px;
+      height: 5px;
+      background: #FF9A1F;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #FF9A1F;
+    }
+    .res-hero__title {
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .res-hero__subtitle {
+      font-size: clamp(0.92rem, 1.6vw, 1.04rem);
+      color: rgba(255, 241, 214, 0.88);
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+    }
+    .res-hero__metrics {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.5rem;
+    }
+    .res-hero__metric { text-align: center; }
+    .res-hero__metric-num {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #FF9A1F;
+      display: block;
+      line-height: 1.2;
+    }
+    .res-hero__metric-label {
+      font-size: 0.72rem;
+      color: rgba(255, 241, 214, 0.75);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    /* ── Section Shell ── */
+    .res-section { padding: clamp(2.5rem, 5vw, 4rem) 0; }
+    .res-section--alt { background: var(--white); }
+    .res-section--dark {
+      background: linear-gradient(135deg, #1A0802 0%, #2A1208 100%);
+      color: #FFFFFF;
+    }
+
+    .res-section-header {
+      max-width: 760px;
+      margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .res-section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--energy-burnt);
+      margin-bottom: 0.25rem;
+    }
+    .res-section-label--light { color: #FF9A1F; }
+    .res-section-title {
+      font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+      font-weight: 800;
+      color: var(--energy-dark);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.015em;
+    }
+    .res-section-title--light { color: #FFFFFF; }
+    .res-section-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .res-section-desc--light { color: rgba(255, 241, 214, 0.85); }
+
+    /* ── RESEARCH JOURNEY / IMPACT STRIP ── */
+    .res-journey-card {
+      background: linear-gradient(135deg, #240E05 0%, #2E1408 50%, #3D1B0C 100%);
+      color: #FFFFFF;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      border: 1.5px solid rgba(255, 154, 31, 0.32);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px rgba(42, 18, 8, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .res-journey-header {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .res-journey-track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 122, 0, 0.3) transparent;
+    }
+    .res-journey-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.45rem;
+      flex: 1;
+      min-width: 105px;
+      padding: 0.75rem 0.5rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 154, 31, 0.18);
+      border-radius: var(--radius-md);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .res-journey-step:hover {
+      background: rgba(255, 154, 31, 0.1);
+      transform: translateY(-2px);
+    }
+    .res-journey-step--active {
+      background: rgba(255, 122, 0, 0.16);
+      border-color: rgba(255, 154, 31, 0.55);
+    }
+    .res-journey-step__icon {
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .res-journey-step__title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .res-journey-step--active .res-journey-step__title {
+      color: #FFC857;
+    }
+    .res-journey-arrow {
+      color: var(--energy-orange);
+      font-size: 1.1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      opacity: 0.75;
+    }
+
+    /* ── FILTER BAR ── */
+    .res-filter-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.25rem 0.5rem;
+      scrollbar-width: none;
+    }
+    .res-filter-wrapper::-webkit-scrollbar { display: none; }
+    .res-filter-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFF5EC;
+      border: 1px solid rgba(201, 75, 0, 0.18);
+      padding: 0.35rem;
+      border-radius: 999px;
+      flex-wrap: nowrap;
+    }
+    .res-filter-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s var(--ease-out);
+    }
+    .res-filter-btn:hover {
+      color: var(--energy-burnt);
+      background: rgba(255, 122, 0, 0.08);
+    }
+    .res-filter-btn.active {
+      background: linear-gradient(135deg, #2A1208 0%, #3D1B0C 100%);
+      color: #FFC857;
+      border-color: rgba(255, 122, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(42, 18, 8, 0.18);
+    }
+
+    /* ── PROJECT CARDS GRID ── */
+    .res-projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .res-card {
+      background: var(--white);
+      border: 1.5px solid var(--border-energy);
+      border-radius: 16px;
+      padding: clamp(1.4rem, 2.8vw, 2rem);
+      box-shadow: 0 4px 18px rgba(42, 18, 8, 0.06);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out), border-color 0.25s ease;
+    }
+    .res-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--energy-orange), var(--energy-amber));
+      opacity: 0.9;
+    }
+    .res-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 38px rgba(80, 25, 0, 0.13);
+      border-color: rgba(255, 122, 0, 0.48);
+    }
+
+    /* Card Header */
+    .res-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+      margin-bottom: 1.15rem;
+    }
+    .res-card__icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #FFF1D6 0%, #FFE5B4 100%);
+      border: 1.5px solid rgba(255, 154, 31, 0.45);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(42, 18, 8, 0.06);
+      transition: transform 0.3s ease;
+    }
+    .res-card:hover .res-card__icon {
+      transform: scale(1.06);
+    }
+    .res-card__meta {
+      flex: 1;
+      min-width: 0;
+    }
+    .res-card__meta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .res-card__category {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .res-card__badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #166534;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
+    .res-card__title {
+      font-size: clamp(1.2rem, 2.2vw, 1.4rem);
+      font-weight: 800;
+      color: var(--energy-dark);
+      line-height: 1.3;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    /* Card Body */
+    .res-card__desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0 0 1.25rem;
+    }
+
+    /* 2-Column Info Box */
+    .res-card__details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    @media(max-width: 767px){
+      .res-card__details { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    .res-info-box {
+      background: #FFF9F2;
+      border: 1px solid rgba(201, 75, 0, 0.14);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .res-info-box__title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0 0 0.65rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid rgba(201, 75, 0, 0.12);
+    }
+    .res-bullet-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .res-bullet-item {
+      font-size: 0.83rem;
+      color: var(--text-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      line-height: 1.4;
+    }
+    .res-bullet-chevron {
+      color: var(--energy-orange);
+      font-weight: 800;
+      font-size: 0.95rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .res-status-box {
+      margin-top: auto;
+      padding-top: 0.65rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(201, 75, 0, 0.14);
+    }
+    .res-status-box strong { color: var(--energy-dark); }
+
+    /* ── COMPACT STATIC QR & ACTION BAR ── */
+    .res-action-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      background: #FCF6F0;
+      margin: 0 -1.4rem -1.4rem;
+      padding: 1.15rem 1.4rem;
+      border-top: 1.5px solid rgba(201, 75, 0, 0.14);
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+    }
+    @media(max-width: 680px){
+      .res-action-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 0 -1.15rem -1.15rem;
+      }
+    }
+
+    /* QR Box */
+    .res-qr-group {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+    @media(max-width: 480px){
+      .res-qr-group {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 0.65rem;
+      }
+    }
+    .res-qr-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(201, 75, 0, 0.28);
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 2px 8px rgba(42, 18, 8, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      width: 124px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .res-qr-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(80, 25, 0, 0.14);
+      border-color: var(--energy-orange);
+    }
+    .res-qr-img {
+      width: 108px;
+      height: 108px;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+      background: #FFFFFF;
+    }
+    @media(max-width: 480px){
+      .res-qr-card { width: 116px; padding: 6px; }
+      .res-qr-img { width: 102px; height: 102px; }
+    }
+    .res-qr-label {
+      font-size: 0.64rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+    .res-qr-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .res-qr-info__heading {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--energy-dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .res-qr-info__text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      max-width: 280px;
+    }
+
+    /* Open Project Button */
+    .res-btn-open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--energy-burnt) 0%, #A83E00 100%);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.75rem 1.45rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(201, 75, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.22s var(--ease-out);
+      white-space: nowrap;
+    }
+    .res-btn-open:hover {
+      background: linear-gradient(135deg, var(--energy-orange) 0%, var(--energy-burnt) 100%);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 122, 0, 0.35);
+      gap: 0.75rem;
+    }
+    .res-btn-open__arrow {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    .res-btn-open:hover .res-btn-open__arrow {
+      transform: translateX(3px);
+    }
+
+    /* ── TRANSLATIONAL APPLICATIONS PIPELINE ── */
+    .res-trans-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.65rem;
+    }
+    @media(max-width: 1023px){
+      .res-trans-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media(max-width: 639px){
+      .res-trans-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .res-trans-node {
+      background: var(--white);
+      border: 1.5px solid var(--border-energy);
+      border-radius: var(--radius-md);
+      padding: 1rem 0.65rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .res-trans-node:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--energy-orange);
+    }
+    .res-trans-node__num {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: var(--energy-burnt);
+      letter-spacing: 0.08em;
+    }
+    .res-trans-node__title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── DEMO ZONES SECTION ── */
+    .res-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.15rem;
+    }
+    @media(max-width: 1180px){
+      .res-demo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media(max-width: 767px){
+      .res-demo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 479px){
+      .res-demo-grid { grid-template-columns: 1fr; }
+    }
+    .res-demo-card {
+      background: var(--white);
+      border: 1px solid var(--border-energy);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+    .res-demo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 122, 0, 0.45);
+    }
+    .res-demo-card__icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .res-demo-card__title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--energy-dark);
+      margin: 0;
+    }
+    .res-demo-card__text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin: 0 0 0.5rem;
+    }
+    .res-demo-card__footer {
+      margin-top: auto;
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(201, 75, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .res-demo-card__link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--energy-burnt);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.2s;
+    }
+    .res-demo-card__link:hover { color: var(--energy-orange); }
+
+    /* Divider */
+    .res-divider {
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, rgba(201, 75, 0, 0.22), transparent);
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body class="page-research">
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <a href="index.html" class="navbar__brand" aria-label="Smart Grid R&amp;D Center Home">
+        <div class="navbar__logo">
+          <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="navbar__logo-img">
+        </div>
+        <div class="navbar__brand-text">
+          <span class="navbar__brand-name">Smart Grid R&amp;D Center</span>
+          <span class="navbar__brand-sub">IIT Hyderabad</span>
+        </div>
+      </a>
+
+      <div class="navbar__nav" role="list">
+        <a href="index.html" class="navbar__link" role="listitem">Home</a>
+        <a href="about.html" class="navbar__link" role="listitem">About</a>
+        <a href="facilities.html" class="navbar__link" role="listitem">Facilities</a>
+        <a href="research.html" class="navbar__link active" role="listitem">Research</a>
+        <a href="team.html" class="navbar__link" role="listitem">Team</a>
+        <a href="events.html" class="navbar__link" role="listitem">Workshops</a>
+        <a href="startup.html" class="navbar__link" role="listitem">Startup</a>
+        <a href="media.html" class="navbar__link" role="listitem">Media</a>
+        <a href="contact.html" class="navbar__link navbar__link--cta" role="listitem">Contact</a>
+      </div>
+
+      <button class="navbar__toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="navbar__mobile" aria-label="Mobile navigation">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="about.html" class="navbar__link">About</a>
+      <a href="facilities.html" class="navbar__link">Facilities</a>
+      <a href="research.html" class="navbar__link active">Research</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="events.html" class="navbar__link">Workshops</a>
+      <a href="startup.html" class="navbar__link">Startup</a>
+      <a href="media.html" class="navbar__link">Media</a>
+      <a href="contact.html" class="navbar__link navbar__link--cta">Contact</a>
+    </div>
+  </nav>
+
+  <main style="margin-top: 0;">
+
+
+    <!-- ══ HERO ══════════════════════════════════════════════════ -->
+    <header class="res-hero" aria-label="Research Introduction">
+      <div class="container">
+        <div class="res-hero__eyebrow">
+          <span class="res-hero__eyebrow-dot"></span>
+          SMART GRID R&amp;D CENTER &middot; IIT HYDERABAD
+        </div>
+        <h1 class="res-hero__title">Research &amp; Technologies</h1>
+        <p class="res-hero__subtitle">
+          Exploring applied research in smart grids, energy management, renewable integration,
+          electric mobility, intelligent monitoring and emerging energy technologies.
+        </p>
+        <div class="res-hero__metrics">
+          <div class="res-hero__metric"><span class="res-hero__metric-num">5</span><span class="res-hero__metric-label">Core Domains</span></div>
+          <div class="res-hero__metric"><span class="res-hero__metric-num">Live</span><span class="res-hero__metric-label">Web Systems</span></div>
+          <div class="res-hero__metric"><span class="res-hero__metric-num">2</span><span class="res-hero__metric-label">Microgrid Testbeds</span></div>
+          <div class="res-hero__metric"><span class="res-hero__metric-num">Real</span><span class="res-hero__metric-label">Field Impact</span></div>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- ══ RESEARCH JOURNEY STRIP ════════════════════════════════ -->
+    <section class="res-section res-section--alt" style="padding: 2rem 0;" aria-label="Research Pipeline">
+      <div class="container">
+        <div class="res-journey-card">
+          <div class="res-journey-header">
+            <span class="res-section-label res-section-label--light">Research Progression</span>
+            <h2 style="font-size: clamp(1.25rem, 2.2vw, 1.55rem); font-weight: 800; color: #FFFFFF; margin: 0;">
+              From Fundamentals to Real-World Impact
+            </h2>
+          </div>
+          <div class="res-journey-track" role="list">
+            <div class="res-journey-step" role="listitem">
+              <div class="res-journey-step__icon">🔬</div>
+              <div class="res-journey-step__title">Research Areas</div>
+            </div>
+            <div class="res-journey-arrow" aria-hidden="true">&rarr;</div>
+            <div class="res-journey-step" role="listitem">
+              <div class="res-journey-step__icon">⚙️</div>
+              <div class="res-journey-step__title">Technology</div>
+            </div>
+            <div class="res-journey-arrow" aria-hidden="true">&rarr;</div>
+            <div class="res-journey-step" role="listitem">
+              <div class="res-journey-step__icon">🎛️</div>
+              <div class="res-journey-step__title">Prototype</div>
+            </div>
+            <div class="res-journey-arrow" aria-hidden="true">&rarr;</div>
+            <div class="res-journey-step" role="listitem">
+              <div class="res-journey-step__icon">📊</div>
+              <div class="res-journey-step__title">Validation</div>
+            </div>
+            <div class="res-journey-arrow" aria-hidden="true">&rarr;</div>
+            <div class="res-journey-step" role="listitem">
+              <div class="res-journey-step__icon">🚀</div>
+              <div class="res-journey-step__title">Deployment</div>
+            </div>
+            <div class="res-journey-arrow" aria-hidden="true">&rarr;</div>
+            <div class="res-journey-step res-journey-step--active" role="listitem">
+              <div class="res-journey-step__icon">💡</div>
+              <div class="res-journey-step__title">Impact</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ CORE TECHNOLOGY DOMAINS ══════════════════════════════ -->
+    <section class="res-section" id="core-domains" aria-label="Core Technology Domains">
+      <div class="container">
+        <div class="res-section-header">
+          <span class="res-section-label">Research Focus</span>
+          <h2 class="res-section-title">Core Technology Domains</h2>
+          <p class="res-section-desc">
+            Research and development across intelligent energy systems, monitoring, electrification and smart-grid technologies.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="res-filter-wrapper">
+          <div class="res-filter-bar" role="tablist" aria-label="Filter research by domain">
+            <button class="res-filter-btn active" data-filter="all" role="tab" aria-selected="true">All Domains</button>
+            <button class="res-filter-btn" data-filter="energy-management" role="tab" aria-selected="false">Energy Management</button>
+            <button class="res-filter-btn" data-filter="power-systems" role="tab" aria-selected="false">Power Systems</button>
+            <button class="res-filter-btn" data-filter="smart-grid" role="tab" aria-selected="false">Smart Grid</button>
+            <button class="res-filter-btn" data-filter="microgrids" role="tab" aria-selected="false">Microgrids</button>
+            <button class="res-filter-btn" data-filter="electric-mobility" role="tab" aria-selected="false">Electric Mobility</button>
+          </div>
+        </div>
+
+        <!-- Project Cards Container -->
+        <div class="res-projects-grid" id="res-cards-container">
+
+          <!-- 1. CEMS CARD -->
+          <article class="res-card" id="cems" data-category="energy-management" aria-labelledby="title-cems">
+            <div class="res-card__header">
+              <div class="res-card__icon" aria-hidden="true">⚡</div>
+              <div class="res-card__meta">
+                <div class="res-card__meta-top">
+                  <span class="res-card__category">ENERGY MANAGEMENT</span>
+                  <span class="res-card__badge">Demo Zone: CEMS Zone</span>
+                </div>
+                <h3 class="res-card__title" id="title-cems">CEMS — Campus Energy Management System</h3>
+              </div>
+            </div>
+
+            <p class="res-card__desc">
+              Research into intelligent energy management systems that monitor, control, and optimize energy consumption across campus-scale infrastructure. CEMS integrates real-time data acquisition with smart decision-making algorithms to reduce energy waste, balance peak loads, and improve overall grid reliability.
+            </p>
+
+            <div class="res-card__details">
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Research Focus</h4>
+                <ul class="res-bullet-list">
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Campus-scale real-time energy monitoring</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Dynamic load forecasting &amp; demand response</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Automated energy auditing &amp; analytics</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Renewable integration balancing</li>
+                </ul>
+              </div>
+
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Current Work / Demonstration</h4>
+                <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.5rem;">
+                  Live demonstration supported in the dedicated CEMS Zone with real-time telemetry streaming and automated peak-shaving analytics.
+                </p>
+                <div class="res-status-box">
+                  <strong>Status:</strong> Integrated supervisory console with live feeder monitoring.
+                </div>
+              </div>
+            </div>
+
+            <div class="res-action-bar">
+              <div class="res-qr-group">
+                <div class="res-qr-card">
+                  <img src="assets/images/research/qr/cems-qr.png"
+                       alt="Scan QR code to open CEMS project portal"
+                       class="res-qr-img"
+                       width="108"
+                       height="108"
+                       loading="lazy">
+                  <span class="res-qr-label">SCAN TO OPEN</span>
+                </div>
+                <div class="res-qr-info">
+                  <span class="res-qr-info__heading">DIRECT PROJECT PORTAL</span>
+                  <span class="res-qr-info__text">Scan with your phone or click the button to access the live CEMS deployment.</span>
+                </div>
+              </div>
+
+              <a href="https://script.google.com/a/macros/bvrit.ac.in/s/AKfycbwtvywmOVEmUmt_KmbZaSXvZNxsMh5ci2DDdfCG1TCch1gr3E3QqI5xYCxbnaI5N0F6/exec"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="res-btn-open"
+                 id="btn-cems"
+                 aria-label="Open CEMS Campus Energy Management System portal in a new tab">
+                Open CEMS <span class="res-btn-open__arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. UPS CARD -->
+          <article class="res-card" id="ups" data-category="power-systems" aria-labelledby="title-ups">
+            <div class="res-card__header">
+              <div class="res-card__icon" aria-hidden="true">🔋</div>
+              <div class="res-card__meta">
+                <div class="res-card__meta-top">
+                  <span class="res-card__category">POWER SYSTEMS</span>
+                  <span class="res-card__badge">Demo Zone: UPS &amp; Power Quality Zone</span>
+                </div>
+                <h3 class="res-card__title" id="title-ups">UPS — Uninterruptible Power Supply Systems</h3>
+              </div>
+            </div>
+
+            <p class="res-card__desc">
+              Research on advanced UPS topologies, high-efficiency power electronics converter design, battery management systems (BMS), and power conditioning technologies. Ensuring uninterrupted, harmonic-free power supply for mission-critical industrial, medical, and data center loads.
+            </p>
+
+            <div class="res-card__details">
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Research Focus</h4>
+                <ul class="res-bullet-list">
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Critical load protection &amp; harmonic mitigation</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Advanced multilevel inverter topologies</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Battery energy storage system (BESS) integration</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Fast dynamic voltage regulation</li>
+                </ul>
+              </div>
+
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Current Work / Demonstration</h4>
+                <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.5rem;">
+                  Hardware converters and power quality testbed for live load-switching experiments and seamless transfer validation.
+                </p>
+                <div class="res-status-box">
+                  <strong>Status:</strong> Active hardware testbench with dynamic load steps.
+                </div>
+              </div>
+            </div>
+
+            <div class="res-action-bar">
+              <div class="res-qr-group">
+                <div class="res-qr-card">
+                  <img src="assets/images/research/qr/ups-qr.png"
+                       alt="Scan QR code to open UPS monitoring portal"
+                       class="res-qr-img"
+                       width="108"
+                       height="108"
+                       loading="lazy">
+                  <span class="res-qr-label">SCAN TO OPEN</span>
+                </div>
+                <div class="res-qr-info">
+                  <span class="res-qr-info__heading">DIRECT PROJECT PORTAL</span>
+                  <span class="res-qr-info__text">Scan with your phone or click the button to access the live UPS monitoring telemetry.</span>
+                </div>
+              </div>
+
+              <a href="https://script.google.com/macros/s/AKfycbwMkNT8K24xMB-YTlmEhZgeusYnoZo8wzuH7rghkw4shE5gEBPPvr6dJ94xPZ3gMcfU/exec"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="res-btn-open"
+                 id="btn-ups"
+                 aria-label="Open UPS Uninterruptible Power Supply Systems portal in a new tab">
+                Open UPS <span class="res-btn-open__arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. EV CARD -->
+          <article class="res-card" id="ev" data-category="electric-mobility" aria-labelledby="title-ev">
+            <div class="res-card__header">
+              <div class="res-card__icon" aria-hidden="true">🚗</div>
+              <div class="res-card__meta">
+                <div class="res-card__meta-top">
+                  <span class="res-card__category">ELECTRIC MOBILITY</span>
+                  <span class="res-card__badge">Demo Zone: EV Integration Zone</span>
+                </div>
+                <h3 class="res-card__title" id="title-ev">EV — Electric Vehicle &amp; Charging Infrastructure</h3>
+              </div>
+            </div>
+
+            <p class="res-card__desc">
+              Investigating electric vehicle charging architectures, Vehicle-to-Grid (V2G) bidirectional power flow, smart charging scheduling algorithms, and distribution grid impact mitigation during concurrent fast charging events.
+            </p>
+
+            <div class="res-card__details">
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Research Focus</h4>
+                <ul class="res-bullet-list">
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Bidirectional V2G and V2H power transfer</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Smart EV charging coordination algorithms</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Grid harmonic and voltage sag mitigation</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> EV fleet charging station optimization</li>
+                </ul>
+              </div>
+
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Current Work / Demonstration</h4>
+                <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.5rem;">
+                  EV charging emulator and DC fast charger interface integrated with the central laboratory microgrid bus.
+                </p>
+                <div class="res-status-box">
+                  <strong>Status:</strong> Bidirectional power flow testing setup.
+                </div>
+              </div>
+            </div>
+
+            <div class="res-action-bar">
+              <div class="res-qr-group">
+                <div class="res-qr-card">
+                  <img src="assets/images/research/qr/ev-qr.png"
+                       alt="Scan QR code to open EV charging research portal"
+                       class="res-qr-img"
+                       width="108"
+                       height="108"
+                       loading="lazy">
+                  <span class="res-qr-label">SCAN TO OPEN</span>
+                </div>
+                <div class="res-qr-info">
+                  <span class="res-qr-info__heading">DIRECT PROJECT PORTAL</span>
+                  <span class="res-qr-info__text">Scan with your phone or click the button to access EV research protocols.</span>
+                </div>
+              </div>
+
+              <!-- TODO: Replace placeholder URL and QR code when real project URL is available. -->
+              <a href="https://example.com/research/ev-charging"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="res-btn-open"
+                 id="btn-ev"
+                 aria-label="Open EV Electric Vehicle and Charging Infrastructure portal in a new tab">
+                Open EV Project <span class="res-btn-open__arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. SMART GRID CARD -->
+          <article class="res-card" id="smart-grid" data-category="smart-grid" aria-labelledby="title-smart-grid">
+            <div class="res-card__header">
+              <div class="res-card__icon" aria-hidden="true">🔌</div>
+              <div class="res-card__meta">
+                <div class="res-card__meta-top">
+                  <span class="res-card__category">SMART GRID</span>
+                  <span class="res-card__badge">Demo Zone: Smart Grid Demo Zone</span>
+                </div>
+                <h3 class="res-card__title" id="title-smart-grid">Smart Grid Technologies</h3>
+              </div>
+            </div>
+
+            <p class="res-card__desc">
+              Comprehensive research on modernising electrical distribution networks using advanced sensing, IoT telemetry, digital relaying, and real-time supervisory control. Features Single Line Diagram (SLD) analysis, automated fault detection, and digital substation integration.
+            </p>
+
+            <div class="res-card__details">
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Research Focus</h4>
+                <ul class="res-bullet-list">
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Single Line Diagram (SLD) real-time power flow analysis</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Automated fault detection, isolation, and service restoration (FDIR)</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> SCADA &amp; telemetry protocol interoperability</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Grid cybersecurity and resilient state estimation</li>
+                </ul>
+              </div>
+
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Current Work / Demonstration</h4>
+                <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.5rem;">
+                  Central Smart Grid Setup funded by LS Electricals. Includes hardware SLD diagram and digital protection consoles.
+                </p>
+                <div class="res-status-box">
+                  <strong>Status:</strong> Active digital protection and control testbed.
+                </div>
+              </div>
+            </div>
+
+            <div class="res-action-bar">
+              <div class="res-qr-group">
+                <div class="res-qr-card">
+                  <img src="assets/images/research/qr/smart-grid-qr.png"
+                       alt="Scan QR code to open Smart Grid technologies portal"
+                       class="res-qr-img"
+                       width="108"
+                       height="108"
+                       loading="lazy">
+                  <span class="res-qr-label">SCAN TO OPEN</span>
+                </div>
+                <div class="res-qr-info">
+                  <span class="res-qr-info__heading">DIRECT PROJECT PORTAL</span>
+                  <span class="res-qr-info__text">Scan with your phone or click the button to access Smart Grid data and diagrams.</span>
+                </div>
+              </div>
+
+              <!-- TODO: Replace placeholder URL and QR code when real project URL is available. -->
+              <a href="https://example.com/research/smart-grid"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="res-btn-open"
+                 id="btn-smart-grid"
+                 aria-label="Open Smart Grid Technologies project in a new tab">
+                Open Smart Grid <span class="res-btn-open__arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. MICROGRID CARD -->
+          <article class="res-card" id="microgrid" data-category="microgrids" aria-labelledby="title-microgrid">
+            <div class="res-card__header">
+              <div class="res-card__icon" aria-hidden="true">🌐</div>
+              <div class="res-card__meta">
+                <div class="res-card__meta-top">
+                  <span class="res-card__category">MICROGRIDS</span>
+                  <span class="res-card__badge">Demo Zone: Microgrid Zone</span>
+                </div>
+                <h3 class="res-card__title" id="title-microgrid">Microgrid Systems</h3>
+              </div>
+            </div>
+
+            <p class="res-card__desc">
+              Research on autonomous islanded and grid-connected microgrid architectures integrating renewable generation (solar PV, wind), battery storage, and controllable loads. Focuses on seamless transition algorithms, frequency stabilization, and decentralized energy management.
+            </p>
+
+            <div class="res-card__details">
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Research Focus</h4>
+                <ul class="res-bullet-list">
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Seamless grid-tied to islanded mode transition</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Droop control and secondary frequency regulation</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Renewable energy smoothing and storage management</li>
+                  <li class="res-bullet-item"><span class="res-bullet-chevron">&rsaquo;</span> Rural and remote microgrid resilience</li>
+                </ul>
+              </div>
+
+              <div class="res-info-box">
+                <h4 class="res-info-box__title">Current Work / Demonstration</h4>
+                <p style="font-size: 0.83rem; color: var(--text-muted); line-height: 1.45; margin: 0 0 0.5rem;">
+                  Dual Microgrid Platform (Microgrid 1 &amp; Microgrid 2) featuring solar PV, wind, battery storage, supercapacitors, and fuel cell emulators.
+                </p>
+                <div class="res-status-box">
+                  <strong>Status:</strong> Active dual microgrid testbed platform.
+                </div>
+              </div>
+            </div>
+
+            <div class="res-action-bar">
+              <div class="res-qr-group">
+                <div class="res-qr-card">
+                  <img src="assets/images/research/qr/microgrid-qr.png"
+                       alt="Scan QR code to open Microgrid systems portal"
+                       class="res-qr-img"
+                       width="108"
+                       height="108"
+                       loading="lazy">
+                  <span class="res-qr-label">SCAN TO OPEN</span>
+                </div>
+                <div class="res-qr-info">
+                  <span class="res-qr-info__heading">DIRECT PROJECT PORTAL</span>
+                  <span class="res-qr-info__text">Scan with your phone or click the button to access Microgrid simulation and testbed models.</span>
+                </div>
+              </div>
+
+              <!-- TODO: Replace placeholder URL and QR code when real project URL is available. -->
+              <a href="https://example.com/research/microgrid"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="res-btn-open"
+                 id="btn-microgrid"
+                 aria-label="Open Microgrid Systems project in a new tab">
+                Open Microgrid <span class="res-btn-open__arrow">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <div class="res-divider"></div>
+
+    <!-- ══ RESEARCH TO REAL-WORLD APPLICATIONS PIPELINE ═════════ -->
+    <section class="res-section res-section--alt" aria-label="Research to Applications Pipeline">
+      <div class="container">
+        <div class="res-section-header">
+          <span class="res-section-label">Translational Arc</span>
+          <h2 class="res-section-title">From Research to Real-World Applications</h2>
+          <p class="res-section-desc">
+            A systematic engineering development lifecycle that advances theoretical smart-grid innovations into validated laboratory setups and deployed field solutions.
+          </p>
+        </div>
+
+        <div class="res-trans-grid">
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">01</span>
+            <div style="font-size: 1.35rem;">🔬</div>
+            <span class="res-trans-node__title">Research</span>
+          </div>
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">02</span>
+            <div style="font-size: 1.35rem;">⚡</div>
+            <span class="res-trans-node__title">Experimentation</span>
+          </div>
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">03</span>
+            <div style="font-size: 1.35rem;">🎛️</div>
+            <span class="res-trans-node__title">Prototype</span>
+          </div>
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">04</span>
+            <div style="font-size: 1.35rem;">📊</div>
+            <span class="res-trans-node__title">Validation</span>
+          </div>
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">05</span>
+            <div style="font-size: 1.35rem;">🚀</div>
+            <span class="res-trans-node__title">Deployment</span>
+          </div>
+          <div class="res-trans-node">
+            <span class="res-trans-node__num">06</span>
+            <div style="font-size: 1.35rem;">🖥️</div>
+            <span class="res-trans-node__title">Monitoring</span>
+          </div>
+          <div class="res-trans-node" style="border-color: var(--energy-orange); background: #FFF5EC;">
+            <span class="res-trans-node__num" style="color: var(--energy-orange);">07</span>
+            <div style="font-size: 1.35rem;">💡</div>
+            <span class="res-trans-node__title" style="color: var(--energy-burnt);">Impact</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══ WELL-DEFINED DEMO ZONES ══════════════════════════════ -->
+    <section class="res-section" id="demo-zones" aria-label="Laboratory Demo Zones">
+      <div class="container">
+        <div class="res-section-header">
+          <span class="res-section-label">Laboratory Layout</span>
+          <h2 class="res-section-title">Well-Defined Demo Zones</h2>
+          <p class="res-section-desc">
+            To provide a structured visitor and testing experience, the laboratory is partitioned into dedicated topic-specific demonstration zones.
+          </p>
+        </div>
+
+        <div class="res-demo-grid">
+          <!-- CEMS Zone -->
+          <div class="res-demo-card">
+            <div class="res-demo-card__icon">⚡</div>
+            <h3 class="res-demo-card__title">CEMS Zone</h3>
+            <p class="res-demo-card__text">
+              Dedicated area for campus energy management, real-time load telemetry, and peak-shaving demonstrations.
+            </p>
+            <div class="res-demo-card__footer">
+              <span class="res-card__badge">Active Zone</span>
+              <a href="#cems" class="res-demo-card__link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Smart Grid Zone -->
+          <div class="res-demo-card">
+            <div class="res-demo-card__icon">🔌</div>
+            <h3 class="res-demo-card__title">Smart Grid Zone</h3>
+            <p class="res-demo-card__text">
+              Central testbed with single line diagram display and digital protection relay consoles.
+            </p>
+            <div class="res-demo-card__footer">
+              <span class="res-card__badge">Active Zone</span>
+              <a href="#smart-grid" class="res-demo-card__link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <!-- UPS Zone -->
+          <div class="res-demo-card">
+            <div class="res-demo-card__icon">🔋</div>
+            <h3 class="res-demo-card__title">UPS &amp; Power Quality</h3>
+            <p class="res-demo-card__text">
+              Power electronics test bench for converter efficiency, battery management, and harmonic analysis.
+            </p>
+            <div class="res-demo-card__footer">
+              <span class="res-card__badge">Active Zone</span>
+              <a href="#ups" class="res-demo-card__link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <!-- EV Zone -->
+          <div class="res-demo-card">
+            <div class="res-demo-card__icon">🚗</div>
+            <h3 class="res-demo-card__title">EV Integration Zone</h3>
+            <p class="res-demo-card__text">
+              Smart charging infrastructure, charging emulator, and bidirectional V2G power flow testing area.
+            </p>
+            <div class="res-demo-card__footer">
+              <span class="res-card__badge">E-Mobility</span>
+              <a href="#ev" class="res-demo-card__link">Explore &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Microgrid Zone -->
+          <div class="res-demo-card">
+            <div class="res-demo-card__icon">🌐</div>
+            <h3 class="res-demo-card__title">Microgrid Zone</h3>
+            <p class="res-demo-card__text">
+              Dual microgrid testbed platform with solar PV, wind, battery storage, and islanding control interfaces.
+            </p>
+            <div class="res-demo-card__footer">
+              <span class="res-card__badge">Dual Testbed</span>
+              <a href="#microgrid" class="res-demo-card__link">Explore &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <img src="assets/images/logos/iith-logo.png" alt="IIT Hyderabad Logo" class="footer__logo-img">
+          </div>
+          <div class="footer__name">Smart Grid R&amp;D Center</div>
+          <p class="footer__tagline">
+            Research in CEMS, UPS, EV Integration, Smart Grid, and Microgrid technologies at IIT Hyderabad.
+          </p>
+          <div class="footer__credits">
+            <div class="footer__credit-item"><span class="footer__credit-label">Funded by:</span> LS Electricals</div>
+            <div class="footer__credit-item"><span class="footer__credit-label">Institution:</span> IIT Hyderabad</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Research</div>
+          <nav class="footer__links" aria-label="Research links">
+            <a href="research.html#cems" class="footer__link">CEMS</a>
+            <a href="research.html#ups" class="footer__link">UPS Systems</a>
+            <a href="research.html#ev" class="footer__link">EV Integration</a>
+            <a href="research.html#smart-grid" class="footer__link">Smart Grid</a>
+            <a href="research.html#microgrid" class="footer__link">Microgrid</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Lab</div>
+          <nav class="footer__links" aria-label="Lab links">
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="team.html" class="footer__link">Team</a>
+            <a href="facilities.html" class="footer__link">Facilities</a>
+            <a href="events.html" class="footer__link">Workshops</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <nav class="footer__links" aria-label="Connect links">
+            <a href="contact.html" class="footer__link">Contact Us</a>
+            <a href="media.html" class="footer__link">Media &amp; Videos</a>
+            <a href="media.html#visitor-experience" class="footer__link">Visit the Lab</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Smart Grid R&amp;D Center, IIT Hyderabad. All rights reserved.</p>
+        <div class="footer__social" aria-label="Social media links">
+          <a href="#" class="footer__social-link" title="Twitter / X" aria-label="Twitter">&#x1D54F;</a>
+          <a href="#" class="footer__social-link" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="#" class="footer__social-link" title="YouTube" aria-label="YouTube">&#x25B6;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DATA & SCRIPTS -->
+  <script src="data/technologies.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+  (function(){
+    'use strict';
+
+    // ── 1. Central Data Synchronization for Direct Buttons (Optional Safety Sync) ──
+    function syncResearchProjects() {
+      const projects = window.RESEARCH_PROJECTS || [];
+      if (!projects.length) return;
+
+      projects.forEach(project => {
+        const directBtn = document.getElementById('btn-' + project.id);
+        if (directBtn && project.url) {
+          directBtn.href = project.url;
+        }
+      });
+    }
+
+    // ── 2. Category Filtering ──
+    function initFilters() {
+      const filterBtns = document.querySelectorAll('.res-filter-btn');
+      const cards = document.querySelectorAll('.res-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          // Update active state
+          filterBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Filter cards
+          cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (filter === 'all' || cardCat === filter) {
+              card.style.display = 'block';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    // ── 3. Smooth Scroll for Zone Links ──
+    function initSmoothScroll() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            // If the card was filtered out, switch filter to 'all'
+            const allBtn = document.querySelector('.res-filter-btn[data-filter="all"]');
+            if (allBtn && !allBtn.classList.contains('active')) {
+              allBtn.click();
+            }
+            targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Highlight briefly
+            targetElem.style.transition = 'box-shadow 0.3s ease';
+            targetElem.style.boxShadow = '0 0 0 3px var(--energy-orange), 0 14px 38px rgba(80, 25, 0, 0.18)';
+            setTimeout(() => {
+              targetElem.style.boxShadow = '';
+            }, 1800);
+          }
+        });
+      });
+    }
+
+    // ── Initialize on DOM Ready ──
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        syncResearchProjects();
+        initFilters();
+        initSmoothScroll();
+      });
+    } else {
+      syncResearchProjects();
+      initFilters();
+      initSmoothScroll();
+    }
+  })();
+  </script>
+</body>
+</html>
